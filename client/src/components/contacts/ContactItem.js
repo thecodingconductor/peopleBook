@@ -20,7 +20,7 @@ const ContactItem = ({ contact }) => {
                 <Card.Subtitle className="mb-2 text-muted">{organization}</Card.Subtitle>
                 <Card.Subtitle className="mb-2 text-muted">{position}</Card.Subtitle>
 
-                <Badge variant={needToContact === false ? "success" : "danger"}>{needToContact === null ? "No need to contact" : "Contact person"}</Badge>
+                <Badge variant={needToContact === false ? "success" : "danger"}>{needToContact === false ? "No need to contact" : "Contact person"}</Badge>
 
                 {/* <ButtonGroup toggle>
                     <ToggleButton type="radio" variant="secondary" name="radio">

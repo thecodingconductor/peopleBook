@@ -14,6 +14,6 @@ export const DELETE_ORG = 'DELETE_ORG';
 export const SET_CURRENT_ORG = 'SET_CURRENT_ORG';
 export const CLEAR_CURRENT_ORG = 'CLEAR_CURRENT_ORG';
 export const UPDATE_ORG = 'UPDATE_ORG';
-export const FILTER_ORG = 'FILTER_ORG';
+export const FILTER_ORGS = 'FILTER_ORGS';
 export const CLEAR_ORGS = 'CLEAR_ORGS';
 export const CLEAR_ORG_FILTER = 'CLEAR_ORG_FILTER';

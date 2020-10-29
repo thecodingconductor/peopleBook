@@ -9,7 +9,7 @@ import {
     SET_CURRENT_ORG,
     CLEAR_CURRENT_ORG,
     UPDATE_ORG,
-    CLEAR_ORGS,
+    FILTER_ORGS,
     CLEAR_ORG_FILTER
 } from '../types';
 
@@ -66,9 +66,15 @@ const OrganizationState = props => {
     //Update Org
 
     //Filter Orgs
+    const filterOrganizations = text => {
+        dispatch({ type: FILTER_ORGS, payload: text })
+    }
 
 
-    //Clear Orgs
+    //Clear Org Filter
+    const clearOrgFilter = () => {
+        dispatch({ type: CLEAR_ORG_FILTER })
+    }
 
     return (
         <OrganizationContext.Provider
@@ -76,6 +82,8 @@ const OrganizationState = props => {
                 organizations: state.organizations,
                 current: state.current,
                 filtered: state.filtered,
+                filterOrganizations,
+                clearOrgFilter
 
             }}>
             {props.children}

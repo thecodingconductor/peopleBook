@@ -37,7 +37,7 @@ const ContactState = props => {
                 email: "bordad@nyphil.org",
                 phone: "111-111-1111",
                 lastContacted: null,
-                needToContact: false,
+                needToContact: true,
                 notes: null
 
             },
