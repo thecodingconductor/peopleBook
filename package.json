@@ -1,0 +1,37 @@
+{
+  "name": "peoplebook",
+  "version": "1.0.0",
+  "description": "Contact Tracker for League of American Orchestras",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "clientinstall": "npm install --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thecodingconductor/peopleBook.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thecodingconductor/peopleBook/issues"
+  },
+  "homepage": "https://github.com/thecodingconductor/peopleBook#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "bootstrap": "^4.5.3",
+    "config": "^3.3.2",
+    "express": "^4.17.1",
+    "express-validator": "^6.6.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.11",
+    "react-bootstrap": "^1.4.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.6"
+  }
+}

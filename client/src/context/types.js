@@ -1,0 +1,19 @@
+export const GET_CONTACTS = 'GET_CONTACTS';
+export const ADD_CONTACT = 'ADD_CONTACT';
+export const DELETE_CONTACT = 'DELETE_CONTACT';
+export const SET_CURRENT = 'SET_CURRENT';
+export const CLEAR_CURRENT = 'CLEAR_CURRENT';
+export const UPDATE_CONTACT = 'UPDATE_CONTACT';
+export const FILTER_CONTACTS = 'FILTER_CONTACTS';
+export const CLEAR_CONTACTS = 'CLEAR_CONTACTS';
+export const CLEAR_FILTER = 'CLEAR_FILTER';
+
+export const GET_ORGS = 'GET_ORGS';
+export const ADD_ORG = 'ADD_ORG';
+export const DELETE_ORG = 'DELETE_ORG';
+export const SET_CURRENT_ORG = 'SET_CURRENT_ORG';
+export const CLEAR_CURRENT_ORG = 'CLEAR_CURRENT_ORG';
+export const UPDATE_ORG = 'UPDATE_ORG';
+export const FILTER_ORG = 'FILTER_ORG';
+export const CLEAR_ORGS = 'CLEAR_ORGS';
+export const CLEAR_ORG_FILTER = 'CLEAR_ORG_FILTER';
