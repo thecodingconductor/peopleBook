@@ -3,14 +3,16 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom';
 import { Navbar as ReactNav } from 'react-bootstrap';
 import Nav from 'react-bootstrap/Nav';
+import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
 
 const Navbar = ({ title, icon }) => {
     return (
         <ReactNav bg="primary" variant="dark">
-            <ReactNav.Brand href="#home">Orchestra Contacts</ReactNav.Brand>
+            <ReactNav.Brand href="/">Orchestra Contacts</ReactNav.Brand>
             <Nav className="mr-auto">
-                <Nav.Link to='/'>Home</Nav.Link>
-                <Nav.Link to="/about">About</Nav.Link>
+                <Nav.Link href='/'>Home</Nav.Link>
+                <Nav.Link href="/about">About</Nav.Link>
+                <Nav.Link href="/people">People</Nav.Link>
             </Nav>
         </ReactNav>
     )

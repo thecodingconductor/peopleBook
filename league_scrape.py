@@ -10,6 +10,43 @@ import re
 import os
 import time
 
+def parse_page_info():
+    text_fields = driver.find_element_by_id("fontevaDetailFields")
+    text_list = text_fields.text.splitlines()
+    org_name = text_list[0]
+    org_website = text_list[1]
+    org_group = text_list[3]
+    org_phone = text_list[4]
+    org_address = text_list[5]
+    print(org_name, org_website, org_group, org_phone, org_address)
+
+    people = driver.find_elements_by_css_selector('.fonteva-record.slds-table--card.slds-theme--default')
+    for p in people:
+        children = p.find_elements_by_tag_name("td")
+        last_name = children[0].text
+        first_name =  children[1].text
+        role = children[2].text
+        print(last_name, first_name, role)
+    
+   
+    next_page = driver.find_element_by_css_selector("button.slds-button.slds-button_neutral.slds-m-left--small.slds-align-middle.fonteva-button--icon.slds-p-horizontal--small")
+    try:
+        next_page.click()
+        parse_page_info()
+    except:
+        driver.execute_script("window.scrollTo(0, 0)")
+        return False
+
+    # if next_page.is_enabled():
+    #     ("NEXT PAGE ENABLED")
+    #     next_page.click()
+    #     parse_page_info()
+    # else:
+    #     print('NOT ENABLED')
+    #     driver.execute_script("window.scrollTo(0, 0)")
+    #     return False
+        
+
 
 url = "https://americanorchestras.org"
 
@@ -38,7 +75,7 @@ directory_open.click()
 
 #STUCK NOT OPENING THE NEW TAB.
 driver.switch_to.window(driver.window_handles[1])
-
+driver.implicitly_wait(10)
 open_more = driver.find_element_by_xpath('//*[@id="Organization_Type__c"]/div[13]/a')
 open_more.click()
 
@@ -58,6 +95,7 @@ current_tiles = driver.find_elements_by_css_selector('#TileListView > div > div 
 
 for tile in current_tiles:
     tile.click()
+    parse_page_info()
 
     # text_fields = driver.find_element_by_id("fontevaDetailFields")
     # text_list = text_fields.text.splitlines()
@@ -88,26 +126,3 @@ for tile in current_tiles:
     button.click()
 
 
-def parse_page_info():
-    text_fields = driver.find_element_by_id("fontevaDetailFields")
-    text_list = text_fields.text.splitlines()
-    org_name = text_list[0]
-    org_website = text_list[1]
-    org_group = text_list[3]
-    org_phone = text_list[4]
-    org_address = text_list[5]
-
-    people = driver.find_elements_by_css_selector('.fonteva-record.slds-table--card.slds-theme--default')
-    for p in people:
-        children = p.find_elements_by_tag_name("td")
-        last_name = children[0].text
-        first_name =  children[1].text
-        role = children[2].text
-    
-   
-    next_page = driver.find_element_by_css_selector("button.slds-button.slds-button_neutral.slds-m-left--small.slds-align-middle.fonteva-button--icon.slds-p-horizontal--small")
-        
-    if next_page.is_enabled():
-        next_page.click()
-    else:
-        pass

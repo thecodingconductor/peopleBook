@@ -11,7 +11,7 @@ const Organizations = () => {
         return <h4>Please add some Organizations</h4>
     }
 
-    console.log(organizations);
+
     return (
 
         <Fragment>

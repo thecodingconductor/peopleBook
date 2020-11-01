@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Home from './components/pages/Home'
 import About from './components/pages/About';
+import People from './components/pages/People';
+import Test from './components/pages/TestPage';
 import OrganizationState from './context/organization/OrganizationState';
 import ContactState from './context/contact/ContactState';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -20,6 +22,8 @@ const App = () => {
               <Switch>
                 <Route exact path="/" component={Home}></Route>
                 <Route exact path="/about" component={About}></Route>
+                <Route exact path='/people' component={People}></Route>
+                <Route exact path="/test" component={Test} />
               </Switch>
             </div>
           </Fragment>

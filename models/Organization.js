@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 
 const OrganizationSchema = mongoose.Schema({
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'users'
+    },
+
     name: {
         type: String,
         required: true
@@ -20,3 +25,5 @@ const OrganizationSchema = mongoose.Schema({
         type: String
     }
 })
+
+module.exports = mongoose.model('organization', OrganizationSchema);

@@ -60,6 +60,15 @@ const ContactState = props => {
 
     const [state, dispatch] = useReducer(contactReducer, initialState);
 
+    //Get all contacts
+    // const getContacts = contacts => {
+    //     dispatch({
+    //         type: GET_CONTACTS,
+    //         payload: contacts
+    //     })
+    // }
+
+    //Add a Contact
     const addContact = contact => {
         contact.id = uuidv4();
         dispatch({ type: ADD_CONTACT, payload: contact })
@@ -71,7 +80,8 @@ const ContactState = props => {
             contacts: state.contacts,
             current: state.current,
             filtered: state.filtered,
-            addContact
+            addContact,
+            // getContacts
         }}>
             { props.children}
         </ContactContext.Provider>

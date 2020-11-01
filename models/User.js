@@ -18,6 +18,12 @@ const UserSchema = mongoose.Schema({
         type: Date,
         default: Date.now
     },
+    toDoList: {
+        type: Array
+    },
+    VIPS: {
+        type: Array
+    }
 })
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('user', UserSchema);
