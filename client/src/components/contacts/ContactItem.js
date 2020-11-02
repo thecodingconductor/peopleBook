@@ -14,7 +14,7 @@ const ContactItem = ({ contact }) => {
 
 
     return (
-        <Card style={{ width: "18rem" }}>
+        <Card style={{ width: "18rem", margin: "2rem" }}>
             <Card.Body>
                 <Card.Title>{name}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{organization}</Card.Subtitle>

@@ -28,7 +28,7 @@ const OrganizationState = props => {
                 id: 2,
                 name: "Boston Symphony",
                 website: "bostonsymphony.org",
-                category: "Group 1",
+                category: "Group 2",
                 phone: "222-222-2222",
                 address: "Boston,MA"
             },
@@ -36,7 +36,7 @@ const OrganizationState = props => {
                 id: 3,
                 name: "Los Angeles Philharmonic",
                 website: "laphil.org",
-                category: "Group 1",
+                category: "Group 2",
                 phone: "111-111-1111",
                 address: "LA, California"
             },
@@ -44,7 +44,7 @@ const OrganizationState = props => {
                 id: 4,
                 name: "San Francisco Symphony",
                 website: "sfsymphony.org",
-                category: "Group 1",
+                category: "Group 3",
                 phone: "111-111-1111",
                 address: "San Francisco,CA"
             },

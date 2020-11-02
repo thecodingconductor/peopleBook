@@ -6,7 +6,7 @@ export const CLEAR_CURRENT = 'CLEAR_CURRENT';
 export const UPDATE_CONTACT = 'UPDATE_CONTACT';
 export const FILTER_CONTACTS = 'FILTER_CONTACTS';
 export const CLEAR_CONTACTS = 'CLEAR_CONTACTS';
-export const CLEAR_FILTER = 'CLEAR_FILTER';
+export const CLEAR_CONTACT_FILTER = 'CLEAR_CONTACT_FILTER';
 
 export const GET_ORGS = 'GET_ORGS';
 export const ADD_ORG = 'ADD_ORG';

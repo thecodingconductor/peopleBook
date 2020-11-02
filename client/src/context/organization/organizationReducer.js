@@ -17,7 +17,7 @@ export default (state, action) => {
                 ...state,
                 filtered: state.organizations.filter(organization => {
                     const regex = new RegExp(`${action.payload}`, 'gi');
-                    return organization.name.match(regex)
+                    return organization.name.match(regex) || organization.category.match(regex)
                 })
             }
         case CLEAR_ORG_FILTER:

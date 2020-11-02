@@ -10,7 +10,7 @@ import {
     UPDATE_CONTACT,
     FILTER_CONTACTS,
     CLEAR_CONTACTS,
-    CLEAR_FILTER
+    CLEAR_CONTACT_FILTER
 } from '../types';
 
 const ContactState = props => {
@@ -31,8 +31,8 @@ const ContactState = props => {
             },
             {
                 id: 2,
-                name: "Deborah Borda",
-                organization: "New York Philharmonic",
+                name: "Simon Woods",
+                organization: "LA Philharmonic",
                 position: "Executive Director",
                 email: "bordad@nyphil.org",
                 phone: "111-111-1111",
@@ -43,9 +43,21 @@ const ContactState = props => {
             },
             {
                 id: 3,
-                name: "Deborah Borda",
+                name: "Russell Jones",
                 organization: "New York Philharmonic",
-                position: "Executive Director",
+                position: "Major Gifts",
+                email: "bordad@nyphil.org",
+                phone: "111-111-1111",
+                lastContacted: null,
+                needToContact: false,
+                notes: null
+
+            },
+            {
+                id: 4,
+                name: "Franz Welser Most",
+                organization: "Cleveland Orchestra",
+                position: "Music Director",
                 email: "bordad@nyphil.org",
                 phone: "111-111-1111",
                 lastContacted: null,
@@ -74,6 +86,16 @@ const ContactState = props => {
         dispatch({ type: ADD_CONTACT, payload: contact })
     }
 
+    //Filter Contacts
+    const filterContacts = text => {
+        dispatch({ type: FILTER_CONTACTS, payload: text })
+    }
+
+    //Clear Contact Filter
+    const clearContactFilter = () => {
+        dispatch({ type: CLEAR_CONTACT_FILTER })
+    }
+
 
     return (
         <ContactContext.Provider value={{
@@ -81,7 +103,8 @@ const ContactState = props => {
             current: state.current,
             filtered: state.filtered,
             addContact,
-            // getContacts
+            filterContacts,
+            clearContactFilter
         }}>
             { props.children}
         </ContactContext.Provider>

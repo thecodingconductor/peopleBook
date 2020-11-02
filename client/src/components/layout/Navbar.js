@@ -12,7 +12,7 @@ const Navbar = ({ title, icon }) => {
             <Nav className="mr-auto">
                 <Nav.Link href='/'>Home</Nav.Link>
                 <Nav.Link href="/about">About</Nav.Link>
-                <Nav.Link href="/people">People</Nav.Link>
+
             </Nav>
         </ReactNav>
     )

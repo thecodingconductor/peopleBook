@@ -15,8 +15,8 @@ const Organizations = () => {
     return (
 
         <Fragment>
-            {filtered !== null ? filtered.map(organization => (<OrganizationItem key={organization.id} organization={organization} />)) :
-
+            {filtered !== null ?
+                filtered.map(organization => (<OrganizationItem key={organization.id} organization={organization} />)) :
                 organizations.map(organization => (<OrganizationItem key={organization.id} organization={organization} />))}
 
         </Fragment>
