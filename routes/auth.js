@@ -22,7 +22,10 @@ router.get('/', auth, async (req, res) => {
     }
 });
 
-//@route POST api/auth
+
+
+//added to postman
+// @route POST api/auth
 // @desc Auth user and get token
 // @access Public
 router.post('/', [

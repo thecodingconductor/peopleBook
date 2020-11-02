@@ -30,7 +30,6 @@ const ContactSchema = mongoose.Schema({
     },
     needToContact: {
         type: Boolean,
-        required: true,
         default: true
     },
     notes: {

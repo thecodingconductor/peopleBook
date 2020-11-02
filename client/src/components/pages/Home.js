@@ -10,6 +10,11 @@ const Home = () => {
 
         <Container>
 
+            <Row>
+                <Button href="/dashboard" variant="primary" block style={{
+                    marginTop: "5rem"
+                }}>Visit Dashboard</Button>
+            </Row>
 
             <Row>
                 <Col>

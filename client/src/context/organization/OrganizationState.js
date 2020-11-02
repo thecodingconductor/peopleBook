@@ -27,7 +27,7 @@ const OrganizationState = props => {
             {
                 id: 2,
                 name: "Boston Symphony",
-                website: "bostonsymphony.org",
+                website: "bso.org",
                 category: "Group 2",
                 phone: "222-222-2222",
                 address: "Boston,MA"
