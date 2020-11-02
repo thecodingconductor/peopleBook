@@ -11,8 +11,8 @@ const Navbar = ({ title, icon }) => {
             <ReactNav.Brand href="/">Orchestra Contacts</ReactNav.Brand>
             <Nav className="mr-auto">
                 <Nav.Link href='/'>Home</Nav.Link>
+                <Nav.Link href='/dashboard'>Dashboard</Nav.Link>
                 <Nav.Link href="/about">About</Nav.Link>
-
             </Nav>
         </ReactNav>
     )

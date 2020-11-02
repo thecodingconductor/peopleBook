@@ -10,7 +10,9 @@ import {
     UPDATE_CONTACT,
     FILTER_CONTACTS,
     CLEAR_CONTACTS,
-    CLEAR_CONTACT_FILTER
+    CLEAR_CONTACT_FILTER,
+    GET_URGENT,
+    GET_VIPS
 } from '../types';
 
 const ContactState = props => {
@@ -67,7 +69,37 @@ const ContactState = props => {
             },
         ],
         current: null,
-        filtered: null
+        filtered: null,
+        urgent: [
+
+            {
+                id: 3,
+                name: "Russell Jones",
+                organization: "New York Philharmonic",
+                position: "Major Gifts",
+                email: "bordad@nyphil.org",
+                phone: "111-111-1111",
+                lastContacted: null,
+                needToContact: false,
+                notes: null
+
+            },
+
+        ],
+        vips: [
+            {
+                id: 4,
+                name: "Franz Welser Most",
+                organization: "Cleveland Orchestra",
+                position: "Music Director",
+                email: "bordad@nyphil.org",
+                phone: "111-111-1111",
+                lastContacted: null,
+                needToContact: false,
+                notes: null
+
+            },
+        ]
     };
 
     const [state, dispatch] = useReducer(contactReducer, initialState);
@@ -96,15 +128,28 @@ const ContactState = props => {
         dispatch({ type: CLEAR_CONTACT_FILTER })
     }
 
+    //Get VIPS
+    const getVIPS = () => {
+        dispatch({ type: GET_VIPS })
+    }
+
+    //Get Urgent People
+    const getUrgent = () => {
+        dispatch({ type: GET_URGENT })
+    }
 
     return (
         <ContactContext.Provider value={{
             contacts: state.contacts,
             current: state.current,
             filtered: state.filtered,
+            urgent: state.urgent,
+            vips: state.vips,
             addContact,
             filterContacts,
-            clearContactFilter
+            clearContactFilter,
+            getVIPS,
+            getUrgent
         }}>
             { props.children}
         </ContactContext.Provider>

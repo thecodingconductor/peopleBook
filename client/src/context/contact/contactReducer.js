@@ -6,7 +6,9 @@ import {
     UPDATE_CONTACT,
     FILTER_CONTACTS,
     CLEAR_CONTACT_FILTER,
-    GET_CONTACTS
+    GET_CONTACTS,
+    GET_URGENT,
+    GET_VIPS
 } from '../types';
 
 export default (state, action) => {
@@ -35,6 +37,17 @@ export default (state, action) => {
             return {
                 ...state,
                 contacts: action.payload
+            }
+
+        case GET_VIPS:
+            return {
+                ...state,
+                vips: action.payload
+            }
+        case GET_URGENT:
+            return {
+                ...state,
+                urgent: action.payload
             }
 
         default:
