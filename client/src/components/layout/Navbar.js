@@ -22,12 +22,20 @@ const Navbar = ({ title, icon }) => {
 
     const authLinks = (
         <Fragment>
-            <li>Hello, {user && user.name}</li>
-            <li>
-                <a onClick={onLogout} href="#!">
+            <div className="d-flex justify-content-start align-items-center">
+                <Nav.Link href="/dashboard">Dashboard</Nav.Link>
+                <Nav.Link href="/people">People</Nav.Link>
+                <Nav.Link href="/organizations">Organizations</Nav.Link>
+            </div>
+            <div className="d-flex justify-content-start align-items-center">
+                <ReactNav.Text>Hello, {user && user.name}</ReactNav.Text>
+                <Nav.Link onClick={onLogout} href="#!">
                     <i className="fas fa-sign-out-alt"></i> <span>Logout</span>
-                </a>
-            </li>
+                </Nav.Link>
+            </div>
+
+
+
         </Fragment>
     )
 
@@ -42,9 +50,9 @@ const Navbar = ({ title, icon }) => {
     )
 
     return (
-        <ReactNav bg="primary" variant="dark">
+        <ReactNav bg="primary" variant="dark" expand="lg" className="d-flex justify-content">
             <ReactNav.Brand href="/">{title}</ReactNav.Brand>
-            <Nav className="mr-auto">
+            <Nav className={`mr-auto d-flex ${isAuthenticated ? 'justify-content-between' : 'justify-content-start'}`} style={{ width: "100%" }}>
 
                 {isAuthenticated ? authLinks : guestLinks}
 

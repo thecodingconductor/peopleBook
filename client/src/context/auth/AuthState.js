@@ -15,6 +15,7 @@ import {
 } from '../types';
 
 const AuthState = props => {
+
     const initialState = {
         token: localStorage.getItem('token'),
         isAuthenticated: null,

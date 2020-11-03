@@ -138,6 +138,11 @@ const ContactState = props => {
         dispatch({ type: GET_URGENT })
     }
 
+    //Clear Contacts
+    const clearContacts = () => {
+        dispatch({ type: CLEAR_CONTACTS })
+    }
+
     return (
         <ContactContext.Provider value={{
             contacts: state.contacts,
@@ -148,6 +153,7 @@ const ContactState = props => {
             addContact,
             filterContacts,
             clearContactFilter,
+            clearContacts,
             getVIPS,
             getUrgent
         }}>

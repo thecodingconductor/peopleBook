@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import UrgentList from '../urgent/UrgentList';
 import VipList from '../vips/VipList';
+import AuthContext from '../../context/auth/authContext';
 import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 
 
 const Dashboard = () => {
+
+    const authContext = useContext(AuthContext);
+
+    useEffect(() => {
+        authContext.loadUser();
+        // eslint-disable-next-line
+    }, [])
+
     return (
         <div>
             <h2>Dashboard</h2>
