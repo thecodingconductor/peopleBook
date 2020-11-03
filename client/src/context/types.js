@@ -10,6 +10,9 @@ export const FILTER_CONTACTS = 'FILTER_CONTACTS';
 export const CLEAR_CONTACTS = 'CLEAR_CONTACTS';
 export const CLEAR_CONTACT_FILTER = 'CLEAR_CONTACT_FILTER';
 
+export const REMOVE_ALERT = 'REMOVE_ALERT';
+export const SET_ALERT = 'SET_ALERT';
+
 export const GET_ORGS = 'GET_ORGS';
 export const ADD_ORG = 'ADD_ORG';
 export const DELETE_ORG = 'DELETE_ORG';
@@ -19,3 +22,12 @@ export const UPDATE_ORG = 'UPDATE_ORG';
 export const FILTER_ORGS = 'FILTER_ORGS';
 export const CLEAR_ORGS = 'CLEAR_ORGS';
 export const CLEAR_ORG_FILTER = 'CLEAR_ORG_FILTER';
+
+export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
+export const REGISTER_FAIL = "REGISTER_FAIL";
+export const USER_LOADED = "USER_LOADED";
+export const AUTH_ERROR = " AUTH_ERROR";
+export const LOGIN_SUCCESS = " LOGIN_SUCCESS";
+export const LOGIN_FAIL = " LOGIN_SUCCESS";
+export const LOGOUT = " LOGOUT";
+export const CLEAR_ERRORS = " CLEAR_ERRORS";

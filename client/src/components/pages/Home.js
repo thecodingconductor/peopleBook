@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import Organizations from '../organizations/Organizations';
-
 import OrganizationFilter from '../organizations/OrganizationFilter';
 import Contacts from '../contacts/Contacts';
+import AuthContext from '../../context/auth/authContext';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 
 const Home = () => {
+
+    const authContext = useContext(AuthContext);
+
+    useEffect(() => {
+        authContext.loadUser();
+        //eslint-disable-next-line
+    }, [])
+
+
     return (
 
         <Container>
