@@ -10,11 +10,10 @@ import re
 import os
 import time
 import json
+from arrays import ORGANIZATIONS, PEOPLE
 
 
 
-ORGANIZATIONS = []
-PEOPLE = []
 
 def parse_org():
     text_fields = driver.find_element_by_id("fontevaDetailFields")
@@ -53,16 +52,20 @@ def parse_people(org_name):
         for p in people:
             print('inside people loop')
             children = p.find_elements_by_tag_name("td")
+            try:
+                last_name = children[0].text
+                first_name =  children[1].text
+                role = children[2].text
+                contact_dict = {
+                    "name": f"{first_name} {last_name}",
+                    "organization": org_name,
+                    "position": role
+                }
+                PEOPLE.append(contact_dict)
+            except:
+                continue
 
-            last_name = children[0].text
-            first_name =  children[1].text
-            role = children[2].text
-            contact_dict = {
-                "name": f"{first_name} {last_name}",
-                "organization": org_name,
-                "position": role
-            }
-            PEOPLE.append(contact_dict)
+            
 
 
 
@@ -136,9 +139,14 @@ def tile_loop():
 def tile_loop_ext():
     current_tiles = driver.find_elements_by_css_selector('#TileListView > div > div > div > div > div')
     for tile in range(len(current_tiles)-1):
-        
-        loop_tiles = driver.find_elements_by_css_selector('#TileListView > div > div > div > div > div') 
-        loop_tiles[tile].click()
+        time.sleep(1)
+        try:
+            loop_tiles = driver.find_elements_by_css_selector('#TileListView > div > div > div > div > div') 
+            loop_tiles[tile].click()
+        except:
+            time.sleep(2)
+            loop_tiles = driver.find_elements_by_css_selector('#TileListView > div > div > div > div > div') 
+            loop_tiles[tile].click()
        
         org_value = parse_org()
         parse_people(org_value)
@@ -185,15 +193,16 @@ directory_open.click()
 driver.switch_to.window(driver.window_handles[1])
 
 
-time.sleep(1)
+time.sleep(3)
 try:
+    # open_more = driver.find_element_by_xpath('//*[@id="Organization_Type__c"]/div[13]/a')
     open_more = driver.find_element_by_xpath('//*[@id="Organization_Type__c"]/div[13]/a')
     open_more.click()
     time.sleep(1)
     
 except:
-    open_more = driver.find_element_by_class_name("slds-text-body_medium.slds-font-weight--bold.fonteva-slds-text")
-    open_more.click()
+    fail_more = driver.find_element_by_class_name("slds-text-body_medium.slds-font-weight--bold.fonteva-slds-text")
+    fail_more.click()
     time.sleep(1)
 
 for x in range(1, 7):
