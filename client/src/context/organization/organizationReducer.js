@@ -1,6 +1,7 @@
 import {
     GET_ORGS,
     ADD_ORG,
+    ORG_ADD_FAIL,
     DELETE_ORG,
     SET_CURRENT_ORG,
     CLEAR_CURRENT_ORG,
@@ -12,6 +13,17 @@ import {
 
 export default (state, action) => {
     switch (action.type) {
+
+        case ADD_ORG:
+            return {
+                ...state,
+                organizations: [action.payload, ...state.contacts]
+            }
+        case ORG_ADD_FAIL:
+            return {
+                ...state,
+                error: action.payload
+            }
         case FILTER_ORGS:
             return {
                 ...state,

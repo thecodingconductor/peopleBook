@@ -1,5 +1,6 @@
 import React, { useReducer } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import axios from 'axios';
 import OrganizationContext from './organizationContext';
 import organizationReducer from './organizationReducer';
 import {
@@ -9,53 +10,57 @@ import {
     SET_CURRENT_ORG,
     CLEAR_CURRENT_ORG,
     UPDATE_ORG,
+    ORG_ADD_FAIL,
     FILTER_ORGS,
     CLEAR_ORG_FILTER
 } from '../types';
 
 const OrganizationState = props => {
     const initialState = {
-        organizations: [
-            {
-                id: 1,
-                name: "New York Philharmonic",
-                website: "nyphil.org",
-                category: "Group 1",
-                phone: "111-111-1111",
-                address: "NY,NY"
-            },
-            {
-                id: 2,
-                name: "Boston Symphony",
-                website: "bso.org",
-                category: "Group 2",
-                phone: "222-222-2222",
-                address: "Boston,MA"
-            },
-            {
-                id: 3,
-                name: "Los Angeles Philharmonic",
-                website: "laphil.org",
-                category: "Group 2",
-                phone: "111-111-1111",
-                address: "LA, California"
-            },
-            {
-                id: 4,
-                name: "San Francisco Symphony",
-                website: "sfsymphony.org",
-                category: "Group 3",
-                phone: "111-111-1111",
-                address: "San Francisco,CA"
-            },
-        ],
+        organizations: null,
         current: null,
         filtered: null
     }
 
     const [state, dispatch] = useReducer(organizationReducer, initialState);
 
-    //Add Organization
+    //Add Organizations
+    const addOrgs = async orgData => {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+
+
+
+
+        const { name, website, group, address, phone } = orgData;
+
+        const data = {
+            name,
+            website,
+            group,
+            address,
+            phone
+        }
+
+
+
+        try {
+            const res = await axios.post('api/organizations', data, config);
+
+            dispatch({
+                type: ADD_ORG,
+                payload: res.data
+            });
+        } catch (err) {
+            dispatch({
+                type: ORG_ADD_FAIL,
+                payload: err.response.data.msg
+            })
+        }
+    }
 
     //Delete Org
 
@@ -83,8 +88,8 @@ const OrganizationState = props => {
                 current: state.current,
                 filtered: state.filtered,
                 filterOrganizations,
-                clearOrgFilter
-
+                clearOrgFilter,
+                addOrgs
             }}>
             {props.children}
         </OrganizationContext.Provider>

@@ -12,6 +12,7 @@ app.get('/', (req, res) => res.json({ msg: "welcome to the American Orchestra Pe
 app.use('/api/users', require('./routes/users'));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/contacts', require('./routes/contacts'));
+app.use('/api/organizations', require('./routes/organizations'));
 
 const PORT = process.env.PORT || 5000;
 

@@ -7,7 +7,7 @@ const Organizations = () => {
     const organizationContext = useContext(OrganizationContext);
     const { organizations, filtered } = organizationContext;
 
-    if (organizations.length === 0) {
+    if (organizations === null || organizations.length === 0) {
         return <h4>Please add some Organizations</h4>
     }
 

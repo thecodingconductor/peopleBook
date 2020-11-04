@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import Organizations from '../organizations/Organizations';
 import OrganizationFilter from '../organizations/OrganizationFilter';
+import OrganizationButton from '../organizations/OrganizationButton';
 import AuthContext from '../../context/auth/authContext';
 import { Container, Row } from 'react-bootstrap';
 
@@ -21,6 +22,9 @@ const OrganizationsPage = () => {
             </Row>
             <Row >
                 <Organizations />
+            </Row>
+            <Row>
+                <OrganizationButton />
             </Row>
 
         </Container>

@@ -15,6 +15,7 @@ export const SET_ALERT = 'SET_ALERT';
 
 export const GET_ORGS = 'GET_ORGS';
 export const ADD_ORG = 'ADD_ORG';
+export const ORG_ADD_FAIL = 'ORG_ADD_FAIL';
 export const DELETE_ORG = 'DELETE_ORG';
 export const SET_CURRENT_ORG = 'SET_CURRENT_ORG';
 export const CLEAR_CURRENT_ORG = 'CLEAR_CURRENT_ORG';
