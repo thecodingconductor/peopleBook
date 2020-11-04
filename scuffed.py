@@ -53,8 +53,7 @@ def parse_people(org_name):
         for p in people:
             print('inside people loop')
             children = p.find_elements_by_tag_name("td")
-            for c in children:
-                print(c.text)
+
             last_name = children[0].text
             first_name =  children[1].text
             role = children[2].text
@@ -64,6 +63,9 @@ def parse_people(org_name):
                 "position": role
             }
             PEOPLE.append(contact_dict)
+
+
+
         print(PEOPLE)
         
             # append_people(contact_dict)
@@ -82,9 +84,128 @@ def parse_people(org_name):
                 
         else:
             next_page.click()
+            time.sleep(1)
             print("From Parse Page info")
             
         
+def append_entries(orgs, people):
+    json_orgs = json.dumps(orgs, indent=4)
+    json_people = json.dumps(people, indent=4)
+    with open("./organizations.json", "w") as outfile:
+        outfile.write(json_orgs)
+        
+
+    with open("./people.json", "w") as outfile:
+        outfile.write(json_people)
+
+
+def append_orgs(orgs):
+    json_orgs = json.dumps(orgs, indent=4)
+    with open("./organizations.json", "a") as outfile:
+        outfile.write(json_orgs)
+        driver.implicitly_wait(30)
+
+def append_people(people):
+    json_people = json.dumps(people, indent=4)
+    with open("./people.json", "a") as outfile:
+        outfile.write(json_people)
+
+def single_tile():
+    org_value = parse_org()
+    print(org_value)
+    parse_people(org_value)
+
+
+def tile_loop():
+    current_tiles = driver.find_elements_by_css_selector('#TileListView > div > div > div > div > div')
+    for tile in range(len(current_tiles)-1):
+       
+        loop_tiles = driver.find_elements_by_css_selector('#TileListView > div > div > div > div > div') 
+        loop_tiles[tile].click()
+        org_value = parse_org()
+        parse_people(org_value)
+        try:
+            button = driver.find_element_by_css_selector('#backToResultsBtn > button')
+            button.click()
+        except:
+            fail_button = driver.find_element_by_class_name('slds-align-middle.slds-text-heading_x-small.fonteva-slds-hero--heading.slds-truncate')
+            fail_button.click()
+        time.sleep(2)
+        current_tiles = driver.find_elements_by_css_selector('#TileListView > div > div > div > div > div') 
+    
+def tile_loop_ext():
+    current_tiles = driver.find_elements_by_css_selector('#TileListView > div > div > div > div > div')
+    for tile in range(len(current_tiles)-1):
+        
+        loop_tiles = driver.find_elements_by_css_selector('#TileListView > div > div > div > div > div') 
+        loop_tiles[tile].click()
+       
+        org_value = parse_org()
+        parse_people(org_value)
+        try:
+            button = driver.find_element_by_css_selector('#backToResultsBtn > button')
+            button.click()
+            time.sleep(1)
+        except:
+            fail_button = driver.find_element_by_class_name('slds-align-middle.slds-text-heading_x-small.fonteva-slds-hero--heading.slds-truncate')
+            fail_button.click()
+            time.sleep(1)
+        for i in range(1):
+            next_org_page = driver.find_element_by_css_selector("#TileListView > div > div > div > div > div.slds-size--1-of-1.slds-m-top--medium.slds-grid_align-center > div > button.slds-button.slds-button_neutral.slds-m-left--small.slds-align-middle.fonteva-button--icon.slds-p-horizontal--small")
+            next_org_page.click()
+            time.sleep(1)
+
+
+url = "https://americanorchestras.org"
+
+driver = webdriver.Chrome()
+driver.implicitly_wait(20)
+driver.get(url)
+driver.maximize_window()
+
+login = driver.find_element_by_xpath('//*[@id="newHomeSide"]/a')
+login.click()
+
+username = driver.find_element_by_xpath('//*[@id="j_id0:j_id1:j_id2:form:usr-pwd-auth"]/div[1]/input')
+username.send_keys('tristan.raissherman@gmail.com')
+
+pword = driver.find_element_by_xpath('//*[@id="j_id0:j_id1:j_id2:form:usr-pwd-auth"]/div[2]/input')
+pword.send_keys('PassacagliaOp1')
+
+login_btn = driver.find_element_by_xpath('//*[@id="j_id0:j_id1:j_id2:form:usr-pwd-auth"]/div[3]/input')
+login_btn.click()
+
+member_portal = driver.find_element_by_xpath('//*[@id="newHomeSide"]/div[1]/p/a[2]')
+member_portal.click()
+
+directory_open = driver.find_element_by_link_text('Organizational Directory')
+directory_open.click()
+
+#STUCK NOT OPENING THE NEW TAB.
+driver.switch_to.window(driver.window_handles[1])
+
+
+time.sleep(1)
+try:
+    open_more = driver.find_element_by_xpath('//*[@id="Organization_Type__c"]/div[13]/a')
+    open_more.click()
+    time.sleep(1)
+    
+except:
+    open_more = driver.find_element_by_class_name("slds-text-body_medium.slds-font-weight--bold.fonteva-slds-text")
+    open_more.click()
+    time.sleep(1)
+
+for x in range(1, 7):
+    time.sleep(3)
+    group_name = f"Group {x}"
+    group_title = driver.find_element_by_xpath("//*[contains(text(), '{}')]".format(group_name))
+    group_title.click()
+    
+driver.execute_script("window.scrollTo(0, 0)")
+
+# tile_loop()
+
 
 # def parse_single():
     
@@ -133,100 +254,3 @@ def parse_people(org_name):
 #     except:
 #         driver.execute_script("window.scrollTo(0, 0)")
 #         return False
-
-
-def append_entries(orgs, people):
-    json_orgs = json.dumps(orgs, indent=4)
-    json_people = json.dumps(people, indent=4)
-    with open("./organizations.json", "w") as outfile:
-        outfile.write(json_orgs)
-        driver.implicitly_wait(30)
-
-    with open("./people.json", "w") as outfile:
-        outfile.write(json_people)
-
-
-def append_orgs(orgs):
-    json_orgs = json.dumps(orgs, indent=4)
-    with open("./organizations.json", "a") as outfile:
-        outfile.write(json_orgs)
-        driver.implicitly_wait(30)
-
-def append_people(people):
-    json_people = json.dumps(people, indent=4)
-    with open("./people.json", "a") as outfile:
-        outfile.write(json_people)
-
-def single_tile():
-    org_value = parse_org()
-    print(org_value)
-    parse_people(org_value)
-
-
-def tile_loop():
-    current_tiles = driver.find_elements_by_css_selector('#TileListView > div > div > div > div > div')
-    for tile in range(len(current_tiles)-1):
-       
-        loop_tiles = driver.find_elements_by_css_selector('#TileListView > div > div > div > div > div') 
-        loop_tiles[tile].click()
-        org_value = parse_org()
-        parse_people(org_value)
-        try:
-            button = driver.find_element_by_css_selector('#backToResultsBtn > button')
-            button.click()
-        except:
-            fail_button = driver.find_element_by_class_name('slds-align-middle.slds-text-heading_x-small.fonteva-slds-hero--heading.slds-truncate')
-            fail_button.click()
-        time.sleep(2)
-        current_tiles = driver.find_elements_by_css_selector('#TileListView > div > div > div > div > div') 
-    
-
-
-url = "https://americanorchestras.org"
-
-driver = webdriver.Chrome()
-driver.implicitly_wait(20)
-driver.get(url)
-driver.maximize_window()
-
-login = driver.find_element_by_xpath('//*[@id="newHomeSide"]/a')
-login.click()
-
-username = driver.find_element_by_xpath('//*[@id="j_id0:j_id1:j_id2:form:usr-pwd-auth"]/div[1]/input')
-username.send_keys('tristan.raissherman@gmail.com')
-
-pword = driver.find_element_by_xpath('//*[@id="j_id0:j_id1:j_id2:form:usr-pwd-auth"]/div[2]/input')
-pword.send_keys('PassacagliaOp1')
-
-login_btn = driver.find_element_by_xpath('//*[@id="j_id0:j_id1:j_id2:form:usr-pwd-auth"]/div[3]/input')
-login_btn.click()
-
-member_portal = driver.find_element_by_xpath('//*[@id="newHomeSide"]/div[1]/p/a[2]')
-member_portal.click()
-
-directory_open = driver.find_element_by_link_text('Organizational Directory')
-directory_open.click()
-
-#STUCK NOT OPENING THE NEW TAB.
-driver.switch_to.window(driver.window_handles[1])
-driver.implicitly_wait(10)
-
-time.sleep(1)
-try:
-    open_more = driver.find_element_by_xpath('//*[@id="Organization_Type__c"]/div[13]/a')
-    open_more.click()
-    driver.implicitly_wait(10)
-except:
-    open_more = driver.find_element_by_class_name("slds-text-body_medium.slds-font-weight--bold.fonteva-slds-text")
-    open_more.click()
-    driver.implicitly_wait(10)
-
-for x in range(1, 7):
-    time.sleep(3)
-    group_name = f"Group {x}"
-    group_title = driver.find_element_by_xpath("//*[contains(text(), '{}')]".format(group_name))
-    group_title.click()
-    
-driver.execute_script("window.scrollTo(0, 0)")
-
-# tile_loop()
