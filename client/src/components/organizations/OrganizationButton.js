@@ -12,7 +12,7 @@ const OrganizationButton = props => {
         e.preventDefault();
 
 
-        orgData.forEach(org => {
+        orgData["organizations"].forEach(org => {
             // console.log(org);
             // const { name, website, group, phone, address } = org;
             // const data = {

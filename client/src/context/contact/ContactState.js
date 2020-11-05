@@ -1,5 +1,6 @@
 import React, { useReducer } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import axios from 'axios';
 import ContactContext from './contactContext';
 import contactReducer from './contactReducer';
 import {
@@ -9,6 +10,7 @@ import {
     SET_CURRENT,
     UPDATE_CONTACT,
     FILTER_CONTACTS,
+    ADD_CONTACT_FAIL,
     CLEAR_CONTACTS,
     CLEAR_CONTACT_FILTER,
     GET_URGENT,
@@ -18,56 +20,7 @@ import {
 const ContactState = props => {
 
     const initialState = {
-        contacts: [
-            {
-                id: 1,
-                name: "Deborah Borda",
-                organization: "New York Philharmonic",
-                position: "Executive Director",
-                email: "bordad@nyphil.org",
-                phone: "111-111-1111",
-                lastContacted: null,
-                needToContact: false,
-                notes: null
-
-            },
-            {
-                id: 2,
-                name: "Simon Woods",
-                organization: "LA Philharmonic",
-                position: "Executive Director",
-                email: "bordad@nyphil.org",
-                phone: "111-111-1111",
-                lastContacted: null,
-                needToContact: true,
-                notes: null
-
-            },
-            {
-                id: 3,
-                name: "Russell Jones",
-                organization: "New York Philharmonic",
-                position: "Major Gifts",
-                email: "bordad@nyphil.org",
-                phone: "111-111-1111",
-                lastContacted: null,
-                needToContact: false,
-                notes: null
-
-            },
-            {
-                id: 4,
-                name: "Franz Welser Most",
-                organization: "Cleveland Orchestra",
-                position: "Music Director",
-                email: "bordad@nyphil.org",
-                phone: "111-111-1111",
-                lastContacted: null,
-                needToContact: false,
-                notes: null
-
-            },
-        ],
+        contacts: null,
         current: null,
         filtered: null,
         urgent: [
@@ -112,6 +65,37 @@ const ContactState = props => {
     //     })
     // }
 
+
+    // Add all contacts
+    const addAllContacts = async peopleData => {
+        const config = {
+            headers: {
+                "Content-Type": "applicaiton/json"
+            }
+        }
+
+        const { name, organization, position } = peopleData;
+
+        const data = {
+            name,
+            organization,
+            position
+        }
+
+
+        try {
+            const res = await axios.post('api/contacts', data, config);
+            dispatch({
+                type: ADD_CONTACT,
+                payload: res.data
+            })
+        } catch (err) {
+            console.error(err.message);
+        }
+
+
+    }
+
     //Add a Contact
     const addContact = contact => {
         contact.id = uuidv4();
@@ -151,6 +135,7 @@ const ContactState = props => {
             urgent: state.urgent,
             vips: state.vips,
             addContact,
+            addAllContacts,
             filterContacts,
             clearContactFilter,
             clearContacts,

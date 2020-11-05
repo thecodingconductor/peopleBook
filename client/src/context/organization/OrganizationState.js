@@ -37,6 +37,7 @@ const OrganizationState = props => {
 
         const { name, website, group, address, phone } = orgData;
 
+
         const data = {
             name,
             website,
@@ -44,8 +45,6 @@ const OrganizationState = props => {
             address,
             phone
         }
-
-
 
         try {
             const res = await axios.post('api/organizations', data, config);

@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import Contacts from '../contacts/Contacts';
 import ContactFilter from '../contacts/ContactFilter';
 import AuthContext from '../../context/auth/authContext';
+import ContactButton from '../contacts/ContactButton';
 import { Container, Row } from 'react-bootstrap';
 
 
@@ -20,6 +21,9 @@ const People = () => {
             </Row>
             <Row >
                 <Contacts />
+            </Row>
+            <Row>
+                <ContactButton />
             </Row>
 
         </Container>

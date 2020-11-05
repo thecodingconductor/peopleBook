@@ -5,6 +5,7 @@ const { check, validationResult } = require('express-validator');
 
 const User = require('../models/User');
 const Contact = require('../models/Contact');
+const Person = require('../models/People');
 
 
 //@route GET api/contacts
@@ -23,25 +24,22 @@ router.get('/', auth, async (req, res) => {
 
 // @route   POST api/contacts
 // @desc    ADD new contact
-// @access Private
-router.post('/', [auth, [
-    check('name', 'Name is required').not().isEmpty()
-]], async (req, res) => {
-    const errors = validationResult(req);
-
-    if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() })
-    }
+// @access  Public
+router.post('/', async (req, res) => {
 
     const { name, organization, position } = req.body;
 
+    console.log(`from back end req.body${name}, ${organization}, ${position}`);
+
     try {
-        const newContact = new Contact({
-            name, organization, position, user: req.user.id
+        const newPerson = new Person({
+            name, organization, position
         });
 
-        const contact = await newContact.save();
-        res.json(contact);
+        console.log(`from backend, newPerson: ${newPerson.name}`);
+
+        const person = await newPerson.save();
+        res.json(person);
     } catch (error) {
         console.error(error.message);
         res.status(500).send("THIS IS SERVER ERROR");

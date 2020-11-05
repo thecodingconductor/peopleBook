@@ -10,7 +10,21 @@ import re
 import os
 import time
 import json
-from arrays import ORGANIZATIONS, PEOPLE
+# from arrays import ORGANIZATIONS, PEOPLE
+
+ORGANIZATIONS = []
+PEOPLE = []
+
+
+def write_org_json(data, filename="organizations.json"):
+
+    with open(filename, 'w') as f:
+        json.dump(data, f, indent=4)
+
+def write_people_json(data, filename="people.json"):
+
+    with open(filename, 'w') as f:
+        json.dump(data, f, indent=4)
 
 
 
@@ -22,16 +36,34 @@ def parse_org():
     org_website = text_list[1]
     org_group = text_list[3]
     org_phone = text_list[4]
-    org_address = text_list[5]
-    org_dict = {
+    try:
+        org_address = text_list[5]
+        org_dict = {
         "name": org_name,
         "website": org_website,
         "group": org_group,
         "phone": org_phone,
         "address": org_address
     }
-    ORGANIZATIONS.append(org_dict)
-    print(ORGANIZATIONS)
+
+    except:
+        org_dict = {
+        "name": org_name,
+        "website": org_website,
+        "group": org_group,
+        "phone": org_phone
+    }
+
+    
+
+    with open('organizations.json') as json_file:
+        data = json.load(json_file)
+        temp = data["organizations"]
+        temp.append(org_dict)
+        write_org_json(data)
+
+    # ORGANIZATIONS.append(org_dict)
+    # print(ORGANIZATIONS)
 
     # append_orgs(org_dict)
     return org_name
@@ -61,7 +93,12 @@ def parse_people(org_name):
                     "organization": org_name,
                     "position": role
                 }
-                PEOPLE.append(contact_dict)
+                with open('people.json') as json_file:
+                    data = json.load(json_file)
+                    temp = data["people"]
+                    temp.append(contact_dict)
+                    write_people_json(data)
+                # PEOPLE.append(contact_dict)
             except:
                 continue
 
@@ -69,7 +106,7 @@ def parse_people(org_name):
 
 
 
-        print(PEOPLE)
+        
         
             # append_people(contact_dict)
         
@@ -158,7 +195,7 @@ def tile_loop_ext():
             fail_button = driver.find_element_by_class_name('slds-align-middle.slds-text-heading_x-small.fonteva-slds-hero--heading.slds-truncate')
             fail_button.click()
             time.sleep(1)
-        for i in range(1):
+        for i in range(23):
             next_org_page = driver.find_element_by_css_selector("#TileListView > div > div > div > div > div.slds-size--1-of-1.slds-m-top--medium.slds-grid_align-center > div > button.slds-button.slds-button_neutral.slds-m-left--small.slds-align-middle.fonteva-button--icon.slds-p-horizontal--small")
             next_org_page.click()
             time.sleep(1)
