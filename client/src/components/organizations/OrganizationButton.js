@@ -13,15 +13,6 @@ const OrganizationButton = props => {
 
 
         orgData["organizations"].forEach(org => {
-            // console.log(org);
-            // const { name, website, group, phone, address } = org;
-            // const data = {
-            //     name,
-            //     website,
-            //     group,
-            //     phone,
-            //     address
-            // }
 
             addOrgs(org);
 

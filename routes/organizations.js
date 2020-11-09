@@ -28,11 +28,12 @@ router.get('/', auth, async (req, res) => {
     }
 });
 
+
+
+
 // @route POST api/organizations
 // @desc  ADD Organizations
 // @access Public
-
-
 router.post('/', async (req, res) => {
 
 
@@ -52,11 +53,6 @@ router.post('/', async (req, res) => {
         console.error(err.message);
         res.status(500).send("This was a server error")
     }
-
-
-
-
-
 
 })
 

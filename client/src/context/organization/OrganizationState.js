@@ -32,9 +32,6 @@ const OrganizationState = props => {
             }
         }
 
-
-
-
         const { name, website, group, address, phone } = orgData;
 
 

@@ -10,13 +10,12 @@ const ContactButton = props => {
 
     const onClick = e => {
         e.preventDefault();
-        console.log(peopleData["people"][0]);
-        // peopleData["people"].forEach(person => {
-        //     addAllContacts(person);
-        // })
-        for (let i = 0; i < 1000; i++) {
-            addAllContacts(peopleData["people"][i]);
-        }
+
+        console.log(peopleData["people"].length);
+        // for (let i = 10000; i < 15000; i++) {
+        //     console.log(peopleData["people"][i]);
+        //     addAllContacts(peopleData["people"][i]);
+        // }
 
     }
 

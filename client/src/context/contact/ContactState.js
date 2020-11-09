@@ -70,9 +70,10 @@ const ContactState = props => {
     const addAllContacts = async peopleData => {
         const config = {
             headers: {
-                "Content-Type": "applicaiton/json"
+                "Content-Type": "application/json"
             }
         }
+
 
         const { name, organization, position } = peopleData;
 

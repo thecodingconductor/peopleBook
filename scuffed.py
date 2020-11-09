@@ -36,31 +36,31 @@ def parse_org():
     org_website = text_list[1]
     org_group = text_list[3]
     org_phone = text_list[4]
-    try:
-        org_address = text_list[5]
-        org_dict = {
-        "name": org_name,
-        "website": org_website,
-        "group": org_group,
-        "phone": org_phone,
-        "address": org_address
-    }
+    # try:
+    #     org_address = text_list[5]
+    #     org_dict = {
+    #     "name": org_name,
+    #     "website": org_website,
+    #     "group": org_group,
+    #     "phone": org_phone,
+    #     "address": org_address
+    # }
 
-    except:
-        org_dict = {
-        "name": org_name,
-        "website": org_website,
-        "group": org_group,
-        "phone": org_phone
-    }
+    # except:
+    #     org_dict = {
+    #     "name": org_name,
+    #     "website": org_website,
+    #     "group": org_group,
+    #     "phone": org_phone
+    # }
 
     
 
-    with open('organizations.json') as json_file:
-        data = json.load(json_file)
-        temp = data["organizations"]
-        temp.append(org_dict)
-        write_org_json(data)
+    # with open('organizations.json') as json_file:
+    #     data = json.load(json_file)
+    #     temp = data["organizations"]
+    #     temp.append(org_dict)
+    #     write_org_json(data)
 
     # ORGANIZATIONS.append(org_dict)
     # print(ORGANIZATIONS)
@@ -73,7 +73,7 @@ def parse_people(org_name):
     total_page_number = int(driver.find_element_by_css_selector('#RelatedIndividualsTableView > div > div.slds-size--1-of-1.slds-m-top--medium > div > div > div:nth-child(4) > span.slds-m-left--x-small.fonteva-slds-text').text)
     current_page_number = int(driver.find_element_by_class_name("slds-input.form-control.col-md-8.input.uiInputSmartNumber.uiInput.uiInputNumber.uiInput--default.uiInput--input").get_attribute("value"))
     print(f"current page number>{current_page_number}, total page number>{total_page_number}")
-    next_page = driver.find_element_by_css_selector("#RelatedIndividualsTableView > div > div.slds-size--1-of-1.slds-m-top--medium > div > div > button.slds-button.slds-button_neutral.slds-m-left--small.slds-align-middle.fonteva-button--icon.slds-p-horizontal--small")
+    next_page = driver.find_element_by_css_selector("#RelatedIndividualsTableView > div > div.slds-size--1-of-1.slds-m-top--medium > div > div > button.slds-button.slds-button_icon.slds-m-left--small.slds-align-middle.fonteva-button--icon.slds-p-horizontal--small.slds-button_icon-bare")
     
     for page in range(1, total_page_number+1):
 
@@ -195,11 +195,18 @@ def tile_loop_ext():
             fail_button = driver.find_element_by_class_name('slds-align-middle.slds-text-heading_x-small.fonteva-slds-hero--heading.slds-truncate')
             fail_button.click()
             time.sleep(1)
-        for i in range(23):
-            next_org_page = driver.find_element_by_css_selector("#TileListView > div > div > div > div > div.slds-size--1-of-1.slds-m-top--medium.slds-grid_align-center > div > button.slds-button.slds-button_neutral.slds-m-left--small.slds-align-middle.fonteva-button--icon.slds-p-horizontal--small")
+        # for i in range(15):
+        #     next_org_page = driver.find_element_by_css_selector("#TileListView > div > div > div > div > div.slds-size--1-of-1.slds-m-top--medium.slds-grid_align-center > div > button.slds-button.slds-button_neutral.slds-m-left--small.slds-align-middle.fonteva-button--icon.slds-p-horizontal--small")
+        #     next_org_page.click()
+        #     time.sleep(1)
+
+
+def scroll_pages(num):
+    for i in range(num):
+            next_org_page = driver.find_element_by_xpath("//*[@id='TileListView']/div/div/div/div/div[11]/div/button[2]")
             next_org_page.click()
             time.sleep(1)
-
+    
 
 url = "https://americanorchestras.org"
 
