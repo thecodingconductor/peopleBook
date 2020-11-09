@@ -24,6 +24,7 @@ export const CLEAR_CURRENT_ORG = 'CLEAR_CURRENT_ORG';
 export const UPDATE_ORG = 'UPDATE_ORG';
 export const FILTER_ORGS = 'FILTER_ORGS';
 export const CLEAR_ORGS = 'CLEAR_ORGS';
+export const ORG_GET_FAIL = 'ORG_GET_FAIL';
 export const CLEAR_ORG_FILTER = 'CLEAR_ORG_FILTER';
 
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";

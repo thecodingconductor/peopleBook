@@ -20,7 +20,7 @@ const Organization = require('../models/Organization');
 
 router.get('/', auth, async (req, res) => {
     try {
-        const organizations = await Organization.find({ user: req.user.id }).sort({ name: -1 })
+        const organizations = await Organization.find({})
         res.json(organizations);
     } catch (err) {
         console.error(err.message);

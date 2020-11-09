@@ -11,6 +11,7 @@ import {
     CLEAR_CURRENT_ORG,
     UPDATE_ORG,
     ORG_ADD_FAIL,
+    ORG_GET_FAIL,
     FILTER_ORGS,
     CLEAR_ORG_FILTER
 } from '../types';
@@ -58,6 +59,24 @@ const OrganizationState = props => {
         }
     }
 
+    //Get All Organizations
+    const getOrganizations = async () => {
+        try {
+            const res = await axios.get('/api/organizations');
+
+            dispatch({
+                type: GET_ORGS,
+                payload: res.data
+            })
+
+        } catch (err) {
+            dispatch({
+                type: ORG_GET_FAIL,
+                payload: err.response.msg
+            })
+        }
+    }
+
     //Delete Org
 
     //Set Current Org
@@ -85,7 +104,8 @@ const OrganizationState = props => {
                 filtered: state.filtered,
                 filterOrganizations,
                 clearOrgFilter,
-                addOrgs
+                addOrgs,
+                getOrganizations
             }}>
             {props.children}
         </OrganizationContext.Provider>

@@ -17,7 +17,7 @@ const OrganizationItem = ({ organization }) => {
                 <Card.Text>
                     {address}
                 </Card.Text>
-                <Card.Link href={`https://${website}`} target="_blank">{website}</Card.Link>
+                <Card.Link href={`${website}`} target="_blank">{website}</Card.Link>
             </Card.Body>
         </Card >
     )
