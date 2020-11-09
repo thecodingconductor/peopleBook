@@ -76,7 +76,7 @@ const ContactState = props => {
                 type: CONTACT_ERROR,
                 payload: error.response.msg
             })
-            
+
         };
 
     }
@@ -137,6 +137,7 @@ const ContactState = props => {
 
     //Filter Contacts
     const filterContacts = text => {
+        console.log(text);
         dispatch({ type: FILTER_CONTACTS, payload: text })
     }
 

@@ -10,6 +10,14 @@ const ContactsByOrg = () => {
     const organizationContext = useContext(OrganizationContext);
 
     const { contacts, filtered, getContacts, filterContacts } = contactContext;
+    const { current } = organizationContext;
+
+    console.log(current.name);
+
+    useEffect(() => {
+        filterContacts(current.name);
+        //eslint-disable-next-line
+    }, [])
 
 
 

@@ -5,18 +5,20 @@ import OrganizationContext from '../../context/organization/organizationContext'
 import ContactContext from '../../context/contact/contactContext';
 import ContactItem from '../../components/contacts/ContactItem';
 import ContactsByOrg from '../../components/contacts/ContactsByOrg';
+import Contacts from '../contacts/Contacts';
 
 const Organizations = () => {
     const organizationContext = useContext(OrganizationContext);
     const contactContext = useContext(ContactContext);
 
     const { organizations, current, filtered, getOrganizations, filterOrganizations } = organizationContext;
-    const { filterContacts, filtered: filteredContacts } = contactContext;
+    const { filterContacts, filtered: filteredContacts, getContacts } = contactContext;
 
 
 
     useEffect(() => {
         getOrganizations();
+        getContacts();
         // eslint-disable-next-line
     }, [])
 
@@ -25,13 +27,12 @@ const Organizations = () => {
         return <h4>Please add some Organizations</h4>
     } else if (current !== null) {
 
-        // filterContacts(current.name);
-
         return (
 
 
             <Fragment>
                 <OrganizationItem organization={current} />
+                <Contacts />
             </Fragment>
 
 

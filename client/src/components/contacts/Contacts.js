@@ -23,7 +23,7 @@ const Contacts = () => {
     //     return <h4>Please add a contact</h4>
     // }
 
-    console.log(contacts);
+    // console.log(contacts);
 
     return (
         // <Fragment>
