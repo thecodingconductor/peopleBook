@@ -1,4 +1,5 @@
 export const GET_CONTACTS = 'GET_CONTACTS';
+export const CONTACT_ERROR = 'CONTACT_ERROR';
 export const GET_VIPS = 'GET_VIPS';
 export const GET_URGENT = 'GET_URGENT';
 export const ADD_CONTACT = 'ADD_CONTACT';

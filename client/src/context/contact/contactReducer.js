@@ -1,6 +1,7 @@
 import {
     ADD_CONTACT,
     ADD_CONTACT_FAIL,
+    CONTACT_ERROR,
     DELETE_CONTACT,
     SET_CURRENT,
     CLEAR_CURRENT,
@@ -45,6 +46,12 @@ export default (state, action) => {
             return {
                 ...state,
                 contacts: action.payload
+            }
+
+        case CONTACT_ERROR:
+            return {
+                ...state,
+                error: action.payload
             }
 
         case GET_VIPS:

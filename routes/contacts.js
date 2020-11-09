@@ -13,7 +13,7 @@ const Person = require('../models/People');
 //@access Private 
 router.get('/', auth, async (req, res) => {
     try {
-        const contacts = await Contact.find({ user: req.user.id }).sort({ date: -1 });
+        const contacts = await Person.find({})
         res.json(contacts);
     } catch (error) {
         console.error(error.message);
