@@ -13,7 +13,7 @@ import {
     ORG_ADD_FAIL,
     ORG_GET_FAIL,
     FILTER_ORGS,
-    CLEAR_ORG_FILTER
+    CLEAR_ORG_FILTER,
 } from '../types';
 
 const OrganizationState = props => {
@@ -94,6 +94,22 @@ const OrganizationState = props => {
     const filterOrganizations = text => {
         dispatch({ type: FILTER_ORGS, payload: text })
     }
+
+    //Contacts by Org Name 
+    // const contactsByOrg = async orgName => {
+    //     const res = await axios.get('api/contacts');
+    //     try {
+    //         dispatch({
+    //             type: CONTACTS_BY_ORG,
+    //             payload: res.data
+    //         })
+    //     } catch (error) {
+    //         dispatch({
+    //             type: CONTACTS_BY_ORG_ERROR,
+    //             payload: error.response.msg
+    //         })
+    //     }
+    // }
 
 
     //Clear Org Filter

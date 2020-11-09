@@ -32,7 +32,7 @@ const Contacts = () => {
         <Fragment>
             {filtered !== null ?
                 filtered.map(contact => (<ContactItem key={contact._id} contact={contact} />)) :
-                contacts.slice(0,10).map(contact => (
+                contacts.slice(0, 10).map(contact => (
                     <ContactItem key={contact._id} contact={contact}></ContactItem>
                 ))}
         </Fragment>

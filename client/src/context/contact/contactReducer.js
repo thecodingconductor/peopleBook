@@ -8,6 +8,8 @@ import {
     UPDATE_CONTACT,
     FILTER_CONTACTS,
     CLEAR_CONTACT_FILTER,
+    CONTACTS_BY_ORG,
+    CONTACTS_BY_ORG_ERROR,
     GET_CONTACTS,
     GET_URGENT,
     GET_VIPS
@@ -23,6 +25,12 @@ export default (state, action) => {
                     const regex = new RegExp(`${action.payload}`, 'gi');
                     return contact.name.match(regex) || contact.position.match(regex) || contact.organization.match(regex);
                 })
+            }
+
+        case CONTACTS_BY_ORG:
+            return {
+                ...state,
+
             }
         case CLEAR_CONTACT_FILTER:
             return {

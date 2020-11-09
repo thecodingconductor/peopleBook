@@ -7,6 +7,8 @@ import {
     GET_CONTACTS,
     CONTACT_ERROR,
     ADD_CONTACT,
+    CONTACTS_BY_ORG,
+    CONTACTS_BY_ORG_ERROR,
     DELETE_CONTACT,
     SET_CURRENT,
     UPDATE_CONTACT,
@@ -110,6 +112,22 @@ const ContactState = props => {
 
 
     }
+
+    //Contacts by current organization
+    // const contactsByOrg = async orgName => {
+    //     const res = await axios.get('api/contacts');
+    //     try {
+    //         dispatch({
+    //             type: CONTACTS_BY_ORG,
+    //             payload: res.data
+    //         })
+    //     } catch (error) {
+    //         dispatch({
+    //             type: CONTACTS_BY_ORG_ERROR,
+    //             payload: error.response.msg
+    //         })
+    //     }
+    // }
 
     //Add a Contact
     const addContact = contact => {
