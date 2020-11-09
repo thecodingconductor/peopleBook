@@ -6,13 +6,14 @@ import Card from 'react-bootstrap/Card';
 const OrganizationItem = ({ organization }) => {
 
     const organizationContext = useContext(OrganizationContext);
+    const {setCurrent} = organizationContext;
     const { id, name, website, group, address, phone } = organization;
     // console.log(organization);
 
     return (
         <Card style={{ width: "18rem" }}>
             <Card.Body>
-                <Card.Title>{name}</Card.Title>
+                <Card.Title style={{ cursor: "pointer" }} onClick={() => setCurrent(organization)}>{name}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{group}</Card.Subtitle>
                 <Card.Text>
                     {address}

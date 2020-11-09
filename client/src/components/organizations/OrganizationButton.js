@@ -6,22 +6,23 @@ const orgData = require('../../organizations.json');
 const OrganizationButton = props => {
 
     const organizationContext = useContext(OrganizationContext);
-    const { addOrgs } = organizationContext;
+    const { clearCurrent } = organizationContext;
 
     const onClick = e => {
         e.preventDefault();
 
+        clearCurrent();
 
-        orgData["organizations"].forEach(org => {
+        // orgData["organizations"].forEach(org => {
 
-            addOrgs(org);
+        //     addOrgs(org);
 
-        })
+        // })
     }
 
     return (
         <Fragment>
-            <Button onClick={onClick}>Add Organizations</Button>
+            <Button onClick={onClick}>Back to All Organizations</Button>
         </Fragment>
     )
 }

@@ -80,9 +80,14 @@ const OrganizationState = props => {
     //Delete Org
 
     //Set Current Org
+    const setCurrent = org => {
+        dispatch({type: SET_CURRENT_ORG, payload: org})
+    }
 
     //Clear Current
-
+    const clearCurrent = () => {
+        dispatch({ type: CLEAR_CURRENT_ORG})
+    }
     //Update Org
 
     //Filter Orgs
@@ -105,7 +110,9 @@ const OrganizationState = props => {
                 filterOrganizations,
                 clearOrgFilter,
                 addOrgs,
-                getOrganizations
+                getOrganizations,
+                setCurrent,
+                clearCurrent
             }}>
             {props.children}
         </OrganizationContext.Provider>

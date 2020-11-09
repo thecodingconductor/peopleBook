@@ -26,7 +26,6 @@ const OrganizationsPage = () => {
             <Row>
                 <OrganizationButton />
             </Row>
-
         </Container>
 
 

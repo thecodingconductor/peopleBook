@@ -48,10 +48,21 @@ export default (state, action) => {
                     // return organization.name.match(regex) || organization.category.match(regex)
                 })
             }
+
+        case SET_CURRENT_ORG:
+            return {
+                ...state,
+                current: action.payload
+            }
         case CLEAR_ORG_FILTER:
             return {
                 ...state,
                 filtered: null
+            }
+        case CLEAR_CURRENT_ORG:
+            return {
+                ...state,
+                current: null
             }
         default:
             return state
