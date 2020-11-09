@@ -40,8 +40,12 @@ export default (state, action) => {
             return {
                 ...state,
                 filtered: state.organizations.filter(organization => {
+                    console.log(organization.name);
+                    console.log(organization.group);
                     const regex = new RegExp(`${action.payload}`, 'gi');
-                    return organization.name.match(regex) || organization.category.match(regex)
+                    console.log(regex);
+                    return organization.name.match(regex) || organization.group.match(regex);
+                    // return organization.name.match(regex) || organization.category.match(regex)
                 })
             }
         case CLEAR_ORG_FILTER:

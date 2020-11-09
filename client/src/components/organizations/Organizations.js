@@ -5,7 +5,7 @@ import OrganizationContext from '../../context/organization/organizationContext'
 
 const Organizations = () => {
     const organizationContext = useContext(OrganizationContext);
-    const { organizations, filtered, getOrganizations } = organizationContext;
+    const { organizations, filtered, getOrganizations, filterOrganizations } = organizationContext;
 
     useEffect(() => {
         getOrganizations();
@@ -22,8 +22,8 @@ const Organizations = () => {
 
         <Fragment>
             {filtered !== null ?
-                filtered.map(organization => (<OrganizationItem key={organization.id} organization={organization} />)) :
-                organizations.map(organization => (<OrganizationItem key={organization.id} organization={organization} />))}
+                filtered.map(organization => (<OrganizationItem key={organization._id} organization={organization} />)) :
+                organizations.map(organization => (<OrganizationItem key={organization._id} organization={organization} />))}
 
         </Fragment>
     )
