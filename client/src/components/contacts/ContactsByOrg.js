@@ -9,7 +9,7 @@ const ContactsByOrg = () => {
     const contactContext = useContext(ContactContext);
     const organizationContext = useContext(OrganizationContext);
 
-    const { contacts, filtered, getContacts, filterContacts } = contactContext;
+    const { filtered, filterContacts } = contactContext;
     const { current } = organizationContext;
 
     console.log(current.name);

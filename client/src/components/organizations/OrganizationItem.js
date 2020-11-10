@@ -10,7 +10,7 @@ const OrganizationItem = ({ organization }) => {
     const contactContext = useContext(ContactContext);
     const { filterContacts } = contactContext;
     const { setCurrent } = organizationContext;
-    const { id, name, website, group, address, phone } = organization;
+    const { name, website, group, address } = organization;
     // console.log(organization);
 
     return (

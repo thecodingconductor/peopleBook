@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import ContactContext from '../../context/contact/contactContext';
 import Card from 'react-bootstrap/Card';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
+// import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 import AuthContext from '../../context/auth/authContext';
@@ -11,9 +11,9 @@ import AuthContext from '../../context/auth/authContext';
 const ContactItem = ({ contact }) => {
 
     const authContext = useContext(AuthContext);
-    const contactContext = useContext(ContactContext);
+    // const contactContext = useContext(ContactContext);
     const { user, addToVIPS } = authContext;
-    const { _id, name, organization, position, email, phone, lastContacted, needToContact, notes } = contact;
+    const { _id, name, organization, position, needToContact, notes } = contact;
 
     const contactObj = {
         _id,

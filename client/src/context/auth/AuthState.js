@@ -37,6 +37,7 @@ const AuthState = props => {
 
         try {
             const res = await axios.get('/api/auth');
+            console.log(`from auth stateasdsda ${res.data}`);
             dispatch({
                 type: USER_LOADED,
                 payload: res.data
@@ -126,6 +127,14 @@ const AuthState = props => {
 
         }
     };
+
+    // const getVIPS = async () => {
+    //     try {
+    //         const res = await axios.get('/api/')
+    //     } catch (error) {
+
+    //     }
+    // }
 
     return (
         <AuthContext.Provider value={{

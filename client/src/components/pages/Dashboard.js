@@ -8,11 +8,20 @@ import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 const Dashboard = () => {
 
     const authContext = useContext(AuthContext);
+    const { loadUser, user } = authContext;
+    // console.log(`from before use effect > ${authContext}`)
+    // console.log(` user object ${authContext.user}`);
 
-    useEffect(() => {
-        authContext.loadUser();
-        // eslint-disable-next-line
-    }, [])
+
+
+
+    // useEffect(() => {
+    //     loadUser();
+    //     console.log(`from dashboard page useEffect> ${authContext.user}`);
+    //     // eslint-disable-next-line
+    // }, []);
+
+    // console.log(user.VIPS);
 
     return (
         <div>

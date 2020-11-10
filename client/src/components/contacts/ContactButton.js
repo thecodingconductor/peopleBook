@@ -6,7 +6,7 @@ const peopleData = require('../../people.json');
 const ContactButton = props => {
 
     const contactContext = useContext(ContactContext);
-    const { addAllContacts } = contactContext;
+    // const { addAllContacts } = contactContext;
 
     const onClick = e => {
         e.preventDefault();
