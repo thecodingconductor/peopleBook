@@ -17,7 +17,7 @@ export default (state, action) => {
         case ADD_TO_VIPS:
             return {
                 ...state,
-                VIPS: [action.payload, ...state.VIPS]
+                VIPS: [action.payload, ...state.user.VIPS]
             }
 
         case USER_LOADED:
@@ -49,6 +49,12 @@ export default (state, action) => {
                 isAuthenticated: false,
                 loading: false,
                 user: null,
+                error: action.payload
+            }
+
+        case ADD_VIPS_ERROR:
+            return {
+                ...state,
                 error: action.payload
             }
 

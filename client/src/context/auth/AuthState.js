@@ -107,7 +107,7 @@ const AuthState = props => {
 
 
     //Add to contacts to user's VIP list
-    const addToVIPS = async contact => {
+    const addToVIPS = async (contact, userID) => {
         const config = {
             headers: {
                 "Content-Type": "application/json"
@@ -115,17 +115,14 @@ const AuthState = props => {
         };
 
         try {
-            const res = await axios.post('/api/contacts', contact, config)
+            const res = await axios.put(`api/users/${userID}`, contact, config)
 
             dispatch({
                 type: ADD_TO_VIPS,
                 payload: res.data
             })
         } catch (error) {
-            dispatch({
-                type: ADD_VIPS_ERROR,
-                payload: error.response.msg
-            });
+            console.error(error.message);
 
         }
     };
@@ -137,15 +134,18 @@ const AuthState = props => {
             loading: state.loading,
             user: state.user,
             error: state.error,
+            addToVIPS,
             register,
             loadUser,
             login,
             logout,
             clearErrors
         }}>
-            { props.children}
+            {props.children}
         </AuthContext.Provider>
     )
+
+
 
 
 }

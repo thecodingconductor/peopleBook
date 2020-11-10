@@ -17,7 +17,8 @@ import {
     CLEAR_CONTACTS,
     CLEAR_CONTACT_FILTER,
     GET_URGENT,
-    GET_VIPS
+    GET_VIPS,
+    ADD_TO_VIPS
 } from '../types';
 
 const ContactState = props => {
@@ -116,29 +117,7 @@ const ContactState = props => {
     //     }
     // }
 
-    //Add a Contact
-    const addToVIPS = async contact => {
-        const config = {
-            headers: {
-                "Content-Type": "application/json"
-            }
-        };
 
-        try {
-            const res = await axios.post('/api/contacts', contact, config)
-
-            dispatch({
-                type: ADD_CONTACT,
-                payload: res.data
-            })
-        } catch (error) {
-            dispatch({
-                type: CONTACT_ERROR,
-                payload: error.response.msg
-            });
-
-        }
-    };
 
     //Filter Contacts
     const filterContacts = text => {
@@ -174,7 +153,6 @@ const ContactState = props => {
             urgent: state.urgent,
             vips: state.vips,
             getContacts,
-            addToVIPS,
             addAllContacts,
             filterContacts,
             clearContactFilter,

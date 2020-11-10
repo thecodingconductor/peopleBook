@@ -12,13 +12,23 @@ const ContactItem = ({ contact }) => {
 
     const authContext = useContext(AuthContext);
     const contactContext = useContext(ContactContext);
-    const { user, VIPS } = authContext;
-    const { addToVIPS } = contactContext;
-    const { id, name, organization, position, email, phone, lastContacted, needToContact, notes } = contact;
+    const { user, addToVIPS } = authContext;
+    const { _id, name, organization, position, email, phone, lastContacted, needToContact, notes } = contact;
+
+    const contactObj = {
+        _id,
+        name,
+        organization,
+        position,
+        needToContact
+    }
 
     const onClick = e => {
         e.preventDefault();
-        addToVIPS(contact);
+        // console.log(user);
+        // console.log(user._id);
+        // console.log(name);
+        addToVIPS(contactObj, user._id);
     }
 
 

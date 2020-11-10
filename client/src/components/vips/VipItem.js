@@ -5,7 +5,7 @@ import { Card, Badge } from 'react-bootstrap';
 
 const VipItem = ({ contact }) => {
 
-    const contactContext = useContext(ContactContext)
+    const contactContext = useContext(ContactContext);
     const { name, organization, email, needToContact } = contact;
 
     return (

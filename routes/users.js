@@ -77,13 +77,10 @@ router.post('/', [
 //@access Private
 router.put('/:id', auth, async (req, res) => {
 
-    const { VIPS } = req.body;
-    // const { name, organization, position } = req.body;
 
-    // const VIPObj = {};
-    // if (VIPS) VIPObj.VIPS = VIPS;
+    //recieves a contact object.
 
-    console.log(VIPS);
+
     console.log(req.body);
 
     try {
