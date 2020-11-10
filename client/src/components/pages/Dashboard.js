@@ -33,7 +33,7 @@ const Dashboard = () => {
                         <h1>Urgent Tasks</h1>
                         <UrgentList />
                     </Col>
-                    <Col className="top-right">
+                    <Col xs={6} className="top-right">
                         <h1>VIPS</h1>
                         <Container>
                             <VipList />

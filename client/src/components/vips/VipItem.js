@@ -23,7 +23,7 @@ const VipItem = ({ contact }) => {
     }
 
     return (
-        <Card style={{ width: "10rem", margin: "2rem" }}>
+        <Card style={{ width: "100%", margin: "2rem" }}>
             <Card.Body>
                 <Card.Title>
                     {name}

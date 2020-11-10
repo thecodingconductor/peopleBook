@@ -2,6 +2,7 @@ import React, { Fragment, useContext, useEffect } from 'react'
 import ContactContext from '../../context/contact/contactContext';
 import UrgentItem from '../urgent/UrgentItem';
 import AuthContext from '../../context/auth/authContext';
+import { v4 as uuidv4 } from 'uuid';
 
 const UrgentList = () => {
 
@@ -22,7 +23,7 @@ const UrgentList = () => {
     return (
         <Fragment>
             {user ? user.toDoList.map(contact => (
-                <UrgentItem key={contact._id} contact={contact}></UrgentItem>
+                <UrgentItem key={`${uuidv4()}`} contact={contact}></UrgentItem>
             )) :
                 <h1>
                     Error</h1>}

@@ -9,6 +9,7 @@ const UrgentItem = ({ contact }) => {
     const { name, organization, email, lastContacted } = contact;
 
 
+
     return (
         <Card>
             <Card.Body>

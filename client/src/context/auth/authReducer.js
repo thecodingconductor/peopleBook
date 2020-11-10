@@ -10,7 +10,9 @@ import {
     ADD_TO_VIPS,
     ADD_VIPS_ERROR,
     ADD_TO_URGENT,
-    ADD_TO_URGENT_ERROR
+    ADD_TO_URGENT_ERROR,
+    REMOVE_URGENT,
+    REMOVE_URGENT_ERROR
 } from '../types';
 
 export default (state, action) => {
@@ -33,6 +35,17 @@ export default (state, action) => {
             return {
                 ...state,
                 toDoList: [action.payload, ...state.user.toDoList]
+            }
+
+        case REMOVE_URGENT:
+            return {
+                ...state,
+                toDoList: [action.payload, ...state.user.toDoList]
+            }
+
+        case REMOVE_URGENT_ERROR:
+            return {
+                ...state
             }
 
         case LOGIN_SUCCESS:

@@ -72,6 +72,7 @@ router.post('/', [
     }
 });
 
+
 //@route UPDATE api/users/:id/vips
 //@desc UPDATE a user VIPS
 //@access Private
@@ -101,9 +102,42 @@ router.put('/:id/vips', auth, async (req, res) => {
 
 });
 
-// @route DELETE api/users/:id/vips
-//@desc DELETE a user VIP
+//@route UPDATE api/users/:id/vips/remove
+//@desc REMOVE a user VIP
 //@access Private
+router.put('/:id/vips/remove', auth, async (req, res) => {
+
+
+    //recieves a contact object.
+
+
+    const { _id } = req.body;
+    console.log(req.body);
+    console.log(_id);
+
+    try {
+        let user = await User.findById(req.params.id);
+        if (!user) return res.status(404).json({ msg: 'Contact not found' });
+
+        user = await User.findByIdAndUpdate(
+            req.params.id,
+            {
+                $pull: {
+                    "VIPS": {
+                        _id
+                    }
+                }
+            },
+            { new: true },
+        );
+        res.json(user);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send('Server Error');
+    }
+
+});
+
 
 //@route UPDATE api/users/:id/urgent
 //@desc UPDATE a user URGENT LIST
