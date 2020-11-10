@@ -10,7 +10,7 @@ const VipItem = ({ contact }) => {
     const authContext = useContext(AuthContext);
 
     const { _id, name, organization, position, email, needToContact } = contact;
-    const { addToUrgent, user, removeFromVIPS } = authContext;
+    const { addToUrgent, user, removeFromVIPS, clearVIP } = authContext;
 
 
     const UrgentItem = {
@@ -19,6 +19,11 @@ const VipItem = ({ contact }) => {
         organization,
         position,
         needToContact
+    }
+
+    const onRemove = () => {
+        removeFromVIPS(UrgentItem, user._id);
+        clearVIP();
     }
 
     return (
@@ -31,7 +36,7 @@ const VipItem = ({ contact }) => {
                 {email ? <Card.Link href="#">{email}</Card.Link> : ''}
 
                 <Badge variant={needToContact === false ? "success" : "danger"}>{needToContact === false ? "No need to Contact" : "Need to Contact"}</Badge>
-                <Button variant="danger" onClick={() => removeFromVIPS(UrgentItem, user._id)}  >Remove VIP</Button>
+                <Button variant="danger" onClick={onRemove}  >Remove VIP</Button>
                 <Button variant="success" onClick={() => addToUrgent(UrgentItem, user._id)}>Add to Urgent List</Button>
             </Card.Body>
         </Card>

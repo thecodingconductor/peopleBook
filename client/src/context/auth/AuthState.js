@@ -19,7 +19,9 @@ import {
     ADD_TO_URGENT,
     ADD_TO_URGENT_ERROR,
     REMOVE_URGENT,
-    REMOVE_URGENT_ERROR
+    REMOVE_URGENT_ERROR,
+    CLEAR_VIP,
+    CLEAR_URGENT_ITEM
 } from '../types';
 
 const AuthState = props => {
@@ -151,10 +153,11 @@ const AuthState = props => {
                 payload: res.data
             })
         } catch (error) {
-            dispatch({
-                type: REMOVE_VIP_ERROR,
-                payload: error.response.data.message
-            })
+            console.error(error);
+            // dispatch({
+            //     type: REMOVE_VIP_ERROR,
+            //     payload: error.response.msg
+            // })
         }
     }
 
@@ -209,13 +212,15 @@ const AuthState = props => {
         }
     }
 
-    // const getVIPS = async () => {
-    //     try {
-    //         const res = await axios.get('/api/')
-    //     } catch (error) {
+    //Clear removed VIP
+    const clearVIP = () => {
+        dispatch({ type: CLEAR_VIP })
+    }
 
-    //     }
-    // }
+    //Clear removed Urgent Item
+    const clearUrgentItem = () => {
+        dispatch({ type: CLEAR_URGENT_ITEM })
+    }
 
     return (
         <AuthContext.Provider value={{
@@ -228,6 +233,8 @@ const AuthState = props => {
             removeFromVIPS,
             addToUrgent,
             removeFromToDoList,
+            clearVIP,
+            clearUrgentItem,
             register,
             loadUser,
             login,

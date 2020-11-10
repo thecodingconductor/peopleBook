@@ -14,7 +14,9 @@ import {
     REMOVE_URGENT,
     REMOVE_URGENT_ERROR,
     REMOVE_VIP,
-    REMOVE_VIP_ERROR
+    REMOVE_VIP_ERROR,
+    CLEAR_VIP,
+    CLEAR_URGENT_ITEM
 } from '../types';
 
 export default (state, action) => {
@@ -30,13 +32,19 @@ export default (state, action) => {
         case ADD_TO_VIPS:
             return {
                 ...state,
-                VIPS: [action.payload, ...state.user.VIPS]
+                user: {
+                    ...state.user,
+                    VIPS: [...state.user.VIPS]
+                }
             }
 
         case REMOVE_VIP:
             return {
                 ...state,
-                VIPS: [action.payload, ...state.user.VIPS]
+                user: {
+                    ...state.user,
+                    VIPS: [...state.user.VIPS]
+                }
             }
 
 
@@ -50,6 +58,17 @@ export default (state, action) => {
             return {
                 ...state,
                 toDoList: [action.payload, ...state.user.toDoList]
+            }
+
+        case CLEAR_VIP:
+            return {
+                ...state,
+                VIPS: [...state.user.VIPS]
+            }
+        case CLEAR_URGENT_ITEM:
+            return {
+                ...state,
+                toDoList: [...state.user.toDoList]
             }
 
         case REMOVE_URGENT_ERROR:
