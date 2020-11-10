@@ -12,18 +12,13 @@ import {
     ADD_TO_URGENT,
     ADD_TO_URGENT_ERROR,
     REMOVE_URGENT,
-    REMOVE_URGENT_ERROR
+    REMOVE_URGENT_ERROR,
+    REMOVE_VIP,
+    REMOVE_VIP_ERROR
 } from '../types';
 
 export default (state, action) => {
     switch (action.type) {
-
-        case ADD_TO_VIPS:
-            return {
-                ...state,
-                VIPS: [action.payload, ...state.user.VIPS]
-            }
-
         case USER_LOADED:
             return {
                 ...state,
@@ -31,6 +26,20 @@ export default (state, action) => {
                 loading: false,
                 user: action.payload
             }
+
+        case ADD_TO_VIPS:
+            return {
+                ...state,
+                VIPS: [action.payload, ...state.user.VIPS]
+            }
+
+        case REMOVE_VIP:
+            return {
+                ...state,
+                VIPS: [action.payload, ...state.user.VIPS]
+            }
+
+
         case ADD_TO_URGENT:
             return {
                 ...state,
@@ -44,6 +53,7 @@ export default (state, action) => {
             }
 
         case REMOVE_URGENT_ERROR:
+        case REMOVE_VIP_ERROR:
             return {
                 ...state
             }

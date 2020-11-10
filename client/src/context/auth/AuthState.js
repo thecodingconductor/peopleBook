@@ -14,6 +14,8 @@ import {
     CLEAR_ERRORS,
     ADD_TO_VIPS,
     ADD_VIPS_ERROR,
+    REMOVE_VIP,
+    REMOVE_VIP_ERROR,
     ADD_TO_URGENT,
     ADD_TO_URGENT_ERROR,
     REMOVE_URGENT,
@@ -131,6 +133,31 @@ const AuthState = props => {
         }
     };
 
+    // Remove contact from VIPS
+    const removeFromVIPS = async (contact, userID) => {
+        const config = {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        };
+
+        try {
+
+            const res = await axios.put(`api/users/${userID}/vips/remove`, contact, config);
+
+
+            dispatch({
+                type: REMOVE_VIP,
+                payload: res.data
+            })
+        } catch (error) {
+            dispatch({
+                type: REMOVE_VIP_ERROR,
+                payload: error.response.data.message
+            })
+        }
+    }
+
     // Add contact to Urgent List.
     const addToUrgent = async (contact, userID) => {
         const config = {
@@ -198,7 +225,9 @@ const AuthState = props => {
             user: state.user,
             error: state.error,
             addToVIPS,
+            removeFromVIPS,
             addToUrgent,
+            removeFromToDoList,
             register,
             loadUser,
             login,
