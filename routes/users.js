@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
+const auth = require('../middleware/auth');
 const { check, validationResult } = require('express-validator');
 
 const User = require('../models/User');
@@ -74,28 +75,34 @@ router.post('/', [
 //@route UPDATE api/users/:id
 //@desc UPDATE a user VIPS
 //@access Private
-// router.put('/:id', auth, async (req, res) => {
+router.put('/:id', auth, async (req, res) => {
 
-//     const { VIPS } = req.body;
-//     // const { name, organization, position } = req.body;
+    const { VIPS } = req.body;
+    // const { name, organization, position } = req.body;
 
-//     const userFields = {};
-//     if (VIPS) userFields.VIPS = VIPS;
+    // const VIPObj = {};
+    // if (VIPS) VIPObj.VIPS = VIPS;
 
-//     try {
-//         let user = await User.findById(req.params.id);
-//         if (!user) return res.status(404).json({ msg: 'Contact not found' });
+    console.log(VIPS);
+    console.log(req.body);
 
-//         user = await User.findByIdAndUpdate(
-//             req.params.id,
-//             { $set: }
-//         )
-//     } catch (error) {
+    try {
+        let user = await User.findById(req.params.id);
+        if (!user) return res.status(404).json({ msg: 'Contact not found' });
 
-//     }
+        user = await User.findByIdAndUpdate(
+            req.params.id,
+            { $push: { "VIPS": req.body } },
+            { new: true },
+        );
+        res.json(user);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send('Server Error');
+    }
 
 
-// });
+});
 
 
 module.exports = router;
