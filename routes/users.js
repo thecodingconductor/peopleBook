@@ -168,6 +168,42 @@ router.put('/:id/urgent', auth, async (req, res) => {
 
 });
 
+//@route UPDATE api/users/:id/urgent/remove
+//@desc REMOVE a user Urgent Contact
+//@access Private
+router.put('/:id/urgent/remove', auth, async (req, res) => {
+
+
+    //recieves a contact object.
+
+
+    const { _id } = req.body;
+    console.log(req.body);
+    console.log(_id);
+
+    try {
+        let user = await User.findById(req.params.id);
+        if (!user) return res.status(404).json({ msg: 'Contact not found' });
+
+        user = await User.findByIdAndUpdate(
+            req.params.id,
+            {
+                $pull: {
+                    "toDoList": {
+                        _id
+                    }
+                }
+            },
+            { new: true },
+        );
+        res.json(user);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send('Server Error');
+    }
+
+});
+
 
 
 
