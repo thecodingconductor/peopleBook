@@ -42,20 +42,7 @@ const ContactState = props => {
             },
 
         ],
-        vips: [
-            {
-                id: 4,
-                name: "Franz Welser Most",
-                organization: "Cleveland Orchestra",
-                position: "Music Director",
-                email: "bordad@nyphil.org",
-                phone: "111-111-1111",
-                lastContacted: null,
-                needToContact: false,
-                notes: null
-
-            },
-        ]
+        vips: null
     };
 
     const [state, dispatch] = useReducer(contactReducer, initialState);
@@ -130,10 +117,28 @@ const ContactState = props => {
     // }
 
     //Add a Contact
-    const addContact = contact => {
-        contact.id = uuidv4();
-        dispatch({ type: ADD_CONTACT, payload: contact })
-    }
+    const addToVIPS = async contact => {
+        const config = {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        };
+
+        try {
+            const res = await axios.post('/api/contacts', contact, config)
+
+            dispatch({
+                type: ADD_CONTACT,
+                payload: res.data
+            })
+        } catch (error) {
+            dispatch({
+                type: CONTACT_ERROR,
+                payload: error.response.msg
+            });
+
+        }
+    };
 
     //Filter Contacts
     const filterContacts = text => {
@@ -169,7 +174,7 @@ const ContactState = props => {
             urgent: state.urgent,
             vips: state.vips,
             getContacts,
-            addContact,
+            addToVIPS,
             addAllContacts,
             filterContacts,
             clearContactFilter,

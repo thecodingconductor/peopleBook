@@ -23,23 +23,50 @@ router.get('/', auth, async (req, res) => {
 
 
 // @route   POST api/contacts
-// @desc    ADD new contact
+// @desc    ADD contacts to Database
 // @access  Public
-router.post('/', async (req, res) => {
+// router.post('/', async (req, res) => {
+
+//     const { name, organization, position } = req.body;
+
+//     console.log(`from back end req.body${name}, ${organization}, ${position}`);
+
+//     try {
+//         const newPerson = new Person({
+//             name, organization, position
+//         });
+
+//         console.log(`from backend, newPerson: ${newPerson.name}`);
+
+//         const person = await newPerson.save();
+//         res.json(person);
+//     } catch (error) {
+//         console.error(error.message);
+//         res.status(500).send("THIS IS SERVER ERROR");
+//     }
+// });
+
+// @route POST api/contacts
+// @desc Add Contact to VIPS
+// @access Private
+router.post('/', auth, async (req, res) => {
 
     const { name, organization, position } = req.body;
 
     console.log(`from back end req.body${name}, ${organization}, ${position}`);
 
     try {
-        const newPerson = new Person({
-            name, organization, position
+        const newContact = new Contact({
+            name,
+            organization,
+            position,
+            user: req.user.id
         });
 
         console.log(`from backend, newPerson: ${newPerson.name}`);
 
-        const person = await newPerson.save();
-        res.json(person);
+        const contact = await newContact.save();
+        res.json(contact);
     } catch (error) {
         console.error(error.message);
         res.status(500).send("THIS IS SERVER ERROR");
@@ -53,7 +80,7 @@ router.post('/', async (req, res) => {
 // @access   Private
 router.put('/:id', (req, res) => {
     res.send('Update Contact');
-})
+});
 
 // @route   DELETE api/contacts/:id
 // @desc    Delete Contact

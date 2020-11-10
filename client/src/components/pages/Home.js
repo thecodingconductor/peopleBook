@@ -33,13 +33,13 @@ const Home = () => {
                     </Card>
 
                 </Col>
-                <Col>
+                {/* <Col>
                     <Card bg="success" style={{ height: "18rem", marginTop: "5rem" }}>
                         <Card.Header style={{ textAlign: "center" }}>View By People</Card.Header>
                         <Button href='/people' variant="primary">Go now</Button>
                     </Card>
 
-                </Col>
+                </Col> */}
             </Row>
 
         </Container >

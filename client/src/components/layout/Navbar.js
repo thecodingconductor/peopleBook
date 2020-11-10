@@ -24,7 +24,7 @@ const Navbar = ({ title, icon }) => {
         <Fragment>
             <div className="d-flex justify-content-start align-items-center">
                 <Nav.Link href="/dashboard">Dashboard</Nav.Link>
-                <Nav.Link href="/people">People</Nav.Link>
+                {/* <Nav.Link href="/people">People</Nav.Link> */}
                 <Nav.Link href="/organizations">Organizations</Nav.Link>
             </div>
             <div className="d-flex justify-content-start align-items-center">

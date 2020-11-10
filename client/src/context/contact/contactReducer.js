@@ -41,7 +41,7 @@ export default (state, action) => {
         case ADD_CONTACT:
             return {
                 ...state,
-                contacts: [action.payload, ...state.contacts]
+                vips: [action.payload, ...state.vips]
             }
 
         case ADD_CONTACT_FAIL:

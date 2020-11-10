@@ -11,7 +11,9 @@ import {
     LOGIN_SUCCESS,
     LOGIN_FAIL,
     LOGOUT,
-    CLEAR_ERRORS
+    CLEAR_ERRORS,
+    ADD_TO_VIPS,
+    ADD_VIPS_ERROR
 } from '../types';
 
 const AuthState = props => {
@@ -21,7 +23,8 @@ const AuthState = props => {
         isAuthenticated: null,
         loading: true,
         user: null,
-        error: null
+        error: null,
+
     };
 
     const [state, dispatch] = useReducer(authReducter, initialState);
@@ -101,6 +104,31 @@ const AuthState = props => {
     const clearErrors = () => {
         dispatch({ type: CLEAR_ERRORS })
     }
+
+
+    //Add to contacts to user's VIP list
+    const addToVIPS = async contact => {
+        const config = {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        };
+
+        try {
+            const res = await axios.post('/api/contacts', contact, config)
+
+            dispatch({
+                type: ADD_TO_VIPS,
+                payload: res.data
+            })
+        } catch (error) {
+            dispatch({
+                type: ADD_VIPS_ERROR,
+                payload: error.response.msg
+            });
+
+        }
+    };
 
     return (
         <AuthContext.Provider value={{

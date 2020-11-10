@@ -24,6 +24,9 @@ const OrganizationsPage = () => {
         <Container>
             <Row>
                 <OrganizationFilter />
+
+                <OrganizationButton />
+
             </Row>
             <Row >
                 <Organizations />
@@ -36,9 +39,7 @@ const OrganizationsPage = () => {
 
             } */}
 
-            <Row>
-                <OrganizationButton />
-            </Row>
+
         </Container>
 
 

@@ -71,4 +71,31 @@ router.post('/', [
     }
 });
 
+//@route UPDATE api/users/:id
+//@desc UPDATE a user VIPS
+//@access Private
+// router.put('/:id', auth, async (req, res) => {
+
+//     const { VIPS } = req.body;
+//     // const { name, organization, position } = req.body;
+
+//     const userFields = {};
+//     if (VIPS) userFields.VIPS = VIPS;
+
+//     try {
+//         let user = await User.findById(req.params.id);
+//         if (!user) return res.status(404).json({ msg: 'Contact not found' });
+
+//         user = await User.findByIdAndUpdate(
+//             req.params.id,
+//             { $set: }
+//         )
+//     } catch (error) {
+
+//     }
+
+
+// });
+
+
 module.exports = router;

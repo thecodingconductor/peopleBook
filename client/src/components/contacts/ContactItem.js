@@ -4,13 +4,22 @@ import ContactContext from '../../context/contact/contactContext';
 import Card from 'react-bootstrap/Card';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Badge from 'react-bootstrap/Badge';
+import Button from 'react-bootstrap/Button';
+import AuthContext from '../../context/auth/authContext';
 
 
 const ContactItem = ({ contact }) => {
 
+    const authContext = useContext(AuthContext);
     const contactContext = useContext(ContactContext);
+    const { user, VIPS } = authContext;
+    const { addToVIPS } = contactContext;
     const { id, name, organization, position, email, phone, lastContacted, needToContact, notes } = contact;
 
+    const onClick = e => {
+        e.preventDefault();
+        addToVIPS(contact);
+    }
 
 
     return (
@@ -27,6 +36,8 @@ const ContactItem = ({ contact }) => {
                         {needToContact}
                     </ToggleButton>
                 </ButtonGroup> */}
+
+                <Button variant="info" onClick={onClick}>Add to VIP List</Button>
 
 
                 <Card.Text>

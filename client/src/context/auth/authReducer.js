@@ -6,11 +6,19 @@ import {
     LOGIN_SUCCESS,
     LOGIN_FAIL,
     LOGOUT,
-    CLEAR_ERRORS
+    CLEAR_ERRORS,
+    ADD_TO_VIPS,
+    ADD_VIPS_ERROR,
 } from '../types';
 
 export default (state, action) => {
     switch (action.type) {
+
+        case ADD_TO_VIPS:
+            return {
+                ...state,
+                VIPS: [action.payload, ...state.VIPS]
+            }
 
         case USER_LOADED:
             return {
