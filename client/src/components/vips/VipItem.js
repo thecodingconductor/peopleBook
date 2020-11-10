@@ -1,12 +1,26 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import ContactContext from '../../context/contact/contactContext';
-import { Card, Badge } from 'react-bootstrap';
+import AuthContext from '../../context/auth/authContext';
+import { Card, Badge, Button } from 'react-bootstrap';
 
 const VipItem = ({ contact }) => {
 
     const contactContext = useContext(ContactContext);
-    const { name, organization, email, needToContact } = contact;
+    const authContext = useContext(AuthContext);
+
+    const { _id, name, organization, position, email, needToContact } = contact;
+    const { addToUrgent, user } = authContext;
+
+
+    const UrgentItem = {
+        _id,
+        name,
+        organization,
+        position,
+        needToContact
+
+    }
 
     return (
         <Card style={{ width: "10rem", margin: "2rem" }}>
@@ -15,8 +29,11 @@ const VipItem = ({ contact }) => {
                     {name}
                 </Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{organization}</Card.Subtitle>
-                <Card.Link href="#">{email}</Card.Link>
-                <Badge variant={needToContact === false ? "success" : "danger"}>{needToContact === false ? "No need to Contact" : "Add to Urgent"}</Badge>
+                {email ? <Card.Link href="#">{email}</Card.Link> : ''}
+
+                <Badge variant={needToContact === false ? "success" : "danger"}>{needToContact === false ? "No need to Contact" : "Need to Contact"}</Badge>
+                <Button variant="danger">Remove VIP</Button>
+                <Button variant="success" onClick={() => addToUrgent(UrgentItem, user._id)}>Add to Urgent List</Button>
             </Card.Body>
         </Card>
     )

@@ -72,10 +72,10 @@ router.post('/', [
     }
 });
 
-//@route UPDATE api/users/:id
+//@route UPDATE api/users/:id/vips
 //@desc UPDATE a user VIPS
 //@access Private
-router.put('/:id', auth, async (req, res) => {
+router.put('/:id/vips', auth, async (req, res) => {
 
 
     //recieves a contact object.
@@ -100,6 +100,41 @@ router.put('/:id', auth, async (req, res) => {
 
 
 });
+
+// @route DELETE api/users/:id/vips
+//@desc DELETE a user VIP
+//@access Private
+
+//@route UPDATE api/users/:id/urgent
+//@desc UPDATE a user URGENT LIST
+//@access Private
+router.put('/:id/urgent', auth, async (req, res) => {
+
+
+    //recieves a contact object.
+
+
+    console.log(req.body);
+
+    try {
+        let user = await User.findById(req.params.id);
+        if (!user) return res.status(404).json({ msg: 'Contact not found' });
+
+        user = await User.findByIdAndUpdate(
+            req.params.id,
+            { $push: { "toDoList": req.body } },
+            { new: true },
+        );
+        res.json(user);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send('Server Error');
+    }
+
+
+});
+
+
 
 
 module.exports = router;

@@ -40,3 +40,6 @@ export const LOGOUT = " LOGOUT";
 export const CLEAR_ERRORS = " CLEAR_ERRORS";
 export const ADD_TO_VIPS = "ADD_TO_VIPS";
 export const ADD_VIPS_ERROR = "ADD_VIPS_ERROR";
+export const ADD_TO_URGENT = "ADD_TO_URGENT"
+export const ADD_TO_URGENT_ERROR = "ADD_TO_URGENT_ERROR"
+

@@ -9,6 +9,8 @@ import {
     CLEAR_ERRORS,
     ADD_TO_VIPS,
     ADD_VIPS_ERROR,
+    ADD_TO_URGENT,
+    ADD_TO_URGENT_ERROR
 } from '../types';
 
 export default (state, action) => {
@@ -26,6 +28,11 @@ export default (state, action) => {
                 isAuthenticated: true,
                 loading: false,
                 user: action.payload
+            }
+        case ADD_TO_URGENT:
+            return {
+                ...state,
+                toDoList: [action.payload, ...state.user.toDoList]
             }
 
         case LOGIN_SUCCESS:
@@ -53,6 +60,7 @@ export default (state, action) => {
             }
 
         case ADD_VIPS_ERROR:
+        case ADD_TO_URGENT_ERROR:
             return {
                 ...state,
                 error: action.payload

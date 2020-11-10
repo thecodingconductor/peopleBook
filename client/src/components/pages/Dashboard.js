@@ -44,12 +44,7 @@ const Dashboard = () => {
 
             <Container className="bottom-buttons">
                 <Row>
-                    <Col>
-                        <Button variant="primary" href="/organizations" block>View All Organizations</Button>
-                    </Col>
-                    <Col>
-                        <Button variant="primary" href="/people" block>View All People</Button>
-                    </Col>
+                    <Button variant="primary" href="/organizations" block>View All Organizations</Button>
                 </Row>
             </Container>
 

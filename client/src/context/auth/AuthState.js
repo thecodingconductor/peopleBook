@@ -13,7 +13,9 @@ import {
     LOGOUT,
     CLEAR_ERRORS,
     ADD_TO_VIPS,
-    ADD_VIPS_ERROR
+    ADD_VIPS_ERROR,
+    ADD_TO_URGENT,
+    ADD_TO_URGENT_ERROR
 } from '../types';
 
 const AuthState = props => {
@@ -116,7 +118,7 @@ const AuthState = props => {
         };
 
         try {
-            const res = await axios.put(`api/users/${userID}`, contact, config)
+            const res = await axios.put(`api/users/${userID}/vips`, contact, config)
 
             dispatch({
                 type: ADD_TO_VIPS,
@@ -127,6 +129,31 @@ const AuthState = props => {
 
         }
     };
+
+    const addToUrgent = async (contact, userID) => {
+        const config = {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        };
+
+        console.log(contact);
+
+        try {
+            const res = await axios.put(`api/users/${userID}/urgent`, contact, config);
+
+            dispatch({
+                type: ADD_TO_URGENT,
+                payload: res.data
+            })
+
+        } catch (error) {
+            dispatch({
+                type: ADD_TO_URGENT_ERROR,
+                payload: error.response.data.message
+            })
+        }
+    }
 
     // const getVIPS = async () => {
     //     try {
@@ -144,6 +171,7 @@ const AuthState = props => {
             user: state.user,
             error: state.error,
             addToVIPS,
+            addToUrgent,
             register,
             loadUser,
             login,
