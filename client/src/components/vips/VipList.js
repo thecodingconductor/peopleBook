@@ -15,13 +15,13 @@ const VipList = () => {
         // eslint-disable-next-line
     }, [])
 
-    // if (user) {
-    //     console.log(user)
-    // } else {
-    //     console.log('no user');
-    // }
 
-    // if (user.VIPS.length === 0) {
+    if (user !== null && user.VIPS.length === 0) {
+        return <h4>Please add some VIPS</h4>
+    }
+
+
+    // if (user.VIPS !== null || user.VIPS.length === 0) {
     //     return <h4>Please Add Vips</h4>
     // }
 
@@ -29,17 +29,13 @@ const VipList = () => {
 
 
         <Fragment>
+
             {user ? user.VIPS.map(vip => (
                 <VipItem key={vip._id} contact={vip}></VipItem>
-            )
-
-            ) :
-
-                <Fragment>
-                    <h1>
-                        Error
-                    </h1>
-                </Fragment>
+            )) :
+                <h1>
+                    Error
+            </h1>
             }
         </Fragment>
     )

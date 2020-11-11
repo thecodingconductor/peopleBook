@@ -15,8 +15,11 @@ const UrgentList = () => {
         // eslint-disable-next-line
     }, [])
 
+    if (user !== null && user.toDoList.length === 0) {
+        return <h4>Please add some Urgent Contacts</h4>
+    }
 
-    // if (urgent.length === 0) {
+    // if (user.toDoList !== null || user.toDoList.length === 0) {
     //     return <h4>Please Add Urgent Contacts</h4>
     // }
 
