@@ -9,6 +9,7 @@ import {
     CLEAR_ERRORS,
     ADD_TO_VIPS,
     ADD_VIPS_ERROR,
+    GET_VIPS,
     ADD_TO_URGENT,
     ADD_TO_URGENT_ERROR,
     REMOVE_URGENT,
@@ -39,13 +40,22 @@ export default (state, action) => {
             }
 
         case REMOVE_VIP:
+            // console.log(`from reducer ${action.payload._id}`)
+            // console.log(state.user.VIPS);
+            // state.user.VIPS.map(vip => console.log(`vip._id > ${vip._id}, action.payload._id > ${action.payload._id}`));
             return {
                 ...state,
                 user: {
                     ...state.user,
-                    VIPS: [...state.user.VIPS]
+                    VIPS: state.user.VIPS.filter(vip => vip._id !== action.payload._id)
                 }
             }
+
+        case GET_VIPS: {
+            return {
+                ...state
+            }
+        }
 
 
         case ADD_TO_URGENT:

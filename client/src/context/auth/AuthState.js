@@ -21,7 +21,8 @@ import {
     REMOVE_URGENT,
     REMOVE_URGENT_ERROR,
     CLEAR_VIP,
-    CLEAR_URGENT_ITEM
+    CLEAR_URGENT_ITEM,
+    GET_VIPS
 } from '../types';
 
 const AuthState = props => {
@@ -148,9 +149,10 @@ const AuthState = props => {
             const res = await axios.put(`api/users/${userID}/vips/remove`, contact, config);
 
 
+
             dispatch({
                 type: REMOVE_VIP,
-                payload: res.data
+                payload: contact
             })
         } catch (error) {
             console.error(error);
@@ -159,6 +161,14 @@ const AuthState = props => {
             //     payload: error.response.msg
             // })
         }
+    }
+
+    const getVIPS = async () => {
+
+        console.log('get vips?');
+        dispatch({
+            type: GET_VIPS
+        })
     }
 
     // Add contact to Urgent List.
@@ -173,6 +183,8 @@ const AuthState = props => {
 
         try {
             const res = await axios.put(`api/users/${userID}/urgent`, contact, config);
+
+
 
             dispatch({
                 type: ADD_TO_URGENT,
@@ -231,6 +243,7 @@ const AuthState = props => {
             error: state.error,
             addToVIPS,
             removeFromVIPS,
+            getVIPS,
             addToUrgent,
             removeFromToDoList,
             clearVIP,

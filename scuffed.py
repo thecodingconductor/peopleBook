@@ -174,6 +174,7 @@ def tile_loop():
         current_tiles = driver.find_elements_by_css_selector('#TileListView > div > div > div > div > div') 
     
 def tile_loop_ext():
+    counter = 2
     current_tiles = driver.find_elements_by_css_selector('#TileListView > div > div > div > div > div')
     for tile in range(len(current_tiles)-1):
         time.sleep(1)
@@ -195,10 +196,11 @@ def tile_loop_ext():
             fail_button = driver.find_element_by_class_name('slds-align-middle.slds-text-heading_x-small.fonteva-slds-hero--heading.slds-truncate')
             fail_button.click()
             time.sleep(1)
-        # for i in range(15):
-        #     next_org_page = driver.find_element_by_css_selector("#TileListView > div > div > div > div > div.slds-size--1-of-1.slds-m-top--medium.slds-grid_align-center > div > button.slds-button.slds-button_neutral.slds-m-left--small.slds-align-middle.fonteva-button--icon.slds-p-horizontal--small")
-        #     next_org_page.click()
-        #     time.sleep(1)
+        for i in range(counter):
+            next_org_page = driver.find_element_by_css_selector("#TileListView > div > div > div > div > div.slds-size--1-of-1.slds-m-top--medium.slds-grid_align-center > div > button.slds-button.slds-button_neutral.slds-m-left--small.slds-align-middle.fonteva-button--icon.slds-p-horizontal--small")
+            next_org_page.click()
+            time.sleep(1)
+        counter += 1
 
 
 def scroll_pages(num):

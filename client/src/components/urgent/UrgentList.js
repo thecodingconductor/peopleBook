@@ -26,7 +26,8 @@ const UrgentList = () => {
                 <UrgentItem key={`${uuidv4()}`} contact={contact}></UrgentItem>
             )) :
                 <h1>
-                    Error</h1>}
+                    Error
+                </h1>}
         </Fragment>
     )
 }

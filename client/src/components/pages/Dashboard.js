@@ -9,19 +9,6 @@ const Dashboard = () => {
 
     const authContext = useContext(AuthContext);
     const { loadUser, user } = authContext;
-    // console.log(`from before use effect > ${authContext}`)
-    // console.log(` user object ${authContext.user}`);
-
-
-
-
-    // useEffect(() => {
-    //     loadUser();
-    //     console.log(`from dashboard page useEffect> ${authContext.user}`);
-    //     // eslint-disable-next-line
-    // }, []);
-
-    // console.log(user.VIPS);
 
     return (
         <div>

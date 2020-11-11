@@ -112,8 +112,7 @@ router.put('/:id/vips/remove', auth, async (req, res) => {
 
 
     const { _id } = req.body;
-    console.log(req.body);
-    console.log(_id);
+
 
     try {
         let user = await User.findById(req.params.id);
@@ -130,6 +129,7 @@ router.put('/:id/vips/remove', auth, async (req, res) => {
             },
             { new: true },
         );
+        console.log(`VIP removed: ${req.body.name}`);
         res.json(user);
     } catch (error) {
         console.error(error.message);

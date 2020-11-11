@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ContactContext from '../../context/contact/contactContext';
 import AuthContext from '../../context/auth/authContext';
 import { Card, Badge, Button } from 'react-bootstrap';
+import { GET_VIPS } from '../../context/types';
 
 const VipItem = ({ contact }) => {
 
@@ -10,10 +11,10 @@ const VipItem = ({ contact }) => {
     const authContext = useContext(AuthContext);
 
     const { _id, name, organization, position, email, needToContact } = contact;
-    const { addToUrgent, user, removeFromVIPS, clearVIP } = authContext;
+    const { addToUrgent, user, removeFromVIPS, clearVIP, getVIPS } = authContext;
 
 
-    const UrgentItem = {
+    const VIPItem = {
         _id,
         name,
         organization,
@@ -22,8 +23,7 @@ const VipItem = ({ contact }) => {
     }
 
     const onRemove = () => {
-        removeFromVIPS(UrgentItem, user._id);
-        clearVIP();
+        removeFromVIPS(VIPItem, user._id);
     }
 
     return (
@@ -37,7 +37,7 @@ const VipItem = ({ contact }) => {
 
                 <Badge variant={needToContact === false ? "success" : "danger"}>{needToContact === false ? "No need to Contact" : "Need to Contact"}</Badge>
                 <Button variant="danger" onClick={onRemove}  >Remove VIP</Button>
-                <Button variant="success" onClick={() => addToUrgent(UrgentItem, user._id)}>Add to Urgent List</Button>
+                <Button variant="success" onClick={() => addToUrgent(VIPItem, user._id)}>Add to Urgent List</Button>
             </Card.Body>
         </Card>
     )

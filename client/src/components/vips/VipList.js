@@ -15,11 +15,11 @@ const VipList = () => {
         // eslint-disable-next-line
     }, [])
 
-    if (user) {
-        console.log(user)
-    } else {
-        console.log('no user');
-    }
+    // if (user) {
+    //     console.log(user)
+    // } else {
+    //     console.log('no user');
+    // }
 
     // if (user.VIPS.length === 0) {
     //     return <h4>Please Add Vips</h4>
@@ -39,7 +39,8 @@ const VipList = () => {
                     <h1>
                         Error
                     </h1>
-                </Fragment>}
+                </Fragment>
+            }
         </Fragment>
     )
 }
