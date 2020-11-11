@@ -7,7 +7,9 @@ import {
     CLEAR_CURRENT,
     UPDATE_CONTACT,
     FILTER_CONTACTS,
+    FILTER_FILTERED_CONTACTS,
     CLEAR_CONTACT_FILTER,
+    CLEAR_FILTERED_BY_ORG,
     CONTACTS_BY_ORG,
     CONTACTS_BY_ORG_ERROR,
     GET_CONTACTS,
@@ -25,6 +27,19 @@ export default (state, action) => {
                     const regex = new RegExp(`${action.payload}`, 'gi');
                     return contact.name.match(regex) || contact.position.match(regex) || contact.organization.match(regex);
                 })
+            }
+        case FILTER_FILTERED_CONTACTS:
+            return {
+                ...state,
+                filteredByOrg: state.filtered.filter(contact => {
+                    const regex = new RegExp(`${action.payload}`, 'gi');
+                    return contact.name.match(regex) || contact.position.match(regex);
+                })
+            }
+        case CLEAR_FILTERED_BY_ORG:
+            return {
+                ...state,
+                filteredByOrg: null
             }
 
         case CONTACTS_BY_ORG:

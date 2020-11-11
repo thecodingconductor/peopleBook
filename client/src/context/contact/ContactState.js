@@ -13,6 +13,8 @@ import {
     SET_CURRENT,
     UPDATE_CONTACT,
     FILTER_CONTACTS,
+    FILTER_FILTERED_CONTACTS,
+    CLEAR_FILTERED_BY_ORG,
     ADD_CONTACT_FAIL,
     CLEAR_CONTACTS,
     CLEAR_CONTACT_FILTER,
@@ -27,6 +29,7 @@ const ContactState = props => {
         contacts: null,
         current: null,
         filtered: null,
+        filteredByOrg: null,
         urgent: [
 
             {
@@ -43,7 +46,7 @@ const ContactState = props => {
             },
 
         ],
-        vips: null
+
     };
 
     const [state, dispatch] = useReducer(contactReducer, initialState);
@@ -121,8 +124,19 @@ const ContactState = props => {
 
     //Filter Contacts
     const filterContacts = text => {
-        console.log(text);
+        // console.log(text);
         dispatch({ type: FILTER_CONTACTS, payload: text })
+    }
+
+    const filterFilteredContacts = text => {
+        dispatch({
+            type: FILTER_FILTERED_CONTACTS,
+            payload: text
+        })
+    }
+
+    const clearFilteredByOrg = () => {
+        dispatch({ type: CLEAR_FILTERED_BY_ORG })
     }
 
     //Clear Contact Filter
@@ -150,11 +164,13 @@ const ContactState = props => {
             contacts: state.contacts,
             current: state.current,
             filtered: state.filtered,
+            filteredByOrg: state.filteredByOrg,
             urgent: state.urgent,
-            vips: state.vips,
             getContacts,
             addAllContacts,
             filterContacts,
+            filterFilteredContacts,
+            clearFilteredByOrg,
             clearContactFilter,
             clearContacts,
             getVIPS,

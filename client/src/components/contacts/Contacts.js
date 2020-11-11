@@ -7,7 +7,7 @@ const Contacts = () => {
 
     const contactContext = useContext(ContactContext);
 
-    const { contacts, filtered, getContacts } = contactContext;
+    const { contacts, filtered, filteredByOrg, getContacts } = contactContext;
 
     useEffect(() => {
         getContacts();
@@ -26,13 +26,13 @@ const Contacts = () => {
     // console.log(contacts);
 
     return (
-        // <Fragment>
-        //     <h1>Testing</h1>
-        //     </Fragment>
+
+
         <Fragment>
-            {filtered !== null ?
+
+            {filtered !== null && filteredByOrg === null ?
                 filtered.map(contact => (<ContactItem key={contact._id} contact={contact} />)) :
-                contacts.slice(0, 10).map(contact => (
+                filteredByOrg.map(contact => (
                     <ContactItem key={contact._id} contact={contact}></ContactItem>
                 ))}
         </Fragment>

@@ -3,6 +3,7 @@ import Organizations from '../organizations/Organizations';
 import OrganizationFilter from '../organizations/OrganizationFilter';
 import OrganizationButton from '../organizations/OrganizationButton';
 import ContactContext from '../../context/contact/contactContext';
+import CurrentOrgSearch from '../organizations/CurrentOrgSearch';
 import Contacts from '../contacts/Contacts';
 import AuthContext from '../../context/auth/authContext';
 import { Container, Row } from 'react-bootstrap';
@@ -25,10 +26,11 @@ const OrganizationsPage = () => {
     return (
         <Container>
             <Row>
-                <OrganizationFilter />
 
+
+                {filtered ? <CurrentOrgSearch /> : <OrganizationFilter />}
                 <OrganizationButton />
-                {filtered ? <Fragment><h1>Test</h1></Fragment> : <Fragment><h1>No Filter</h1></Fragment>}
+
 
             </Row>
             <Row >
