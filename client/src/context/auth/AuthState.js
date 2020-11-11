@@ -188,7 +188,7 @@ const AuthState = props => {
 
             dispatch({
                 type: ADD_TO_URGENT,
-                payload: res.data
+                payload: contact
             })
 
         } catch (error) {
@@ -209,12 +209,12 @@ const AuthState = props => {
 
         try {
 
-            const res = await axios.put(`api/users/${userID}/urgent`, contact, config);
+            const res = await axios.put(`api/users/${userID}/urgent/remove`, contact, config);
 
 
             dispatch({
                 type: REMOVE_URGENT,
-                payload: res.data
+                payload: contact
             })
         } catch (error) {
             dispatch({

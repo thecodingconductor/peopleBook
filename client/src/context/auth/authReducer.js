@@ -61,13 +61,21 @@ export default (state, action) => {
         case ADD_TO_URGENT:
             return {
                 ...state,
-                toDoList: [action.payload, ...state.user.toDoList]
+                user: {
+                    ...state.user,
+                    toDoList: [action.payload, ...state.user.toDoList]
+                }
+
             }
 
         case REMOVE_URGENT:
             return {
                 ...state,
-                toDoList: [action.payload, ...state.user.toDoList]
+                user: {
+                    ...state.user,
+                    toDoList: state.user.toDoList.filter(urgent => urgent._id !== action.payload._id)
+                }
+
             }
 
         case CLEAR_VIP:

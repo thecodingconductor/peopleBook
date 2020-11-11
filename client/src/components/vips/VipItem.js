@@ -26,6 +26,10 @@ const VipItem = ({ contact }) => {
         removeFromVIPS(VIPItem, user._id);
     }
 
+    const onClick = () => {
+
+    }
+
     return (
         <Card style={{ width: "100%", margin: "2rem" }}>
             <Card.Body>

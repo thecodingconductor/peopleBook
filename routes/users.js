@@ -178,12 +178,15 @@ router.put('/:id/urgent/remove', auth, async (req, res) => {
 
 
     const { _id } = req.body;
-    console.log(req.body);
-    console.log(_id);
+    // console.log(req.body);
+    // console.log(_id);
 
     try {
         let user = await User.findById(req.params.id);
         if (!user) return res.status(404).json({ msg: 'Contact not found' });
+
+
+        console.log(`contact removed from urgent list. ${req.body.name}`)
 
         user = await User.findByIdAndUpdate(
             req.params.id,
@@ -196,6 +199,8 @@ router.put('/:id/urgent/remove', auth, async (req, res) => {
             },
             { new: true },
         );
+
+
         res.json(user);
     } catch (error) {
         console.error(error.message);
