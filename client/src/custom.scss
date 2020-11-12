@@ -1,0 +1,117 @@
+// import boostrap to set changes
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap');
+
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+
+// Tablets and small desktops
+$screen-lg-min: 992px;
+
+// Large tablets and desktops
+$screen-xl-min: 1200px;
+
+
+@mixin sm {
+    @media (min-width: #{$screen-sm-min}) {
+        @content;
+    }
+ }
+ 
+ // Medium devices
+ @mixin md {
+    @media (min-width: #{$screen-md-min}) {
+        @content;
+    }
+ }
+ 
+ // Large devices
+ @mixin lg {
+    @media (min-width: #{$screen-lg-min}) {
+        @content;
+    }
+ }
+ 
+ // Extra large devices
+ @mixin xl {
+    @media (min-width: #{$screen-xl-min}) {
+        @content;
+    }
+ }
+
+
+
+$work-sans: 'Work Sans', sans-serif;
+
+$purple-primary: #220E65;
+$lavender-primary: #F1EDFF;
+$green-button: #00A579;
+
+body {
+    font-family: $work-sans;
+}
+
+.nav-background-purple {
+    background-color: $purple-primary;
+}
+
+.nav-bar-responsive-links {
+    display: none !important;
+}
+
+.nav-bar-title-main {
+    font-weight: 600;
+}
+
+
+.container-main {
+    padding: 0 !important;
+}
+
+.subtitle-container {
+    background-color: $lavender-primary;
+    padding: 0 !important;
+    text-align: center;
+    height: 10rem;
+}
+
+.toggler-left {
+    position: absolute;
+    left: 1rem;
+}
+
+
+.login-subtitle {
+    font-size: 1.5rem;
+}
+
+.login-form-container {
+    width: 85%;
+    padding-top: 2rem;
+}
+
+.login-button {
+    background-color: #00A579;
+}
+
+.form-info-bottom {
+    text-align: center;
+    padding-top: 1rem;
+
+    a {
+        color: $green-button;
+        font-weight: 500;
+    }
+
+}
+
+//Dashboard
+.welcome-message-container {
+    height: 4rem;
+    background-color: $lavender-primary;
+    padding-left: 2rem;
+}
+

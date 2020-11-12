@@ -1,7 +1,7 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { Fragment, useState, useContext, useEffect, Link } from 'react';
 import AuthContext from '../../context/auth/authContext';
 import AlertContext from '../../context/alert/alertContext';
-import { Container, Form, Button } from 'react-bootstrap';
+import { Container, Form, Button, Col, } from 'react-bootstrap';
 
 const Login = props => {
 
@@ -46,22 +46,35 @@ const Login = props => {
     }
 
     return (
-        <Container>
-            <h1>Account <span className="text-primary">Login</span></h1>
-            <Form onSubmit={onSubmit}>
+        <Fragment>
 
-                <Form.Group>
-                    <Form.Label htmlFor="email">Email</Form.Label>
-                    <Form.Control type="email" name="email" value={email} onChange={onChange} />
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label htmlFor="password">Password</Form.Label>
-                    <Form.Control type="password" name="password" value={password} onChange={onChange} />
-                </Form.Group>
 
-                <Button variant="primary" type="submit" value="Login" block>Login</Button>
-            </Form>
-        </Container>
+            <div className="d-flex justify-content-center align-items-center subtitle-container">
+                <h6 className="login-subtitle">CRM for the American Orchestral Industry</h6>
+            </div>
+
+            <Container className="login-form-container" fluid>
+                <Form onSubmit={onSubmit}>
+
+                    <Form.Group>
+                        <Form.Label htmlFor="email">Email</Form.Label>
+                        <Form.Control type="email" name="email" value={email} onChange={onChange} />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label htmlFor="password">Password</Form.Label>
+                        <Form.Control type="password" name="password" value={password} onChange={onChange} />
+                    </Form.Group>
+
+                    <Button variant="primary" type="submit" value="Login" block className="login-button">Login</Button>
+                    <Container className="form-info-bottom">
+                        <p>Don't Have an account?</p>
+                        <a href="/register">Register</a>
+                    </Container>
+                </Form>
+            </Container>
+
+        </Fragment>
+
     )
 }
 

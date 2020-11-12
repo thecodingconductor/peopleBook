@@ -50,9 +50,10 @@ const Navbar = ({ title, icon }) => {
     )
 
     return (
-        <ReactNav bg="primary" variant="dark" expand="lg" className="d-flex justify-content">
-            <ReactNav.Brand href="/">{title}</ReactNav.Brand>
-            <Nav className={`mr-auto d-flex ${isAuthenticated ? 'justify-content-between' : 'justify-content-start'}`} style={{ width: "100%" }}>
+        <ReactNav variant="dark" expand="lg" className="d-flex justify-content-center nav-background-purple">
+            <span className="navbar-toggler-icon toggler-left"></span>
+            <ReactNav.Brand href="/" className="nav-bar-title-main">{title}</ReactNav.Brand>
+            <Nav className={`mr-auto d-flex ${isAuthenticated ? 'justify-content-between' : 'justify-content-start'} nav-bar-responsive-links`} style={{ width: "100%" }}>
 
                 {isAuthenticated ? authLinks : guestLinks}
 
@@ -67,7 +68,7 @@ Navbar.propTypes = {
 }
 
 Navbar.defaultProps = {
-    title: "Orchestra Contacts",
+    title: "OrchesNation",
     icon: 'fas fa-id-card-alt'
 }
 

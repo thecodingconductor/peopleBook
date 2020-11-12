@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { Fragment, useContext, useEffect } from 'react';
 import UrgentList from '../urgent/UrgentList';
 import VipList from '../vips/VipList';
 import AuthContext from '../../context/auth/authContext';
@@ -11,14 +11,30 @@ const Dashboard = () => {
     const { loadUser, user } = authContext;
 
     return (
-        <div>
-            <h2>Dashboard</h2>
+        <Fragment>
+            <div className="d-flex justify-content-start align-items-center welcome-message-container">
+                <h5>Hello, {user && user.name.split(' ')[0]}</h5>
+            </div>
+            <div className="d-flex flex-column justify-content-center align-items-center dashbord-main-container">
+                <div className="d-flex flex-column justify-content-center align-items-center urgent-tasks-container">
+                    <h6>Urgent Tasks</h6>
+                    <div className="d-flex flex-column justify-content-center align-items-center urgent-tasks">
+                        <UrgentList />
+                    </div>
 
-            <Container className="top-container" style={{ marginBottom: "5rem" }}>
+                </div>
+                <div className="d-flex flex-column justify-content-center align-items-center next-seven-days-container">
+                    <h6>Next 7 Days</h6>
+                    <div className="d-flex flex-column justify-content-center align-items-center upcoming-items">
+                        <VipList />
+                    </div>
+
+                </div>
+            </div>
+            {/* <Container className="top-container" style={{ marginBottom: "5rem" }}>
                 <Row>
                     <Col className="top-left">
-                        <h1>Urgent Tasks</h1>
-                        <UrgentList />
+
                     </Col>
                     <Col xs={6} className="top-right">
                         <h1>VIPS</h1>
@@ -27,7 +43,7 @@ const Dashboard = () => {
                         </Container>
                     </Col>
                 </Row>
-            </Container>
+            </Container> */}
 
             <Container className="bottom-buttons">
                 <Row>
@@ -35,7 +51,8 @@ const Dashboard = () => {
                 </Row>
             </Container>
 
-        </div>
+        </Fragment>
+
     )
 }
 

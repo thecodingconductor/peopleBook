@@ -6,6 +6,7 @@ import Home from './components/pages/Home'
 import About from './components/pages/About';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
+import Auth from './components/auth/Auth';
 // import Alerts from './components/layout/Alerts';
 import PrivateRoute from './components/routing/PrivateRoute';
 import People from './components/pages/People';
@@ -16,7 +17,6 @@ import ContactState from './context/contact/ContactState';
 import AuthState from './context/auth/AuthState';
 import AlertState from './context/alert/AlertState';
 import setAuthToken from '../src/utils/setAuthToken';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 if (localStorage.token) {
@@ -32,16 +32,15 @@ const App = () => {
             <Router>
               <Fragment>
                 <Navbar />
-                <div className="container">
+                <div className="container-fluid container-main">
                   <Switch>
                     <PrivateRoute exact path="/" component={Home} />
                     <PrivateRoute exact path='/people' component={People} />
                     <PrivateRoute exact path="/organizations" component={OrganizationsPage} />
                     <PrivateRoute exact path="/dashboard" component={Dashboard} />
+                    <Route exact path="/auth" component={Auth}></Route>
                     <Route exact path="/register" component={Register} />
                     <Route exact path="/login" component={Login} />
-                    <Route exact path="/about" component={About} />
-
                   </Switch>
                 </div>
               </Fragment>
