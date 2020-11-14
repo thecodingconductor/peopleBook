@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import ContactContext from '../../context/contact/contactContext';
 import AuthContext from '../../context/auth/authContext';
+import Cancel from '../../components/layout/Cancel';
 import { Card, Badge, Button } from 'react-bootstrap';
 import { GET_VIPS } from '../../context/types';
 
@@ -33,13 +34,22 @@ const VipItem = ({ contact }) => {
     return (
         <Card>
             <Card.Body>
-                <Card.Title>
-                    {name}
-                </Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">{organization}</Card.Subtitle>
+                <div className="d-flex justify-content-between align-items-center card-top-row">
+                    <Card.Title>
+                        {name}
+                    </Card.Title>
+                    <Cancel />
+                </div>
+                <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: ".8rem", fontWeight: 200 }}>
+                    {organization}
+                </Card.Subtitle>
                 {email ? <Card.Link href="#">{email}</Card.Link> : ''}
+                <div className="d-flex align-items-center card-alert-container">
+                    <i className="fas fa-exclamation-circle card-alert-icon"></i>
+                    <Badge variant={needToContact === false ? "success" : "danger"}>{needToContact === false ? "Recently Contacted" : "Contact ASAP"}</Badge>
+                </div>
 
-                <Badge variant={needToContact === false ? "success" : "danger"}>{needToContact === false ? "No need to Contact" : "Need to Contact"}</Badge>
+                <hr></hr>
                 <Button variant="danger" onClick={onRemove}  >Remove VIP</Button>
                 <Button variant="success" onClick={() => addToUrgent(VIPItem, user._id)}>Add to Urgent List</Button>
             </Card.Body>

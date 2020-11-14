@@ -18,7 +18,7 @@ import {
 
 const OrganizationState = props => {
     const initialState = {
-        organizations: null,
+        organizations: [],
         current: null,
         filtered: null
     }
@@ -81,12 +81,12 @@ const OrganizationState = props => {
 
     //Set Current Org
     const setCurrent = org => {
-        dispatch({type: SET_CURRENT_ORG, payload: org})
+        dispatch({ type: SET_CURRENT_ORG, payload: org })
     }
 
     //Clear Current
     const clearCurrent = () => {
-        dispatch({ type: CLEAR_CURRENT_ORG})
+        dispatch({ type: CLEAR_CURRENT_ORG })
     }
     //Update Org
 

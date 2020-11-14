@@ -41,15 +41,21 @@ const UrgentItem = ({ contact }) => {
                     {organization}
                 </Card.Subtitle>
 
+                <div className="d-flex align-items-center card-alert-container">
+                    <i className="fas fa-exclamation-circle card-alert-icon"></i>
+                    <Badge variant={needToContact === false ? "success" : "danger"}>{needToContact === false ? "Recently Contacted" : "Contact ASAP"}</Badge>
+                </div>
+
+
                 <div className="custom-control custom-checkbox">
                     <input type="checkbox" name="checkbox" id="customCheck" className="custom-control-input" />
                 </div>
 
+
+                <hr></hr>
                 <InputGroup className="mb-3">
                     <InputGroup.Checkbox ></InputGroup.Checkbox>
-                    <Badge variant={needToContact === false ? "success" : "danger"}>{needToContact === false ? "Recently Contacted" : "Need to Contact"}</Badge>
                 </InputGroup>
-                <hr></hr>
             </Card.Body>
 
         </Card >

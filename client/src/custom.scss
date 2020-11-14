@@ -49,6 +49,8 @@ $work-sans: 'Work Sans', sans-serif;
 $purple-primary: #220E65;
 $lavender-primary: #F1EDFF;
 $green-button: #00A579;
+$alert-danger: #DC3545;
+$alert-warning: #E09B00;
 
 body {
     font-family: $work-sans;
@@ -112,6 +114,57 @@ body {
 .welcome-message-container {
     height: 4rem;
     background-color: $lavender-primary;
-    padding-left: 2rem;
+    padding-left: 1.7rem;
+    margin-bottom: 2rem;
 }
+
+.urgent-tasks-container, .next-seven-days-container {
+    width: 85%;
+}
+
+.urgent-tasks-container {
+    h6 {
+        margin-right: auto;
+        margin-bottom: 2rem;
+    }
+}
+
+.urgent-tasks {
+    width: 100%;
+}
+
+.card {
+    width: 100%;
+    margin: 1rem auto;
+}
+
+.card-alert-icon {
+    color: red;
+    font-size: 1.2rem;
+    margin-right: 2rem;
+}
+
+.next-seven-days-container {
+     h6 {
+         margin-right: auto;
+     }
+}
+
+
+//Organizations
+
+.organizations-page-main {
+    padding: 0;
+}
+
+.search-field-container, .all-orgs-container {
+    width: 85%;
+    margin: auto;
+}
+
+.org-website-link {
+    color: $green-button;
+    font-weight: 600;
+}
+
 

@@ -24,28 +24,22 @@ const OrganizationsPage = () => {
     }, [])
 
     return (
-        <Container>
-            <Row>
+        <Fragment>
+            <Container fluid className="organizations-page-main">
+                <div className="d-flex justify-content-start align-items-center welcome-message-container">
+                    <h5>Organizations</h5>
+                </div>
+                <div className="d-flex justify-content-start align-items-center search-field-container">
+                    {filtered ? <CurrentOrgSearch /> : <OrganizationFilter />}
+                </div>
+                <div className="d-flex flex-column justify-content-center align-items-center all-orgs-container">
+                    <Organizations />
+                </div>
+            </Container>
 
 
-                {filtered ? <CurrentOrgSearch /> : <OrganizationFilter />}
-                <OrganizationButton />
+        </Fragment>
 
-
-            </Row>
-            <Row >
-                <Organizations />
-            </Row>
-            {/* {filtered !== null &&
-
-                <Row>
-                    <Contacts />
-                </Row>
-
-            } */}
-
-
-        </Container>
 
 
     )
