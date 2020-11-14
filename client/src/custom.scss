@@ -135,7 +135,8 @@ body {
 }
 
 .login-button, .register-button {
-    background-color: #00A579;
+    background-color:$green-button;
+    border-color: $green-button;
 }
 
 .form-info-bottom {

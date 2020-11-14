@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import ContactContext from '../../context/contact/contactContext';
 import AuthContext from '../../context/auth/authContext';
-import Cancel from '../../components/layout/Cancel';
+import cancel from '../layout/cancel.svg';
 import { Card, InputGroup, Badge } from 'react-bootstrap';
 
 const UrgentItem = ({ contact }) => {
@@ -34,7 +34,7 @@ const UrgentItem = ({ contact }) => {
                     <Card.Title>
                         {name}
                     </Card.Title>
-                    <Cancel />
+                    <img src={cancel} alt="Close" style={{ height: "1rem", width: "1rem" }} onClick={onRemove} />
                 </div>
 
                 <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: ".8rem", fontWeight: 200 }}>
