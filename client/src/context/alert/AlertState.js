@@ -4,7 +4,7 @@ import alertReducer from './alertReducer';
 import { v4 as uuidv4 } from 'uuid';
 import {
     SET_ALERT,
-    REMOVE_ALERT
+    REMOVE_ALERT,
 } from '../types';
 
 const AlertState = props => {
@@ -26,8 +26,6 @@ const AlertState = props => {
         setTimeout(() => dispatch({ type: REMOVE_ALERT, playload: id }), timeout);
     };
 
-
-
     return (
         <AlertContext.Provider value={{
             alerts: state.alerts,
@@ -36,6 +34,11 @@ const AlertState = props => {
             {props.children}
         </AlertContext.Provider>
     )
+
 }
+
+
+
+
 
 export default AlertState;

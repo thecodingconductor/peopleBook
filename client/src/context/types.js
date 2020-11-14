@@ -19,6 +19,9 @@ export const CONTACTS_BY_ORG_ERROR = 'CONTACTS_BY_ORG_ERROR';
 
 export const REMOVE_ALERT = 'REMOVE_ALERT';
 export const SET_ALERT = 'SET_ALERT';
+export const SHOW_MODAL = 'SHOW_MODAL';
+export const HIDE_MODAL = 'HIDE_MODAL';
+
 
 export const GET_ORGS = 'GET_ORGS';
 export const ADD_ORG = 'ADD_ORG';

@@ -17,17 +17,12 @@ const OrganizationButton = props => {
         clearCurrent();
         clearContactFilter();
 
-        // orgData["organizations"].forEach(org => {
-
-        //     addOrgs(org);
-
-        // })
     }
 
     return (
         <Fragment>
-            <Button onClick={onClick}>Back to All Organizations</Button>
-        </Fragment>
+            <p className="text-secondary text-muted" style={{ marginLeft: "1.8rem" }} onClick={onClick}>Back</p>
+        </Fragment >
     )
 }
 

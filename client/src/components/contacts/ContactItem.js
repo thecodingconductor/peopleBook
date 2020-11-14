@@ -6,6 +6,7 @@ import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 import AuthContext from '../../context/auth/authContext';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 
 const ContactItem = ({ contact }) => {
@@ -33,13 +34,13 @@ const ContactItem = ({ contact }) => {
 
 
     return (
-        <Card style={{ width: "18rem", margin: "2rem" }}>
+        <Card>
             <Card.Body>
                 <Card.Title>{name}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{organization}</Card.Subtitle>
                 <Card.Subtitle className="mb-2 text-muted">{position}</Card.Subtitle>
 
-                <Badge variant={needToContact === false ? "success" : "danger"}>{needToContact === false ? "No need to contact" : "Contact person"}</Badge>
+                {/* <Badge variant={needToContact === false ? "success" : "danger"}>{needToContact === false ? "No need to contact" : "Contact person"}</Badge> */}
 
                 {/* <ButtonGroup toggle>
                     <ToggleButton type="radio" variant="secondary" name="radio">
@@ -47,7 +48,16 @@ const ContactItem = ({ contact }) => {
                     </ToggleButton>
                 </ButtonGroup> */}
 
-                <Button variant="info" onClick={onClick}>Add to VIP List</Button>
+                {/* <Button variant="info" onClick={onClick}>Add to VIP List</Button> */}
+
+
+                <InputGroup>
+                    <InputGroup.Checkbox></InputGroup.Checkbox>
+                    <InputGroup.Text>Add to Urgent List</InputGroup.Text>
+                    {' '}
+                    <InputGroup.Checkbox></InputGroup.Checkbox>
+                    <InputGroup.Text>Add to VIPs</InputGroup.Text>
+                </InputGroup>
 
 
                 <Card.Text>

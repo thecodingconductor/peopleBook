@@ -1,9 +1,11 @@
-import React, { Fragment, useContext } from 'react';
+import React, { Fragment, useContext, useState } from 'react';
 import PropTypes from 'prop-types'
 // import { Link } from 'react-router-dom';
 import { Navbar as ReactNav, Nav } from 'react-bootstrap';
 import AuthContext from '../../context/auth/authContext';
 import ContactContext from '../../context/contact/contactContext';
+import NavContext from '../../context/nav/navContext';
+import NavModal from './NavModal';
 
 
 const Navbar = ({ title, icon }) => {
@@ -11,13 +13,24 @@ const Navbar = ({ title, icon }) => {
 
     const authContext = useContext(AuthContext);
     const contactContext = useContext(ContactContext);
+    const navContext = useContext(NavContext);
 
     const { isAuthenticated, logout, user } = authContext;
     const { clearContacts } = contactContext;
+    const { showModal } = navContext;
+
+    // const [modal, setModal] = useState();
 
     const onLogout = () => {
         logout();
         clearContacts();
+    }
+
+    const onClick = () => {
+        if (showModal === false) {
+            console.log(showModal);
+
+        }
     }
 
     const authLinks = (
@@ -50,16 +63,24 @@ const Navbar = ({ title, icon }) => {
     )
 
     return (
-        <ReactNav variant="dark" expand="lg" className="d-flex justify-content-center nav-background-purple">
-            <span className="navbar-toggler-icon toggler-left"></span>
-            <ReactNav.Brand href="/" className="nav-bar-title-main">{title}</ReactNav.Brand>
-            <Nav className={`mr-auto d-flex ${isAuthenticated ? 'justify-content-between' : 'justify-content-start'} nav-bar-responsive-links`} style={{ width: "100%" }}>
+        <Fragment>
+            <ReactNav variant="dark" expand="lg" className="d-flex justify-content-center nav-background-purple">
+                <span className="navbar-toggler-icon toggler-left" onClick={onClick}></span>
+                <ReactNav.Brand href="/" className="nav-bar-title-main">{title}</ReactNav.Brand>
+                <Nav className={`mr-auto d-flex ${isAuthenticated ? 'justify-content-between' : 'justify-content-start'} nav-bar-responsive-links`} style={{ width: "100%" }}>
 
-                {isAuthenticated ? authLinks : guestLinks}
+                    {isAuthenticated ? authLinks : guestLinks}
 
-            </Nav>
-        </ReactNav>
+                </Nav>
+
+
+            </ReactNav >
+            {/* change this conidtional */}
+            {showModal === false && <NavModal />}
+        </Fragment>
     )
+
+
 }
 
 Navbar.propTypes = {
