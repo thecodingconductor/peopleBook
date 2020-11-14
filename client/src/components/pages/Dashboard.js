@@ -2,13 +2,23 @@ import React, { Fragment, useContext, useEffect } from 'react';
 import UrgentList from '../urgent/UrgentList';
 import VipList from '../vips/VipList';
 import AuthContext from '../../context/auth/authContext';
+import NavContext from '../../context/nav/navContext';
 import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 
 
 const Dashboard = () => {
 
     const authContext = useContext(AuthContext);
+    const navContext = useContext(NavContext);
     const { loadUser, user } = authContext;
+    const { showModal, showModalFunc, hideModalFunc } = navContext;
+
+    useEffect(() => {
+        if (showModal) {
+            hideModalFunc();
+        }
+        // eslint-disable-next-line
+    }, [])
 
     return (
         <Fragment>

@@ -7,6 +7,7 @@ import ContactContext from '../../context/contact/contactContext';
 import CurrentOrgSearch from '../organizations/CurrentOrgSearch';
 import Contacts from '../contacts/Contacts';
 import AuthContext from '../../context/auth/authContext';
+import NavContext from '../../context/nav/navContext';
 import { Container, Row } from 'react-bootstrap';
 import { CLEAR_CONTACT_FILTER } from '../../context/types';
 
@@ -16,13 +17,18 @@ const OrganizationsPage = () => {
     const authContext = useContext(AuthContext);
     const contactContext = useContext(ContactContext);
     const organizationContext = useContext(OrganizationContext);
+    const navContext = useContext(NavContext);
 
     const { filtered, clearContactFilter } = contactContext;
     const { current } = organizationContext;
+    const { showModal, showModalFunc, hideModalFunc } = navContext;
 
     useEffect(() => {
         authContext.loadUser();
         clearContactFilter();
+        if (showModal) {
+            hideModalFunc();
+        }
         //eslint-disable-next-line
     }, [])
 

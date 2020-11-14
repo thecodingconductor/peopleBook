@@ -9,20 +9,36 @@ const NavModal = () => {
     const navContext = useContext(NavContext);
     const authContext = useContext(AuthContext);
 
-    const { logout } = authContext;
+    const { logout, user } = authContext;
 
     const onLogout = () => {
         logout();
     }
 
+    const guestLinks = (
+        <Fragment>
+            <Link href='/register'>Register</Link>
+            <Link href="/login">Login</Link>
+        </Fragment>
+    )
+
+    const authLinks = (
+        <Fragment>
+            <Link to="/dashboard" >Dashboard</Link>
+            <Link to="/organizations" >Organizations</Link>
+            <hr />
+            <a href="" onClick={onLogout}>Logout</a>
+        </Fragment>
+
+    )
+
     return (
         <Fragment>
             <div className="position-absolute nav-modal-container">
                 <div className="d-flex flex-column align-items-center nav-modal-links-container">
-                    <Link to="/dashboard" >Dashboard</Link>
-                    <Link to="/organizations" >Organizations</Link>
-                    <hr />
-                    <a href="" onClick={onLogout}>Logout</a>
+
+                    {user ? authLinks : guestLinks}
+
                 </div>
             </div>
         </Fragment>
