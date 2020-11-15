@@ -50,8 +50,19 @@ const VipItem = ({ contact }) => {
                 </div>
 
                 <hr></hr>
-                <Button variant="danger" onClick={onRemove}  >Remove VIP</Button>
-                <Button variant="success" onClick={() => addToUrgent(VIPItem, user._id)}>Add to Urgent List</Button>
+                <div className="check-box-container">
+                    <input type="checkbox" name="remove" id="removeVIP" className="remove-vip-checkbox" />
+                    <span className="invisible-checkbox"></span>
+                    <label htmlFor="removeVIP">Mark task as done</label>
+                </div>
+                <div className="check-box-container move-to-urgent-container">
+                    <input type="checkbox" name="remove" id="removeVIP" className="remove-vip-checkbox move-to-urgent-checkbox" />
+                    <span className="invisible-checkbox move-to-urgent"></span>
+                    <label htmlFor="removeVIP">Move to urgent</label>
+                </div>
+
+                {/* <Button variant="danger" onClick={onRemove}  >Remove VIP</Button>
+                <Button variant="success" onClick={() => addToUrgent(VIPItem, user._id)}>Add to Urgent List</Button> */}
             </Card.Body>
         </Card>
     )

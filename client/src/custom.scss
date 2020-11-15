@@ -190,7 +190,45 @@ body {
      }
 }
 
+input[type="checkbox"] {
+    display: none;
+}
 
+input[type="checkbox"] + span {
+    display: inline-block;
+    position: relative;
+    top: -1px;
+    width: 22px;
+    height: 22px;
+    margin: -1px 0px 0 0;
+    vertical-align: middle;
+    background: white left top no-repeat;
+    border: 2px solid $green-button;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked + span {
+    background: $green-button -19px top no-repeat;
+}
+
+input[type="checkbox"] + span {
+    margin-right: 4px;
+}
+
+.check-box-container label {
+    color: $green-button;
+    font-weight: 500;
+}
+
+
+.move-to-urgent {
+    border: 2px solid #969696 !important;
+}
+
+.move-to-urgent-container label {
+    color: #969696;
+}
 //Organizations
 
 .organizations-page-main {
