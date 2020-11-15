@@ -1,13 +1,14 @@
 import React, { Fragment, useContext, useEffect } from 'react'
 import ContactContext from '../../context/contact/contactContext';
 import AuthContext from '../../context/auth/authContext';
+import Spinner from '../layout/Spinner';
 import VipItem from '../vips/VipItem';
 
 const VipList = () => {
 
     // const contactContext = useContext(ContactContext);
     const authContext = useContext(AuthContext);
-    const { loadUser, user } = authContext;
+    const { loadUser, user, loading } = authContext;
 
 
     useEffect(() => {
@@ -30,12 +31,10 @@ const VipList = () => {
 
         <Fragment>
 
-            {user ? user.VIPS.map(vip => (
+            {user !== null && !loading ? user.VIPS.map(vip => (
                 <VipItem key={vip._id} contact={vip}></VipItem>
             )) :
-                <h1>
-                    Error
-            </h1>
+                <Spinner />
             }
         </Fragment>
     )

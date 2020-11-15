@@ -7,6 +7,7 @@ import ContactItem from '../../components/contacts/ContactItem';
 import ContactsByOrg from '../../components/contacts/ContactsByOrg';
 import Contacts from '../contacts/Contacts';
 import OrganizationButton from './OrganizationButton';
+import Spinner from '../layout/Spinner';
 
 const Organizations = () => {
     const organizationContext = useContext(OrganizationContext);
@@ -25,7 +26,7 @@ const Organizations = () => {
 
 
     if (organizations === null || organizations.length === 0) {
-        return <h4>Please add some Organizations</h4>
+        return <Spinner />
     } else if (current !== null) {
 
         return (

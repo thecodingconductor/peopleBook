@@ -8,8 +8,8 @@ import CurrentOrgSearch from '../organizations/CurrentOrgSearch';
 import Contacts from '../contacts/Contacts';
 import AuthContext from '../../context/auth/authContext';
 import NavContext from '../../context/nav/navContext';
+import Spinner from '../layout/Spinner';
 import { Container, Row } from 'react-bootstrap';
-import { CLEAR_CONTACT_FILTER } from '../../context/types';
 
 
 const OrganizationsPage = () => {
@@ -22,9 +22,10 @@ const OrganizationsPage = () => {
     const { filtered, clearContactFilter } = contactContext;
     const { current } = organizationContext;
     const { showModal, showModalFunc, hideModalFunc } = navContext;
+    const { loadUser, user, loading } = authContext;
 
     useEffect(() => {
-        authContext.loadUser();
+        loadUser();
         clearContactFilter();
         if (showModal) {
             hideModalFunc();
@@ -44,7 +45,7 @@ const OrganizationsPage = () => {
                     {filtered ? <CurrentOrgSearch /> : <OrganizationFilter />}
                 </div>
                 <div className="d-flex flex-column justify-content-center align-items-center all-orgs-container">
-                    <Organizations />
+                    {user !== null && !loading ? <Organizations /> : <Spinner />}
                 </div>
             </Container>
 
