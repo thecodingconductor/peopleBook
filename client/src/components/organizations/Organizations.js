@@ -34,7 +34,6 @@ const Organizations = () => {
 
             <Fragment>
                 <OrganizationItem organization={current} />
-
                 <Contacts />
             </Fragment>
 

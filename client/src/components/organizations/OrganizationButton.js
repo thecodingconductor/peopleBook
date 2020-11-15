@@ -21,7 +21,7 @@ const OrganizationButton = props => {
 
     return (
         <Fragment>
-            <p className="text-secondary text-muted" style={{ marginLeft: "1.8rem" }} onClick={onClick}>Back</p>
+            <p className="text-secondary text-muted" style={{ marginLeft: "1.8rem", cursor: 'pointer' }} onClick={onClick}>Back</p>
         </Fragment >
     )
 }
