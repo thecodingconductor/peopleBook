@@ -17,8 +17,8 @@ const NavModal = () => {
 
     const guestLinks = (
         <Fragment>
-            <Link href='/register'>Register</Link>
-            <Link href="/login">Login</Link>
+            <Link to='/register'>Register</Link>
+            <Link to="/login">Login</Link>
         </Fragment>
     )
 

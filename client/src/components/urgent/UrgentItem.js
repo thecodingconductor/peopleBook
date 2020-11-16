@@ -27,6 +27,10 @@ const UrgentItem = ({ contact }) => {
         removeFromToDoList(UrgentItem, user._id);
     }
 
+    const onClick = e => {
+        console.log(e.target);
+    }
+
     return (
         <Card>
             <Card.Body>
@@ -53,9 +57,12 @@ const UrgentItem = ({ contact }) => {
 
 
                 <hr></hr>
-                <InputGroup className="mb-3">
-                    <InputGroup.Checkbox ></InputGroup.Checkbox>
-                </InputGroup>
+                <div className="check-box-container">
+                    <input type="checkbox" name="remove" id="removeVIP" className="remove-vip-checkbox" onClick={onClick} />
+
+                    <label htmlFor="removeVIP">Mark task as done</label>
+                </div>
+
             </Card.Body>
 
         </Card >

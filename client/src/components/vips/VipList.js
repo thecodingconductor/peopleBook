@@ -28,7 +28,6 @@ const VipList = () => {
 
     return (
 
-
         <Fragment>
 
             {user !== null && !loading ? user.VIPS.map(vip => (

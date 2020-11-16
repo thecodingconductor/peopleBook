@@ -51,14 +51,17 @@ const ContactItem = ({ contact }) => {
                 {/* <Button variant="info" onClick={onClick}>Add to VIP List</Button> */}
 
 
-                <InputGroup>
-                    <InputGroup.Checkbox></InputGroup.Checkbox>
-                    <InputGroup.Text>Add to Urgent List</InputGroup.Text>
-                    {' '}
-                    <InputGroup.Checkbox></InputGroup.Checkbox>
-                    <InputGroup.Text>Add to VIPs</InputGroup.Text>
-                </InputGroup>
+                <hr></hr>
 
+                <div className="check-box-container">
+                    <input type="checkbox" name="remove" id="removeVIP" className="remove-vip-checkbox" />
+
+                    <label htmlFor="removeVIP">Mark task as done</label>
+                </div>
+                <div className="check-box-container move-to-urgent-container">
+                    <input type="checkbox" name="remove" id="removeVIP" className="remove-vip-checkbox move-to-urgent-checkbox" />
+                    <label htmlFor="removeVIP">Move to urgent</label>
+                </div>
 
                 <Card.Text>
                     {notes}

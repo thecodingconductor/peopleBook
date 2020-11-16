@@ -58,7 +58,6 @@ const VipItem = ({ contact }) => {
                 </div>
                 <div className="check-box-container move-to-urgent-container">
                     <input type="checkbox" name="remove" id="removeVIP" className="remove-vip-checkbox move-to-urgent-checkbox" />
-
                     <label htmlFor="removeVIP">Move to urgent</label>
                 </div>
 
