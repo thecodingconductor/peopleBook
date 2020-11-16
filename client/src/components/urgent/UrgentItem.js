@@ -51,14 +51,9 @@ const UrgentItem = ({ contact }) => {
                 </div>
 
 
-                <div className="custom-control custom-checkbox">
-                    <input type="checkbox" name="checkbox" id="customCheck" className="custom-control-input" />
-                </div>
-
-
                 <hr></hr>
                 <div className="check-box-container">
-                    <input type="checkbox" name="remove" id="removeVIP" className="remove-vip-checkbox" onClick={onClick} />
+                    <input type="checkbox" name="remove" id="removeVIP" className="remove-vip-checkbox" onClick={onRemove} />
 
                     <label htmlFor="removeVIP">Mark task as done</label>
                 </div>

@@ -27,7 +27,10 @@ const VipItem = ({ contact }) => {
         removeFromVIPS(VIPItem, user._id);
     }
 
-    const onClick = () => {
+    const onClick = (e) => {
+
+        setTimeout(() => e.target.checked = false, 300);
+        addToUrgent(VIPItem, user._id);
 
     }
 
@@ -52,12 +55,11 @@ const VipItem = ({ contact }) => {
                 <hr></hr>
 
                 <div className="check-box-container">
-                    <input type="checkbox" name="remove" id="removeVIP" className="remove-vip-checkbox" />
-
+                    <input type="checkbox" name="remove" id="removeVIP" className="remove-vip-checkbox" onClick={onRemove} />
                     <label htmlFor="removeVIP">Mark task as done</label>
                 </div>
                 <div className="check-box-container move-to-urgent-container">
-                    <input type="checkbox" name="remove" id="removeVIP" className="remove-vip-checkbox move-to-urgent-checkbox" />
+                    <input type="checkbox" name="remove" id="removeVIP" className="remove-vip-checkbox move-to-urgent-checkbox" onClick={onClick} />
                     <label htmlFor="removeVIP">Move to urgent</label>
                 </div>
 

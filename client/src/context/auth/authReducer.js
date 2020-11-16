@@ -40,9 +40,6 @@ export default (state, action) => {
             }
 
         case REMOVE_VIP:
-            // console.log(`from reducer ${action.payload._id}`)
-            // console.log(state.user.VIPS);
-            // state.user.VIPS.map(vip => console.log(`vip._id > ${vip._id}, action.payload._id > ${action.payload._id}`));
             return {
                 ...state,
                 user: {

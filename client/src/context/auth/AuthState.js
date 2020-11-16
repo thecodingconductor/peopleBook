@@ -148,8 +148,6 @@ const AuthState = props => {
 
             const res = await axios.put(`api/users/${userID}/vips/remove`, contact, config);
 
-
-
             dispatch({
                 type: REMOVE_VIP,
                 payload: contact
