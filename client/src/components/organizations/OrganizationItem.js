@@ -4,7 +4,7 @@ import OrganizationContext from '../../context/organization/organizationContext'
 import ContactContext from '../../context/contact/contactContext';
 import Card from 'react-bootstrap/Card';
 
-const OrganizationItem = ({ organization }) => {
+const OrganizationItem = ({ organization, addClass }) => {
 
     const organizationContext = useContext(OrganizationContext);
     const contactContext = useContext(ContactContext);
@@ -20,22 +20,14 @@ const OrganizationItem = ({ organization }) => {
     }
 
     return (
-        <Card>
+        <Card className={addClass && addClass}>
             <Card.Body>
                 <Card.Title style={{ cursor: "pointer" }} onClick={() => {
                     setCurrent(organization)
                     filterContacts(organization.name)
                 }}>{name}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{group}</Card.Subtitle>
-                <Card.Text>
-                    {/* {address.split(',').map(([s0, s1, s2, s3, s4]) => (
-                        <Fragment>
-                            <span>{s0}</span>
-                            <span>{s1 + s2}</span>
-                            <span>{s3 + s4}</span>
-                        </Fragment>
-
-                    ))} */}
+                <Card.Text className="text-secondary text-muted">
                     {address}
                 </Card.Text>
                 <Card.Link href={`${website}`} target="_blank" className="org-website-link">Website</Card.Link>

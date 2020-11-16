@@ -18,7 +18,7 @@ const VipList = () => {
 
 
     if (user !== null && user.VIPS.length === 0) {
-        return <h4>Please add some VIPS</h4>
+        return <p className="text-secondary text-muted">Please add some VIPS</p>
     }
 
 

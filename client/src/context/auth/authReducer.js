@@ -70,7 +70,8 @@ export default (state, action) => {
                 ...state,
                 user: {
                     ...state.user,
-                    toDoList: state.user.toDoList.filter(urgent => urgent._id !== action.payload._id)
+                    toDoList: state.user.toDoList.filter(urgent => urgent._id !== action.payload._id),
+                    needToContact: false
                 }
 
             }

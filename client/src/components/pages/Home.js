@@ -20,19 +20,17 @@ const Home = () => {
         <Container>
 
             <Row>
-                <Button href="/dashboard" variant="primary" block style={{
+                <Button className="to-dashboard-button" href="/dashboard" variant="primary" block style={{
                     marginTop: "5rem"
                 }}>Visit Dashboard</Button>
             </Row>
 
             <Row>
-                <Col>
-                    <Card bg="primary" style={{ height: "18rem", marginTop: "5rem" }}>
-                        <Card.Header style={{ textAlign: "center" }}>View By Organizations</Card.Header>
-                        <Button href='/organizations' variant="primary">Go now</Button>
-                    </Card>
 
-                </Col>
+                <Button href='/organizations' variant="primary" className="to-organization-button" block style={{ marginTop: "2rem" }}> View By Organizations</Button>
+
+
+
                 {/* <Col>
                     <Card bg="success" style={{ height: "18rem", marginTop: "5rem" }}>
                         <Card.Header style={{ textAlign: "center" }}>View By People</Card.Header>

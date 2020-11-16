@@ -16,14 +16,9 @@ const Contacts = () => {
 
     //add loading, and all alert state things.
     if (contacts !== null && contacts.length === 0) {
-        return <h4>Please add contacts</h4>
+        return <p className="text-muted text-secondary">Please add contacts</p>
     }
 
-    // if (contacts.length === 0) {
-    //     return <h4>Please add a contact</h4>
-    // }
-
-    // console.log(contacts);
 
     return (
 

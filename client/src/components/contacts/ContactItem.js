@@ -13,7 +13,7 @@ const ContactItem = ({ contact }) => {
 
     const authContext = useContext(AuthContext);
     // const contactContext = useContext(ContactContext);
-    const { user, addToVIPS } = authContext;
+    const { user, addToVIPS, addToUrgent } = authContext;
     const { _id, name, organization, position, needToContact, notes } = contact;
 
     const contactObj = {
@@ -24,43 +24,37 @@ const ContactItem = ({ contact }) => {
         needToContact
     }
 
-    const onClick = e => {
-        e.preventDefault();
+    const onVIPClick = e => {
+        // console.log(e.target.checked);
         // console.log(user);
         // console.log(user._id);
         // console.log(name);
+        setTimeout(() => e.target.checked = false, 300);
         addToVIPS(contactObj, user._id);
+
     }
 
+    const onUrgentClick = e => {
+        setTimeout(() => e.target.checked = false, 300);
+        addToUrgent(contactObj, user._id);
+    }
 
     return (
-        <Card>
+        <Card className="responsive-shrink">
             <Card.Body>
                 <Card.Title>{name}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{organization}</Card.Subtitle>
                 <Card.Subtitle className="mb-2 text-muted">{position}</Card.Subtitle>
 
-                {/* <Badge variant={needToContact === false ? "success" : "danger"}>{needToContact === false ? "No need to contact" : "Contact person"}</Badge> */}
-
-                {/* <ButtonGroup toggle>
-                    <ToggleButton type="radio" variant="secondary" name="radio">
-                        {needToContact}
-                    </ToggleButton>
-                </ButtonGroup> */}
-
-                {/* <Button variant="info" onClick={onClick}>Add to VIP List</Button> */}
-
-
                 <hr></hr>
 
                 <div className="check-box-container">
-                    <input type="checkbox" name="remove" id="removeVIP" className="remove-vip-checkbox" />
-
-                    <label htmlFor="removeVIP">Mark task as done</label>
+                    <input type="checkbox" name="addUrgent" id="addToUrgent" className="remove-vip-checkbox" onClick={onUrgentClick} />
+                    <label htmlFor="addToUrgent">Add to Urgent Tasks</label>
                 </div>
                 <div className="check-box-container move-to-urgent-container">
-                    <input type="checkbox" name="remove" id="removeVIP" className="remove-vip-checkbox move-to-urgent-checkbox" />
-                    <label htmlFor="removeVIP">Move to urgent</label>
+                    <input type="checkbox" name="addVIP" id="addToVIP" className="remove-vip-checkbox move-to-urgent-checkbox" onClick={onVIPClick} />
+                    <label htmlFor="addToVIP">Add to VIPS</label>
                 </div>
 
                 <Card.Text>

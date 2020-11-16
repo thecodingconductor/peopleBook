@@ -32,7 +32,7 @@ const UrgentItem = ({ contact }) => {
     }
 
     return (
-        <Card>
+        <Card className="responsive-shrink">
             <Card.Body>
                 <div className="d-flex justify-content-between align-items-center card-top-row">
                     <Card.Title>

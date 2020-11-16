@@ -22,9 +22,6 @@ const UrgentList = () => {
         return <p className="text-secondary text-muted">Please add some Urgent Contacts</p>
     }
 
-    // if (user.toDoList !== null || user.toDoList.length === 0) {
-    //     return <h4>Please Add Urgent Contacts</h4>
-    // }
 
     return (
         <Fragment>

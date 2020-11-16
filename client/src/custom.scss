@@ -155,6 +155,37 @@ body {
 
 }
 
+//Home
+.to-dashboard-button, .to-organization-button {
+    width: 85%;
+    margin: auto;
+    border: none;
+}
+
+
+
+.to-dashboard-button {
+    background-color: $green-button;
+}
+
+.to-organization-button {
+    background-color: $purple-primary;
+}
+
+.to-dashboard-button:hover {
+    background-color: $green-button;
+}
+
+.to-organization-button:hover {
+    background-color: $purple-primary;
+}
+
+.to-organization-button:active {
+    background-color: $purple-primary;
+}
+
+
+
 //Dashboard
 .welcome-message-container {
     height: 4rem;
@@ -176,10 +207,20 @@ body {
 
 .urgent-tasks {
     width: 100%;
+
+    @include md {
+        flex-direction: row !important;
+        flex-wrap: wrap;
+    }
 }
 
-.upcoming-items {
+.upcoming-items, .contacts-container {
     width: 100%;
+
+    @include md {
+        flex-direction: row !important;
+        flex-wrap: wrap;
+    }
 }
 
 .card {
@@ -199,9 +240,7 @@ body {
      }
 }
 // from MDN
-.test-checkbox {
-    
-}
+
 
 input[type="checkbox"] {
     -webkit-appearance: none;
@@ -246,7 +285,11 @@ input[type="checkbox"]:checked::before {
 }
 
 
-
+// 
+.primary-organization {
+    
+    background-color: $lavender-primary;
+}
 
 // input[type="checkbox"] {
 //     display: none;
@@ -301,6 +344,15 @@ input[type="checkbox"]:checked::before {
 .org-website-link {
     color: $green-button;
     font-weight: 600;
+}
+
+
+
+
+.responsive-shrink {
+    @include md {
+        width: 45% !important;
+    }
 }
 
 

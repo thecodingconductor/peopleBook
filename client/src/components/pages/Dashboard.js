@@ -41,23 +41,11 @@ const Dashboard = () => {
 
                 </div>
             </div>
-            {/* <Container className="top-container" style={{ marginBottom: "5rem" }}>
-                <Row>
-                    <Col className="top-left">
 
-                    </Col>
-                    <Col xs={6} className="top-right">
-                        <h1>VIPS</h1>
-                        <Container>
-                            <VipList />
-                        </Container>
-                    </Col>
-                </Row>
-            </Container> */}
 
             <Container className="bottom-buttons">
                 <Row>
-                    <Button variant="primary" href="/organizations" block>View All Organizations</Button>
+                    <Button variant="primary" href="/organizations" block style={{ width: "85%", margin: 'auto' }} className="to-organization-button">View All Organizations</Button>
                 </Row>
             </Container>
 

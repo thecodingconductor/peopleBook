@@ -33,8 +33,11 @@ const Organizations = () => {
 
 
             <Fragment>
-                <OrganizationItem organization={current} />
-                <Contacts />
+                <OrganizationItem organization={current} addClass={'primary-organization'} />
+                <div className="d-flex justify-content-start align-items-center contacts-container">
+                    <Contacts />
+                </div>
+
             </Fragment>
 
 
