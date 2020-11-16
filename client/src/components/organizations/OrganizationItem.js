@@ -20,7 +20,7 @@ const OrganizationItem = ({ organization, addClass }) => {
     }
 
     return (
-        <Card className={addClass && addClass}>
+        <Card className={`responsive-shrink ${addClass && addClass}`} >
             <Card.Body>
                 <Card.Title style={{ cursor: "pointer" }} onClick={() => {
                     setCurrent(organization)

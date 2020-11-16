@@ -62,6 +62,10 @@ body {
 
 .nav-bar-responsive-links {
     display: none !important;
+
+    @include lg {
+        display: flex !important;
+    }
 }
 
 .nav-bar-title-main {
@@ -122,6 +126,10 @@ body {
 .toggler-left {
     position: absolute;
     left: 1rem;
+
+    @include lg {
+        display: none;
+    }
 }
 
 
@@ -132,6 +140,12 @@ body {
 .login-form-container {
     width: 85%;
     padding-top: 2rem;
+
+    @include lg {
+        width: 50%;
+    
+    }
+
 }
 
 .login-button, .register-button {
@@ -139,7 +153,7 @@ body {
     border-color: $green-button;
 }
 
-.login-button:active, .register-button:active {
+.login-button:active, .register-button:active, .login-button:hover, .register-button:hover {
     background-color:$green-button;
     border-color: $green-button;
 }
@@ -239,7 +253,7 @@ body {
          margin-right: auto;
      }
 }
-// from MDN
+
 
 
 input[type="checkbox"] {
@@ -285,37 +299,12 @@ input[type="checkbox"]:checked::before {
 }
 
 
-// 
+
 .primary-organization {
     
     background-color: $lavender-primary;
 }
 
-// input[type="checkbox"] {
-//     display: none;
-// }
-
-// input[type="checkbox"] + span {
-//     display: inline-block;
-//     position: relative;
-//     top: -1px;
-//     width: 22px;
-//     height: 22px;
-//     margin: -1px 0px 0 0;
-//     vertical-align: middle;
-//     background: white left top no-repeat;
-//     border: 2px solid $green-button;
-//     border-radius: 4px;
-//     cursor: pointer;
-// }
-
-// input[type="checkbox"]:checked + span {
-//     background: $green-button -19px top no-repeat;
-// }
-
-// input[type="checkbox"] + span {
-//     margin-right: 4px;
-// }
 
 .check-box-container label {
     color: $green-button;
@@ -330,6 +319,8 @@ input[type="checkbox"]:checked::before {
 .move-to-urgent-container label {
     color: #969696;
 }
+
+
 //Organizations
 
 .organizations-page-main {
@@ -341,12 +332,17 @@ input[type="checkbox"]:checked::before {
     margin: auto;
 }
 
+.all-orgs-container {
+    @include lg {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+    }
+}
+
 .org-website-link {
     color: $green-button;
     font-weight: 600;
 }
-
-
 
 
 .responsive-shrink {
