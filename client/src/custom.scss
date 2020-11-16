@@ -228,6 +228,10 @@ body {
     }
 }
 
+.contacts-container {
+    flex-direction: column;
+}
+
 .upcoming-items, .contacts-container, .urgent-tasks {
     width: 100%;
 
