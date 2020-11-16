@@ -25,7 +25,7 @@ const ContactFilter = () => {
     }
 
     return (
-        <Form>
+        <Form className="contact-search-form">
             <Form.Group>
                 <Form.Label>Search Contacts By Name, Organization, or Position</Form.Label>
                 <Form.Control size="lg" type="text" ref={text} placeholder="Filter Contacts by Name" onChange={onChange}></Form.Control>

@@ -24,7 +24,7 @@ const OrganizationFilter = () => {
 
 
     return (
-        <Form>
+        <Form className="organization-search-form">
             <Form.Group>
                 <Form.Label>Search By Organization Name or Group Number</Form.Label>
                 <Form.Control size="lg" type="text" ref={text} placeholder="Filter Organizations" onChange={onChange} />

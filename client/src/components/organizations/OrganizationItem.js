@@ -22,12 +22,12 @@ const OrganizationItem = ({ organization, addClass }) => {
     return (
         <Card className={`responsive-shrink ${addClass && addClass}`} >
             <Card.Body>
-                <Card.Title style={{ cursor: "pointer" }} onClick={() => {
+                <Card.Title style={{ cursor: "pointer", fontSize: '1rem' }} onClick={() => {
                     setCurrent(organization)
                     filterContacts(organization.name)
                 }}>{name}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{group}</Card.Subtitle>
-                <Card.Text className="text-secondary text-muted">
+                <Card.Text className="text-secondary text-muted organization-address">
                     {address}
                 </Card.Text>
                 <Card.Link href={`${website}`} target="_blank" className="org-website-link">Website</Card.Link>

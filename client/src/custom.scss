@@ -228,18 +228,19 @@ body {
     }
 }
 
-.upcoming-items, .contacts-container {
+.upcoming-items, .contacts-container, .urgent-tasks {
     width: 100%;
 
     @include md {
         flex-direction: row !important;
         flex-wrap: wrap;
+        justify-content: space-between !important;
     }
 }
 
 .card {
     width: 100%;
-    margin: 1rem auto;
+    margin: 1rem 0;
 }
 
 .card-alert-icon {
@@ -251,6 +252,7 @@ body {
 .next-seven-days-container {
      h6 {
          margin-right: auto;
+         margin-bottom: 2rem;
      }
 }
 
@@ -333,10 +335,17 @@ input[type="checkbox"]:checked::before {
 }
 
 .all-orgs-container {
-    @include lg {
+
+
+    @include md {
         flex-direction: row !important;
         flex-wrap: wrap !important;
+        justify-content: space-between !important;
     }
+}
+
+.organization-address {
+    font-size: .7rem;
 }
 
 .org-website-link {
@@ -348,6 +357,23 @@ input[type="checkbox"]:checked::before {
 .responsive-shrink {
     @include md {
         width: 45% !important;
+    }
+}
+
+.responsive-shrink.primary-organization {
+    @include lg {
+        width: 100% !important
+    }
+}
+
+.organization-search-form, .contacts-search-form {
+
+    @include md {
+        width: 45%;
+    }
+
+    @include lg {
+        width: 45%;
     }
 }
 

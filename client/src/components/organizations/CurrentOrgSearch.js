@@ -32,7 +32,7 @@ const CurrentOrgSearch = () => {
 
 
     return (
-        <Form>
+        <Form className="contacts-search-form">
             <Form.Group>
                 <Form.Label>
                     Search Contacts by Name or Position
