@@ -1,6 +1,8 @@
 # peopleBook
 A CRM for the American Orchestral Industry
 
+![OrchesNation](client/src/layout/orchesNationShot.png)
+
 Like any other career in any other industry, becoming an orchestral conductor relies on your ability to form a strong network of mentors, supporters, friends, and believers.
 
 I decided to build myself an app that might help me in the process of reaching out to other people in the Orchestra world, and created OrchesNation. 
