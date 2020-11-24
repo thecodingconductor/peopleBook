@@ -1,1 +1,3 @@
 node_modules/
+./league_scrape.py
+__pycache__
