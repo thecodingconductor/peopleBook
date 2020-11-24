@@ -1,5 +1,5 @@
 # peopleBook
-An CRM for the American Orchestral Industry
+A CRM for the American Orchestral Industry
 
 Like any other career in any other industry, becoming an orchestral conductor relies on your ability to form a strong network of mentors, supporters, friends, and believers.
 
