@@ -148,12 +148,22 @@ body {
 
 }
 
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color:$green-button !important;
+    border-color: $green-button !important;
+}
+
 .login-button, .register-button {
     background-color:$green-button;
     border-color: $green-button;
 }
 
 .login-button:active, .register-button:active, .login-button:hover, .register-button:hover {
+    background-color:$green-button;
+    border-color: $green-button;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
     background-color:$green-button;
     border-color: $green-button;
 }
