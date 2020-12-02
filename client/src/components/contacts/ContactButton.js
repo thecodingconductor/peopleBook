@@ -1,11 +1,10 @@
-import React, { Fragment, useContext } from 'react';
+import React, { Fragment } from 'react';
 import { Button } from 'react-bootstrap';
-import ContactContext from '../../context/contact/contactContext';
 const peopleData = require('../../people.json');
 
 const ContactButton = props => {
 
-    const contactContext = useContext(ContactContext);
+    // const contactContext = useContext(ContactContext);
     // const { addAllContacts } = contactContext;
 
     const onClick = e => {

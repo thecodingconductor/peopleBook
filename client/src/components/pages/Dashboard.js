@@ -3,15 +3,15 @@ import UrgentList from '../urgent/UrgentList';
 import VipList from '../vips/VipList';
 import AuthContext from '../../context/auth/authContext';
 import NavContext from '../../context/nav/navContext';
-import { Container, Row, Col, Button, Card } from 'react-bootstrap';
+import { Container, Row, Button } from 'react-bootstrap';
 
 
 const Dashboard = () => {
 
     const authContext = useContext(AuthContext);
     const navContext = useContext(NavContext);
-    const { loadUser, user } = authContext;
-    const { showModal, showModalFunc, hideModalFunc } = navContext;
+    const { user } = authContext;
+    const { showModal, hideModalFunc } = navContext;
 
     useEffect(() => {
         if (showModal) {

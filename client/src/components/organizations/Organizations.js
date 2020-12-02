@@ -1,21 +1,19 @@
 import React, { Fragment, useContext, useEffect } from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import OrganizationItem from './OrganizationItem';
 import OrganizationContext from '../../context/organization/organizationContext';
 import ContactContext from '../../context/contact/contactContext';
-import ContactItem from '../../components/contacts/ContactItem';
-import ContactsByOrg from '../../components/contacts/ContactsByOrg';
+
 import Contacts from '../contacts/Contacts';
-import OrganizationButton from './OrganizationButton';
+
 import Spinner from '../layout/Spinner';
 
 const Organizations = () => {
     const organizationContext = useContext(OrganizationContext);
     const contactContext = useContext(ContactContext);
 
-    const { organizations, current, filtered, getOrganizations, filterOrganizations } = organizationContext;
+    const { organizations, current, filtered, getOrganizations } = organizationContext;
     const { filterContacts, filtered: filteredContacts, getContacts } = contactContext;
-    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
 
 
     useEffect(() => {

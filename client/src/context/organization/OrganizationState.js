@@ -1,15 +1,15 @@
 import React, { useReducer } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+
 import axios from 'axios';
 import OrganizationContext from './organizationContext';
 import organizationReducer from './organizationReducer';
 import {
     GET_ORGS,
     ADD_ORG,
-    DELETE_ORG,
+
     SET_CURRENT_ORG,
     CLEAR_CURRENT_ORG,
-    UPDATE_ORG,
+
     ORG_ADD_FAIL,
     ORG_GET_FAIL,
     FILTER_ORGS,

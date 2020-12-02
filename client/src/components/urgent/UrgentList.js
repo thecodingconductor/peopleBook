@@ -1,5 +1,4 @@
 import React, { Fragment, useContext, useEffect } from 'react'
-import ContactContext from '../../context/contact/contactContext';
 import UrgentItem from '../urgent/UrgentItem';
 import AuthContext from '../../context/auth/authContext';
 import Spinner from '../layout/Spinner';
@@ -7,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const UrgentList = () => {
 
-    const contactContext = useContext(ContactContext);
+
     const authContext = useContext(AuthContext);
     const { loadUser, user, loading } = authContext;
 

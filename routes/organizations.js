@@ -2,13 +2,7 @@ const express = require('express');
 const router = express.Router();
 const auth = require('../middleware/auth');
 const { check, validationResult } = require('express-validator');
-// const orgData = require('../organizations.json');
-// console.log(orgData[2]);
-// console.log(typeof orgData);
 
-// for (let i = 0; i < 5; i++) {
-//     console.log(orgData[i]);
-// }
 
 
 const User = require('../models/User');

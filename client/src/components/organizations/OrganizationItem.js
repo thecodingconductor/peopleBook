@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types'
 import OrganizationContext from '../../context/organization/organizationContext';
 import ContactContext from '../../context/contact/contactContext';
@@ -14,10 +14,10 @@ const OrganizationItem = ({ organization, addClass }) => {
 
 
 
-    const formatAddress = address => {
-        const splitAddress = address.split(',');
-        return splitAddress
-    }
+    // const formatAddress = address => {
+    //     const splitAddress = address.split(',');
+    //     return splitAddress
+    // }
 
     return (
         <Card className={`responsive-shrink ${addClass && addClass}`} >

@@ -1,14 +1,14 @@
-import React, { Fragment, useContext, useRef } from 'react';
-import OrganizationContext from '../../context/organization/organizationContext';
+import React, { useContext, useRef } from 'react';
+// import OrganizationContext from '../../context/organization/organizationContext';
 import ContactContext from '../../context/contact/contactContext';
 import Form from 'react-bootstrap/Form';
 
 
 const CurrentOrgSearch = () => {
 
-    const organizationContext = useContext(OrganizationContext);
+    // const organizationContext = useContext(OrganizationContext);
     const contactContext = useContext(ContactContext);
-    const { filtered, filteredByOrg, clearFilteredByOrg, filterContacts, clearContactFilter, filterFilteredContacts } = contactContext;
+    const { clearFilteredByOrg, filterFilteredContacts } = contactContext;
 
 
     const text = useRef('');
@@ -21,14 +21,6 @@ const CurrentOrgSearch = () => {
             clearFilteredByOrg();
         }
     }
-
-
-    // useEffect(() => {
-    //     if(filtered === null) {
-
-    //     }
-    // })
-
 
 
     return (

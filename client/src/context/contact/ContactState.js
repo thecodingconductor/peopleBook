@@ -1,5 +1,4 @@
 import React, { useReducer } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import ContactContext from './contactContext';
 import contactReducer from './contactReducer';
@@ -7,26 +6,22 @@ import {
     GET_CONTACTS,
     CONTACT_ERROR,
     ADD_CONTACT,
-    CONTACTS_BY_ORG,
-    CONTACTS_BY_ORG_ERROR,
-    DELETE_CONTACT,
-    SET_CURRENT,
-    UPDATE_CONTACT,
+
     FILTER_CONTACTS,
     FILTER_FILTERED_CONTACTS,
     CLEAR_FILTERED_BY_ORG,
-    ADD_CONTACT_FAIL,
+
     CLEAR_CONTACTS,
     CLEAR_CONTACT_FILTER,
     GET_URGENT,
     GET_VIPS,
-    ADD_TO_VIPS
+
 } from '../types';
 
 const ContactState = props => {
 
     const initialState = {
-        contacts: null,
+        contacts: [],
         current: null,
         filtered: null,
         filteredByOrg: null,

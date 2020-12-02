@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useState } from 'react';
+import React, { Fragment, useContext } from 'react';
 import PropTypes from 'prop-types'
 // import { Link } from 'react-router-dom';
 import { Navbar as ReactNav, Nav } from 'react-bootstrap';
@@ -19,7 +19,7 @@ const Navbar = ({ title, icon }) => {
     const { clearContacts } = contactContext;
     const { showModal, showModalFunc, hideModalFunc } = navContext;
 
-    // const [modal, setModal] = useState();
+
 
     const onLogout = () => {
         logout();
@@ -64,7 +64,7 @@ const Navbar = ({ title, icon }) => {
     return (
         <Fragment>
             <ReactNav variant="dark" expand="lg" className="d-flex justify-content-center nav-background-purple">
-                {showModal ? <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg" onClick={onClick} className="close-modal-icon">
+                {showModal ? <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg" onClick={onClick} className="close-modal-icon">
                     <path fillRule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
                 </svg> : <span className="navbar-toggler-icon toggler-left" onClick={onClick}></span>}
                 <ReactNav.Brand href="/" className="nav-bar-title-main">{title}</ReactNav.Brand>

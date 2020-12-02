@@ -1,18 +1,17 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import ContactContext from '../../context/contact/contactContext';
 import AuthContext from '../../context/auth/authContext';
 import cancel from '../../components/layout/cancel.svg';
-import { Card, Badge, Button } from 'react-bootstrap';
-import { GET_VIPS } from '../../context/types';
+import { Card, Badge } from 'react-bootstrap';
+
 
 const VipItem = ({ contact }) => {
 
-    const contactContext = useContext(ContactContext);
+
     const authContext = useContext(AuthContext);
 
     const { _id, name, organization, position, email, needToContact } = contact;
-    const { addToUrgent, user, removeFromVIPS, clearVIP, getVIPS } = authContext;
+    const { addToUrgent, user, removeFromVIPS } = authContext;
 
 
     const VIPItem = {
@@ -41,7 +40,7 @@ const VipItem = ({ contact }) => {
                     <Card.Title>
                         {name}
                     </Card.Title>
-                    <img src={cancel} alt="Close" style={{ height: "1rem", width: "1rem" }} onClick={onRemove} />
+                    <img src={cancel} alt="Close" style={{ height: "1rem", width: "1rem", cursor: 'pointer' }} onClick={onRemove} />
                 </div>
                 <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: ".8rem", fontWeight: 200 }}>
                     {organization}

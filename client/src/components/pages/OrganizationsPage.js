@@ -5,11 +5,11 @@ import OrganizationButton from '../organizations/OrganizationButton';
 import OrganizationContext from '../../context/organization/organizationContext';
 import ContactContext from '../../context/contact/contactContext';
 import CurrentOrgSearch from '../organizations/CurrentOrgSearch';
-import Contacts from '../contacts/Contacts';
+
 import AuthContext from '../../context/auth/authContext';
 import NavContext from '../../context/nav/navContext';
 import Spinner from '../layout/Spinner';
-import { Container, Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 
 
 const OrganizationsPage = () => {
@@ -21,7 +21,7 @@ const OrganizationsPage = () => {
 
     const { filtered, clearContactFilter } = contactContext;
     const { current } = organizationContext;
-    const { showModal, showModalFunc, hideModalFunc } = navContext;
+    const { showModal, hideModalFunc } = navContext;
     const { loadUser, user, loading } = authContext;
 
     useEffect(() => {

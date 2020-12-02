@@ -38,6 +38,8 @@ router.post('/', [
     }
 
     const { email, password } = req.body;
+
+    console.log(`from back end route ${email} ${password}`);
     try {
         let user = await User.findOne({ email });
 

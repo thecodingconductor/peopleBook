@@ -1,8 +1,8 @@
 import React, { Fragment, useContext } from 'react';
-import { Button } from 'react-bootstrap';
+// import { Button } from 'react-bootstrap';
 import OrganizationContext from '../../context/organization/organizationContext';
 import ContactContext from '../../context/contact/contactContext';
-const orgData = require('../../organizations.json');
+// const orgData = require('../../organizations.json');
 
 const OrganizationButton = props => {
 

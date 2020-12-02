@@ -1,7 +1,7 @@
-import React, { Fragment, useState, useContext, useEffect, Link } from 'react';
+import React, { Fragment, useState, useContext, useEffect } from 'react';
 import AuthContext from '../../context/auth/authContext';
 import AlertContext from '../../context/alert/alertContext';
-import { Container, Form, Button, Col, } from 'react-bootstrap';
+import { Container, Form, Button } from 'react-bootstrap';
 
 const Login = props => {
 

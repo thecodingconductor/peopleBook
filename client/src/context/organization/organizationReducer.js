@@ -3,10 +3,10 @@ import {
     ADD_ORG,
     ORG_ADD_FAIL,
     ORG_GET_FAIL,
-    DELETE_ORG,
+
     SET_CURRENT_ORG,
     CLEAR_CURRENT_ORG,
-    UPDATE_ORG,
+
     FILTER_ORGS,
     CLEAR_ORG_FILTER
 } from '../types';

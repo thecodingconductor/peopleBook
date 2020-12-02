@@ -1,12 +1,12 @@
 import React, { Fragment, useContext } from 'react';
-import NavContext from '../../context/nav/navContext';
+
 // import { Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
 
 const NavModal = () => {
 
-    const navContext = useContext(NavContext);
+
     const authContext = useContext(AuthContext);
 
     const { logout, user } = authContext;
@@ -27,7 +27,7 @@ const NavModal = () => {
             <Link to="/dashboard" >Dashboard</Link>
             <Link to="/organizations" >Organizations</Link>
             <hr />
-            <a href="" onClick={onLogout}>Logout</a>
+            <a href="#" onClick={onLogout}>Logout</a>
         </Fragment>
 
     )

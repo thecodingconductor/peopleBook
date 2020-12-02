@@ -13,9 +13,7 @@ import {
     LOGOUT,
     CLEAR_ERRORS,
     ADD_TO_VIPS,
-    ADD_VIPS_ERROR,
     REMOVE_VIP,
-    REMOVE_VIP_ERROR,
     ADD_TO_URGENT,
     ADD_TO_URGENT_ERROR,
     REMOVE_URGENT,
@@ -81,6 +79,9 @@ const AuthState = props => {
 
     //Log In User
     const login = async formData => {
+
+        console.log(formData);
+
         const config = {
             headers: {
                 'Content-Type': 'application/json'
@@ -90,10 +91,13 @@ const AuthState = props => {
 
         try {
             const res = await axios.post('api/auth', formData, config);
+            console.log(res.status);
+            console.log(res.data);
             dispatch({
                 type: LOGIN_SUCCESS,
                 payload: res.data
             });
+
             loadUser();
         } catch (err) {
             dispatch({
