@@ -4,6 +4,7 @@ import VipList from '../vips/VipList';
 import AuthContext from '../../context/auth/authContext';
 import NavContext from '../../context/nav/navContext';
 import AddBtn from '../../components/layout/AddBtn';
+import AddNewContactModal from '../../components/contacts/AddNewContactModal';
 import { Container, Row, Button } from 'react-bootstrap';
 
 
@@ -42,6 +43,7 @@ const Dashboard = () => {
 
                 </div>
                 <AddBtn />
+                <AddNewContactModal />
             </div>
 
 
