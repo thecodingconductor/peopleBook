@@ -99,6 +99,22 @@ const ContactState = props => {
 
     }
 
+    // Create new contact
+    const createNewContact = async contact => {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+
+        try {
+            // const res = await axios.post('/api/contacts')
+            console.log('create new contact');
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
     //Contacts by current organization
     // const contactsByOrg = async orgName => {
     //     const res = await axios.get('api/contacts');

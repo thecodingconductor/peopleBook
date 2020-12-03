@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import Organizations from '../organizations/Organizations';
 import OrganizationFilter from '../organizations/OrganizationFilter';
 import AuthContext from '../../context/auth/authContext';
+
 import { Container, Row, Button } from 'react-bootstrap';
 
 const Home = () => {
@@ -29,6 +30,7 @@ const Home = () => {
                 <Button href='/organizations' variant="primary" className="to-organization-button" block style={{ marginTop: "2rem" }}> View By Organizations</Button>
 
             </Row>
+
 
         </Container >
 

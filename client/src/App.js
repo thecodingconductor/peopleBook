@@ -16,6 +16,10 @@ import AuthState from './context/auth/AuthState';
 import AlertState from './context/alert/AlertState';
 import NavState from './context/nav/NavState';
 import setAuthToken from '../src/utils/setAuthToken';
+import '../node_modules/material-icons/iconfont/material-icons.css';
+
+// import 'materialize-css/dist/css/materialize.min.css';
+// import M from 'materialize-css/dist/js/materialize.min.js';
 
 
 if (localStorage.token) {

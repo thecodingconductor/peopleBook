@@ -3,6 +3,7 @@ import UrgentList from '../urgent/UrgentList';
 import VipList from '../vips/VipList';
 import AuthContext from '../../context/auth/authContext';
 import NavContext from '../../context/nav/navContext';
+import AddBtn from '../../components/layout/AddBtn';
 import { Container, Row, Button } from 'react-bootstrap';
 
 
@@ -40,6 +41,7 @@ const Dashboard = () => {
                     </div>
 
                 </div>
+                <AddBtn />
             </div>
 
 
