@@ -14,7 +14,7 @@ const VipList = () => {
     useEffect(() => {
         loadUser();
         // eslint-disable-next-line
-    }, [])
+    }, [user]);
 
 
     if (user !== null && user.VIPS.length === 0) {

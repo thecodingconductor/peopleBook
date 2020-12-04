@@ -20,13 +20,8 @@ const ContactItem = ({ contact }) => {
     }
 
     const onVIPClick = e => {
-        // console.log(e.target.checked);
-        // console.log(user);
-        // console.log(user._id);
-        // console.log(name);
         setTimeout(() => e.target.checked = false, 300);
         addToVIPS(contactObj, user._id);
-
     }
 
     const onUrgentClick = e => {

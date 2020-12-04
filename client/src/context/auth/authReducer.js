@@ -32,6 +32,7 @@ export default (state, action) => {
             }
 
         case ADD_TO_VIPS:
+
             return {
                 ...state,
                 user: {

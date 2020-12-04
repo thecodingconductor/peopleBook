@@ -92,6 +92,7 @@ const OrganizationState = props => {
 
     //Filter Orgs
     const filterOrganizations = text => {
+
         dispatch({ type: FILTER_ORGS, payload: text })
     }
 

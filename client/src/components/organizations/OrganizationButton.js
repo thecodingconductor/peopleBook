@@ -8,7 +8,7 @@ const OrganizationButton = props => {
 
     const organizationContext = useContext(OrganizationContext);
     const contactContext = useContext(ContactContext);
-    const { clearCurrent } = organizationContext;
+    const { clearCurrent, clearOrgFilter } = organizationContext;
     const { clearContactFilter } = contactContext;
 
     const onClick = e => {
@@ -16,6 +16,7 @@ const OrganizationButton = props => {
 
         clearCurrent();
         clearContactFilter();
+        clearOrgFilter();
 
     }
 

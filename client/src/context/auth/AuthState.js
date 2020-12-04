@@ -79,7 +79,7 @@ const AuthState = props => {
     //Log In User
     const login = async formData => {
 
-        console.log(formData);
+        // console.log(formData);
 
         const config = {
             headers: {
@@ -90,8 +90,8 @@ const AuthState = props => {
 
         try {
             const res = await axios.post('api/auth', formData, config);
-            console.log(res.status);
-            console.log(res.data);
+            // console.log(res.status);
+            // console.log(res.data);
             dispatch({
                 type: LOGIN_SUCCESS,
                 payload: res.data
@@ -127,8 +127,12 @@ const AuthState = props => {
             }
         };
 
+
+
         try {
             const res = await axios.put(`api/users/${userID}/vips`, contact, config)
+
+
 
             dispatch({
                 type: ADD_TO_VIPS,
@@ -138,6 +142,8 @@ const AuthState = props => {
             console.error(error.message);
         }
     };
+
+
 
     // Remove contact from VIPS
     const removeFromVIPS = async (contact, userID) => {

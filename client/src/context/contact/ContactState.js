@@ -6,6 +6,9 @@ import {
     GET_CONTACTS,
     CONTACT_ERROR,
     ADD_CONTACT,
+    CREATE_NEW_CONTACT,
+    CREATE_NEW_CONTACT_ERROR,
+
 
     FILTER_CONTACTS,
     FILTER_FILTERED_CONTACTS,
@@ -13,6 +16,7 @@ import {
 
     CLEAR_CONTACTS,
     CLEAR_CONTACT_FILTER,
+    CLEAR_CURRENT,
     GET_URGENT,
     GET_VIPS,
 
@@ -25,23 +29,7 @@ const ContactState = props => {
         current: null,
         filtered: null,
         filteredByOrg: null,
-        urgent: [
-
-            {
-                id: 3,
-                name: "Russell Jones",
-                organization: "New York Philharmonic",
-                position: "Major Gifts",
-                email: "bordad@nyphil.org",
-                phone: "111-111-1111",
-                lastContacted: null,
-                needToContact: false,
-                notes: null
-
-            },
-
-        ],
-
+        urgent: [],
     };
 
     const [state, dispatch] = useReducer(contactReducer, initialState);
@@ -108,12 +96,23 @@ const ContactState = props => {
         };
 
         try {
-            // const res = await axios.post('/api/contacts')
-            console.log('create new contact');
+            const res = await axios.post('/api/contacts/newcontact', contact, config)
+
+            dispatch({
+                type: CREATE_NEW_CONTACT,
+                payload: res.data
+            })
         } catch (err) {
             console.error(err);
+            dispatch({
+                CREATE_NEW_CONTACT_ERROR,
+                payload: err.response.msg
+            })
+
         }
     }
+
+
 
     //Contacts by current organization
     // const contactsByOrg = async orgName => {
@@ -170,6 +169,10 @@ const ContactState = props => {
         dispatch({ type: CLEAR_CONTACTS })
     }
 
+    const clearCurrent = () => {
+        dispatch({ type: CLEAR_CURRENT });
+    }
+
     return (
         <ContactContext.Provider value={{
             contacts: state.contacts,
@@ -185,7 +188,9 @@ const ContactState = props => {
             clearContactFilter,
             clearContacts,
             getVIPS,
-            getUrgent
+            getUrgent,
+            createNewContact,
+            clearCurrent
         }}>
             { props.children}
         </ContactContext.Provider>

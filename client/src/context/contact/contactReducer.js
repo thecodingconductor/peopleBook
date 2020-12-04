@@ -1,5 +1,7 @@
 import {
     ADD_CONTACT,
+    CREATE_NEW_CONTACT,
+    CREATE_NEW_CONTACT_ERROR,
     ADD_CONTACT_FAIL,
     CONTACT_ERROR,
 
@@ -11,12 +13,25 @@ import {
 
     GET_CONTACTS,
     GET_URGENT,
-    GET_VIPS
+    GET_VIPS,
+    CLEAR_CURRENT
 } from '../types';
 
 export default (state, action) => {
     switch (action.type) {
 
+        case CREATE_NEW_CONTACT:
+
+            return {
+                ...state,
+                contacts: [...state.contacts, action.payload],
+                current: action.payload
+            }
+        case CLEAR_CURRENT:
+            return {
+                ...state,
+                current: null
+            }
         case FILTER_CONTACTS:
             return {
                 ...state,
@@ -38,6 +53,7 @@ export default (state, action) => {
                 ...state,
                 filteredByOrg: null
             }
+
 
         case CONTACTS_BY_ORG:
             return {
