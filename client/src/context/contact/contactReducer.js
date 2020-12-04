@@ -2,6 +2,7 @@ import {
     ADD_CONTACT,
     CREATE_NEW_CONTACT,
     CREATE_NEW_CONTACT_ERROR,
+    SET_CURRENT,
     ADD_CONTACT_FAIL,
     CONTACT_ERROR,
 
@@ -24,7 +25,13 @@ export default (state, action) => {
 
             return {
                 ...state,
-                contacts: [...state.contacts, action.payload],
+                contacts: [...state.contacts, action.payload]
+            }
+
+        case SET_CURRENT:
+            console.log(`SET CURRENT -> ${action.payload}`);
+            return {
+                ...state,
                 current: action.payload
             }
         case CLEAR_CURRENT:

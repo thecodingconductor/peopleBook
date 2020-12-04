@@ -21,16 +21,19 @@ const AddNewContactModal = ({ show, handleClose }) => {
 
     useEffect(() => {
         getOrganizations();
-        setContact({
-            name: '',
-            organization: '',
-            position: '',
-            addToVIP: false
-        });
-
+        if (current !== null) {
+            setContact(current);
+        } else {
+            setContact({
+                name: '',
+                organization: '',
+                position: '',
+                addToVIP: false
+            });
+        }
 
         // eslint-disable-next-line
-    }, []);
+    }, [contactContext, current]);
 
     // contactContext, authContext
 
@@ -42,7 +45,7 @@ const AddNewContactModal = ({ show, handleClose }) => {
         addToVIP: false
     });
 
-    const { name, organization, position } = contact;
+    const { name, organization, position, addToVIP } = contact;
 
     const onChange = e => {
 
@@ -66,10 +69,11 @@ const AddNewContactModal = ({ show, handleClose }) => {
     }
 
     const onSubmit = async (e) => {
+
         e.preventDefault();
 
         // Add New Contact to Database
-        createNewContact(contact);
+        createNewContact(contact, addToVIP);
 
         handleClose();
     }

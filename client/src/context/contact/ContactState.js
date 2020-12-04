@@ -8,6 +8,7 @@ import {
     ADD_CONTACT,
     CREATE_NEW_CONTACT,
     CREATE_NEW_CONTACT_ERROR,
+    SET_CURRENT,
 
 
     FILTER_CONTACTS,
@@ -19,6 +20,7 @@ import {
     CLEAR_CURRENT,
     GET_URGENT,
     GET_VIPS,
+    CLEAR_ORG_FILTER,
 
 } from '../types';
 
@@ -88,7 +90,7 @@ const ContactState = props => {
     }
 
     // Create new contact
-    const createNewContact = async contact => {
+    const createNewContact = async (contact, addToVIP) => {
         const config = {
             headers: {
                 'Content-Type': 'application/json'
@@ -98,10 +100,24 @@ const ContactState = props => {
         try {
             const res = await axios.post('/api/contacts/newcontact', contact, config)
 
+
+
             dispatch({
                 type: CREATE_NEW_CONTACT,
                 payload: res.data
-            })
+            });
+
+            if (addToVIP) {
+                console.log('set current dispatcher');
+                dispatch({
+                    type: SET_CURRENT,
+                    payload: res.data
+                })
+            }
+
+
+
+
         } catch (err) {
             console.error(err);
             dispatch({
