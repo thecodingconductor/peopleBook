@@ -25,7 +25,7 @@ const UrgentList = () => {
     return (
         <Fragment>
             {user !== null && !loading ? user.toDoList.map(contact => (
-                <UrgentItem key={`${uuidv4()}`} contact={contact}></UrgentItem>
+                <UrgentItem key={contact._id} contact={contact}></UrgentItem>
             )) :
                 <Spinner />}
         </Fragment>
