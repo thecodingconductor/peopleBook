@@ -4,7 +4,7 @@ import VipList from '../vips/VipList';
 import AuthContext from '../../context/auth/authContext';
 import ContactContext from '../../context/contact/contactContext';
 import NavContext from '../../context/nav/navContext';
-import OrganizationContext from '../../context/organization/organizationContext';
+// import OrganizationContext from '../../context/organization/organizationContext';
 import AddBtn from '../../components/layout/AddBtn';
 import AddNewContactModal from '../../components/contacts/AddNewContactModal';
 import { Container, Row, Button } from 'react-bootstrap';
@@ -15,11 +15,10 @@ const Dashboard = () => {
     const authContext = useContext(AuthContext);
     const navContext = useContext(NavContext);
     const contactContext = useContext(ContactContext);
-    const organizationContext = useContext(OrganizationContext);
+    
 
-    const { user, addToVIPS, addToUrgent } = authContext;
-    const { createNewContact, current, clearCurrent } = contactContext;
-    const { filterOrganizations, clearOrgFilter, filtered, getOrganizations } = organizationContext;
+    const { user, addToVIPS } = authContext;
+    const { current, clearCurrent } = contactContext;
     const { showModal, hideModalFunc } = navContext;
 
     useEffect(() => {

@@ -1,8 +1,6 @@
-import React, { Fragment, useState, useContext, useEffect, useRef } from 'react';
+import React, { Fragment, useState, useContext, useEffect} from 'react';
 import ContactContext from '../../context/contact/contactContext';
-import AuthContext from '../../context/auth/authContext';
 import OrganizationContext from '../../context/organization/organizationContext';
-import OrganizationFilter from '../organizations/OrganizationFilter';
 import { Modal, Button, Form } from 'react-bootstrap';
 
 
@@ -10,11 +8,11 @@ import { Modal, Button, Form } from 'react-bootstrap';
 const AddNewContactModal = ({ show, handleClose }) => {
 
     const contactContext = useContext(ContactContext);
-    const authContext = useContext(AuthContext);
+
     const organizationContext = useContext(OrganizationContext);
 
-    const { user, addToVIPS, addToUrgent } = authContext;
-    const { createNewContact, current, clearCurrent } = contactContext;
+   
+    const { createNewContact, current} = contactContext;
     const { filterOrganizations, clearOrgFilter, filtered, getOrganizations } = organizationContext;
 
 
@@ -35,7 +33,7 @@ const AddNewContactModal = ({ show, handleClose }) => {
         // eslint-disable-next-line
     }, [contactContext, current]);
 
-    // contactContext, authContext
+ 
 
 
     const [contact, setContact] = useState({

@@ -19,9 +19,7 @@ import {
     CLEAR_CONTACT_FILTER,
     CLEAR_CURRENT,
     GET_URGENT,
-    GET_VIPS,
-    CLEAR_ORG_FILTER,
-
+    GET_VIPS
 } from '../types';
 
 const ContactState = props => {
@@ -130,27 +128,9 @@ const ContactState = props => {
 
 
 
-    //Contacts by current organization
-    // const contactsByOrg = async orgName => {
-    //     const res = await axios.get('api/contacts');
-    //     try {
-    //         dispatch({
-    //             type: CONTACTS_BY_ORG,
-    //             payload: res.data
-    //         })
-    //     } catch (error) {
-    //         dispatch({
-    //             type: CONTACTS_BY_ORG_ERROR,
-    //             payload: error.response.msg
-    //         })
-    //     }
-    // }
-
-
-
     //Filter Contacts
     const filterContacts = text => {
-        // console.log(text);
+        
         dispatch({ type: FILTER_CONTACTS, payload: text })
     }
 

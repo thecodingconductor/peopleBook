@@ -24,7 +24,7 @@ const Contacts = () => {
 
 
         <Fragment>
-
+            {/* If filtered by name, filter by name, else filter by organization */}
             {filtered !== null && filteredByOrg === null ?
                 filtered.map(contact => (<ContactItem key={contact._id} contact={contact} />)) :
                 filteredByOrg.map(contact => (

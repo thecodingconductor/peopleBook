@@ -79,7 +79,7 @@ const AuthState = props => {
     //Log In User
     const login = async formData => {
 
-        // console.log(formData);
+        
 
         const config = {
             headers: {
@@ -90,8 +90,7 @@ const AuthState = props => {
 
         try {
             const res = await axios.post('api/auth', formData, config);
-            // console.log(res.status);
-            // console.log(res.data);
+     
             dispatch({
                 type: LOGIN_SUCCESS,
                 payload: res.data
@@ -163,10 +162,7 @@ const AuthState = props => {
             })
         } catch (error) {
             console.error(error);
-            // dispatch({
-            //     type: REMOVE_VIP_ERROR,
-            //     payload: error.response.msg
-            // })
+            
         }
     }
 
@@ -186,7 +182,7 @@ const AuthState = props => {
             }
         };
 
-        console.log(contact);
+       
 
         try {
             const res = await axios.put(`api/users/${userID}/urgent`, contact, config);
@@ -216,7 +212,7 @@ const AuthState = props => {
 
         try {
 
-            const res = await axios.put(`api/users/${userID}/urgent/remove`, contact, config);
+            await axios.put(`api/users/${userID}/urgent/remove`, contact, config);
 
 
             dispatch({

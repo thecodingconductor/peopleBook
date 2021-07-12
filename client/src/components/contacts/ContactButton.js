@@ -1,28 +1,26 @@
-import React, { Fragment } from 'react';
-import { Button } from 'react-bootstrap';
-const peopleData = require('../../people.json');
+// import React, { Fragment } from 'react';
+// import { Button } from 'react-bootstrap';
+// const peopleData = require('../../people.json');
 
-const ContactButton = props => {
 
-    // const contactContext = useContext(ContactContext);
-    // const { addAllContacts } = contactContext;
+// // Button Used to do initr
+// const ContactButton = props => {
 
-    const onClick = e => {
-        e.preventDefault();
+    
 
-        console.log(peopleData["people"].length);
-        // for (let i = 10000; i < 15000; i++) {
-        //     console.log(peopleData["people"][i]);
-        //     addAllContacts(peopleData["people"][i]);
-        // }
+//     const onClick = e => {
+//         e.preventDefault();
 
-    }
+//         console.log(peopleData["people"].length);
+ 
 
-    return (
-        <Fragment>
-            <Button onClick={onClick}>Add Contacts Data</Button>
-        </Fragment>
-    )
-}
+//     }
 
-export default ContactButton
+//     return (
+//         <Fragment>
+//             <Button onClick={onClick}>Add Contacts Data</Button>
+//         </Fragment>
+//     )
+// }
+
+// export default ContactButton

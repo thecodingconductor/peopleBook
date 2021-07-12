@@ -1,7 +1,6 @@
 import {
     ADD_CONTACT,
     CREATE_NEW_CONTACT,
-    CREATE_NEW_CONTACT_ERROR,
     SET_CURRENT,
     ADD_CONTACT_FAIL,
     CONTACT_ERROR,
@@ -18,6 +17,7 @@ import {
     CLEAR_CURRENT
 } from '../types';
 
+// eslint-disable-next-line
 export default (state, action) => {
     switch (action.type) {
 

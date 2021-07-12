@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import AddNewContactModal from '../../components/contacts/AddNewContactModal';
 
+// Create new Contact Button
+
 const AddBtn = () => {
 
 

@@ -1,12 +1,11 @@
 import React, { useContext, useRef } from 'react';
-// import OrganizationContext from '../../context/organization/organizationContext';
 import ContactContext from '../../context/contact/contactContext';
 import Form from 'react-bootstrap/Form';
 
 
 const CurrentOrgSearch = () => {
 
-    // const organizationContext = useContext(OrganizationContext);
+    
     const contactContext = useContext(ContactContext);
     const { clearFilteredByOrg, filterFilteredContacts } = contactContext;
 

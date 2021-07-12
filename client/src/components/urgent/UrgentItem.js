@@ -22,13 +22,11 @@ const UrgentItem = ({ contact }) => {
         needToContact
     }
 
-    const onRemove = e => {
+    const onRemove = () => {
         removeFromToDoList(UrgentItem, user._id);
     }
 
-    // const onClick = e => {
-    //     console.log(e.target);
-    // }
+
 
     return (
         <Card className="responsive-shrink">

@@ -2,7 +2,6 @@ import React, { Fragment, useContext, useEffect } from 'react'
 import UrgentItem from '../urgent/UrgentItem';
 import AuthContext from '../../context/auth/authContext';
 import Spinner from '../layout/Spinner';
-import { v4 as uuidv4 } from 'uuid';
 
 const UrgentList = () => {
 

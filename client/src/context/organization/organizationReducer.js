@@ -11,7 +11,7 @@ import {
     CLEAR_ORG_FILTER
 } from '../types';
 
-
+// eslint-disable-next-line
 export default (state, action) => {
     switch (action.type) {
 

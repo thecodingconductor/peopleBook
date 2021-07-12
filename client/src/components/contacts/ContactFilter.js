@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 const ContactFilter = () => {
 
     const contactContext = useContext(ContactContext);
+    
     //CLEAR FILTER TODO
     const { filterContacts, clearContactFilter, filtered } = contactContext;
     const text = useRef('');

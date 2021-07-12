@@ -12,7 +12,7 @@ const Organizations = () => {
     const contactContext = useContext(ContactContext);
 
     const { organizations, current, filtered, getOrganizations } = organizationContext;
-    const { filterContacts, filtered: filteredContacts, getContacts } = contactContext;
+    const { filtered: filteredContacts, getContacts } = contactContext;
 
 
 

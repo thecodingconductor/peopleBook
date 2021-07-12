@@ -14,10 +14,7 @@ const OrganizationItem = ({ organization, addClass }) => {
 
 
 
-    // const formatAddress = address => {
-    //     const splitAddress = address.split(',');
-    //     return splitAddress
-    // }
+    
 
     return (
         <Card className={`responsive-shrink ${addClass && addClass}`} >

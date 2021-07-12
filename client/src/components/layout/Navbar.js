@@ -7,25 +7,27 @@ import ContactContext from '../../context/contact/contactContext';
 import NavContext from '../../context/nav/navContext';
 import NavModal from './NavModal';
 
+// Navbar Component
+const Navbar = ({ title }) => {
 
-const Navbar = ({ title, icon }) => {
-
-
+    // Use App-level state
     const authContext = useContext(AuthContext);
     const contactContext = useContext(ContactContext);
     const navContext = useContext(NavContext);
 
+    // Pull in methods and properties from Context
     const { isAuthenticated, logout, user } = authContext;
     const { clearContacts } = contactContext;
     const { showModal, showModalFunc, hideModalFunc } = navContext;
 
 
-
+    // Handle Logout
     const onLogout = () => {
         logout();
         clearContacts();
     }
 
+    // Show/Hide Modal
     const onClick = () => {
         if (showModal === false) {
             showModalFunc()
@@ -38,7 +40,7 @@ const Navbar = ({ title, icon }) => {
         <Fragment>
             <div className="d-flex justify-content-start align-items-center">
                 <Nav.Link href="/dashboard">Dashboard</Nav.Link>
-                {/* <Nav.Link href="/people">People</Nav.Link> */}
+                
                 <Nav.Link href="/organizations">Organizations</Nav.Link>
             </div>
             <div className="d-flex justify-content-start align-items-center">

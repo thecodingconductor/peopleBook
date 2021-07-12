@@ -6,7 +6,7 @@ import VipItem from '../vips/VipItem';
 
 const VipList = () => {
 
-    // const contactContext = useContext(ContactContext);
+   
     const authContext = useContext(AuthContext);
     const { loadUser, user, loading } = authContext;
 
@@ -22,9 +22,6 @@ const VipList = () => {
     }
 
 
-    // if (user.VIPS !== null || user.VIPS.length === 0) {
-    //     return <h4>Please Add Vips</h4>
-    // }
 
     return (
 
